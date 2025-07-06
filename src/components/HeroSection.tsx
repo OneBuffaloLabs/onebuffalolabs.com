@@ -15,13 +15,13 @@ const HeroSection = () => {
       {/* Main content container */}
       <div className='relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto'>
         {/* Company Logo */}
-        <div className='mb-4'>
+        <div>
           <Image
             src='/logos/one-buffalo-cartoon-no-text.svg'
             alt='One Buffalo Labs Logo'
             width={150}
             height={150}
-            className='w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40'
+            className='w-50 h-50 sm:w-65 sm:h-65 md:w-75 md:h-75'
           />
         </div>
         {/* Main Headline */}

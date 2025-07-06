@@ -64,11 +64,11 @@ const AboutSection = () => {
             </h2>
             <p className='mt-4 text-lg text-gray-600 leading-relaxed'>
               One Buffalo Labs was born from a passion for technology and a deep love for our city.
-              We believe in the resurgence of Buffalo and are dedicated to powering its digital
-              future. By blending{' '}
-              <span className='font-bold text-[var(--obl-red)]'>cutting-edge AI</span> with robust
-              web and app development, we create bespoke solutions that help local and national
-              businesses thrive.
+              We believe in Buffalo&lsquo;s resurgence and are dedicated to powering its digital
+              future. By combining{' '}
+              <span className='font-bold text-[var(--obl-red)]'>cutting-edge AI</span> with
+              practical web and app development, we build custom solutions designed to help local
+              and national businesses grow and succeed.
             </p>
             <p className='mt-4 text-lg text-gray-600 leading-relaxed'>
               Our mission is to be more than a tech agency; we are your strategic partner in

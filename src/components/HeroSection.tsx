@@ -15,15 +15,13 @@ const HeroSection = () => {
       {/* Main content container */}
       <div className='relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto'>
         {/* Company Logo */}
-        <div>
-          <Image
-            src='/logos/one-buffalo-cartoon-no-text.svg'
-            alt='One Buffalo Labs Logo'
-            width={150}
-            height={150}
-            className='w-50 h-50 sm:w-65 sm:h-65 md:w-75 md:h-75'
-          />
-        </div>
+        <Image
+          src='/logos/one-buffalo-cartoon-no-text.svg'
+          alt='One Buffalo Labs Logo'
+          width={150}
+          height={150}
+          className='w-50 h-50 sm:w-65 sm:h-65 md:w-75 md:h-75'
+        />
         {/* Main Headline */}
         <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight'>
           Powering <span className='text-[var(--obl-blue)]'>Buffalo&apos;s</span> Digital{' '}

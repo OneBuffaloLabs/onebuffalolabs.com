@@ -1,4 +1,4 @@
-'use client'; // IMPORTANT: This directive must be at the very top
+'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Code, Smartphone, Search, Brain, LucideIcon } from 'lucide-react';
@@ -15,11 +15,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Copy the ref's current value to a variable inside the effect
+    const node = cardRef.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.disconnect();
+          observer.disconnect(); // Disconnect after intersecting
         }
       },
       {
@@ -29,16 +33,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
       }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
+    // Use the variable to observe the node
+    observer.observe(node);
 
+    // The cleanup function now uses the same variable
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
+      observer.unobserve(node);
     };
-  }, []);
+  }, []); // Empty dependency array is correct here
 
   return (
     <div
@@ -96,8 +98,6 @@ const ServicesSection = () => {
         <h2 className='text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900'>
           Our <span className='text-[var(--obl-blue)]'>Expertise.</span>
         </h2>
-
-        {/* Grid container for service cards */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center'>
           {services.map((service, index) => (
             <ServiceCard

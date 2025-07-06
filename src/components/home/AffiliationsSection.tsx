@@ -13,8 +13,7 @@ const partners = [
   },
   {
     name: 'Tin Roof',
-    // Replace with actual logo URL when available
-    logoUrl: 'https://placehold.co/400x200/FFFFFF/171717?text=Tin+Roof',
+    logoUrl: '/partners/tin-roof.webp',
     websiteUrl: 'https://tinroof.co/',
   },
   {

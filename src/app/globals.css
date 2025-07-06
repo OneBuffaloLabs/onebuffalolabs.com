@@ -1,13 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 :root {
+  /* Consolidate all custom colors here for direct CSS variable access */
   --obl-red: #e7042d;
   --obl-blue: #003091;
   --obl-dark-blue: #010123;
+
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
+/* Your existing @keyframes and custom animation classes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -18,8 +21,6 @@
     transform: translateY(0);
   }
 }
-
-/* Apply with different delays for staggering */
 .animate-fade-in-up-1 {
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.2s;
@@ -31,4 +32,39 @@
 .animate-fade-in-up-3 {
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.6s;
+}
+/* Ensure your other global CSS (e.g., body styles) are still here */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }

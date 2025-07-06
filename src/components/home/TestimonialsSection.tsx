@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
                   {/* Main content container is centered with horizontal padding to prevent overlap */}
                   <div className='relative z-10 text-center px-8 sm:px-12'>
                     <p className='text-xl italic text-gray-800 leading-relaxed'>
-                      "{testimonial.quote}"
+                      &ldquo;{testimonial.quote}&rdquo;
                     </p>
 
                     {/* Client info is centered */}

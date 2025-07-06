@@ -1,7 +1,8 @@
-import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import PortfolioSection from '@/components/PortfolioSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import HeroSection from '@/components/home/HeroSection';
+import ServicesSection from '@/components/home/ServicesSection';
+import PortfolioSection from '@/components/home/PortfolioSection';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
+import ProcessSection from '@/components/home/ProcessSection';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ServicesSection />
       <PortfolioSection />
       <TestimonialsSection />
+      <ProcessSection />
     </>
   );
 }

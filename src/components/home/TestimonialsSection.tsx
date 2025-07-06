@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id='testimonials' className='w-full bg-gray-50 py-16 sm:py-24 px-8 overflow-hidden'>
+    <section id='testimonials' className='w-full bg-gray-50 py-16 px-8 overflow-hidden'>
       <div className='max-w-4xl mx-auto text-center'>
         <h2 className='text-4xl sm:text-5xl font-bold text-gray-900 mb-12'>
           What Our <span className='text-[var(--obl-blue)]'>Clients Say.</span>

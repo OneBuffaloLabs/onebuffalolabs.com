@@ -1,8 +1,11 @@
+// --- Next ---
 import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <section className='relative min-h-screen flex items-center justify-center text-center p-8 overflow-hidden bg-[var(--obl-dark-blue)] text-white'>
+    <section
+      id='hero'
+      className='relative min-h-screen flex items-center justify-center text-center p-8 pt-20 overflow-hidden bg-[var(--obl-dark-blue)] text-white'>
       {/* Subtle, dynamic background element: Abstract gradient shapes */}
       <div
         className='absolute inset-0 z-0 opacity-20'

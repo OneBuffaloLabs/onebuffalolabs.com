@@ -10,12 +10,22 @@ import {
   faFacebookF,
 } from '@fortawesome/free-brands-svg-icons';
 
-// --- Updated social links to use imported Font Awesome icon objects ---
+// --- Type definition for the Tally object on the window ---
+interface Tally {
+  loadEmbeds: () => void;
+}
+
+declare global {
+  interface Window {
+    Tally?: Tally;
+  }
+}
+
 const socialLinks = [
   {
     name: 'LinkedIn',
     icon: faLinkedinIn,
-    url: '#', // Replace with your LinkedIn URL
+    url: 'https://www.linkedin.com/company/one-buffalo-labs',
   },
   {
     name: 'Twitter',
@@ -41,8 +51,8 @@ const TallyEmbed = () => {
     const scriptSrc = 'https://tally.so/widgets/embed.js';
 
     const loadTally = () => {
-      if (typeof (window as any).Tally !== 'undefined') {
-        (window as any).Tally.loadEmbeds();
+      if (typeof window.Tally !== 'undefined') {
+        window.Tally.loadEmbeds();
       }
     };
 
@@ -61,7 +71,6 @@ const TallyEmbed = () => {
     return () => {
       const existingScript = document.getElementById(scriptId);
       if (existingScript) {
-        // Tally script doesn't have a cleanup function, so we just leave it
       }
     };
   }, []);
@@ -83,10 +92,10 @@ const ContactSection = () => {
       <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-12'>
           <h2 className='text-4xl sm:text-5xl font-bold text-[var(--obl-dark-blue)]'>
-            Let's Build Something <span className='text-[var(--obl-red)]'>Great.</span>
+            Let&apos;s Build Something <span className='text-[var(--obl-red)]'>Great.</span>
           </h2>
           <p className='text-lg text-gray-600 mt-4 max-w-2xl mx-auto'>
-            Ready to transform your digital presence? We're here to help. Reach out for a free
+            Ready to transform your digital presence? We&apos;re here to help. Reach out for a free
             consultation.
           </p>
         </div>

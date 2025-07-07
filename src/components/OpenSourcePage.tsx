@@ -1,7 +1,7 @@
 'use client';
 
 // --- Icons ---
-import { Github, ArrowUpRight, GitFork, ExternalLink } from 'lucide-react';
+import { Github, GitFork, ExternalLink } from 'lucide-react';
 // --- Data ---
 // Assuming labs.json is in /src/data/ and contains a root "projects" array.
 import LABS_PROJECTS from '@/data/labs.json';

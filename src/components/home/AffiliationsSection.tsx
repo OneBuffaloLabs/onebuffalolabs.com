@@ -9,7 +9,7 @@ import Image from 'next/image';
 const partners = [
   {
     name: 'Silo City Labs',
-    logoUrl: 'https://placehold.co/400x200/171717/FFFFFF?text=Silo+City+Labs', // Updated placeholder for better contrast
+    logoUrl: '/images/partners/silocitylabs.png', // Updated placeholder for better contrast
     websiteUrl: 'https://silocitylabs.com/',
   },
   {
@@ -17,11 +17,12 @@ const partners = [
     logoUrl: '/images/partners/tin-roof.webp',
     websiteUrl: 'https://tinroof.co/',
   },
-  {
-    name: 'Silo City Games',
-    logoUrl: 'https://placehold.co/400x200/171717/FFFFFF?text=Silo+City+Games', // Updated placeholder for better contrast
-    websiteUrl: 'https://silocitygames.com/',
-  },
+  //TODO: Get image and readd
+  // {
+  //   name: 'Silo City Games',
+  //   logoUrl: '/images/partners/silocitylabs.png',
+  //   websiteUrl: 'https://silocitygames.com/',
+  // },
 ];
 
 interface PartnerLogoProps {

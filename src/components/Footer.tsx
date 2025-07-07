@@ -13,9 +13,14 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // --- Data for links to keep JSX clean ---
-const footerLinks = [
+const mainFooterLinks = [
   { name: 'Home', href: '/' },
   { name: 'Our Labs', href: '/labs' },
+];
+
+const legalLinks = [
+  { name: 'Terms & Conditions', href: '/terms' },
+  { name: 'Privacy Policy', href: '/privacy' },
 ];
 
 const socialLinks = [
@@ -33,7 +38,7 @@ const Footer = () => {
   return (
     <footer className='bg-[var(--obl-dark-blue)] text-white border-t border-white/10'>
       <div className='max-w-7xl mx-auto px-8 py-16'>
-        {/* Main grid for footer content - restored to 4 columns on large screens */}
+        {/* Main grid for footer content */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10'>
           {/* Column 1: Brand & About */}
           <div className='space-y-4 pr-4'>
@@ -53,10 +58,11 @@ const Footer = () => {
             </p>
           </div>
 
+          {/* Column 2: Quick Links */}
           <div>
             <h3 className='font-bold text-lg mb-4 text-gray-200'>Quick Links</h3>
             <ul className='space-y-2'>
-              {footerLinks.map((link) => (
+              {mainFooterLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -106,9 +112,21 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar with copyright */}
-        <div className='border-t border-white/10 pt-8 text-center text-gray-500 text-sm'>
-          <p>&copy; 2025 One Buffalo Labs. All rights reserved.</p>
+        {/* Bottom bar with copyright and legal links */}
+        <div className='border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4'>
+          <p className='text-gray-500 text-sm'>
+            &copy; 2025 One Buffalo Labs. All rights reserved.
+          </p>
+          <div className='flex items-center gap-x-6 text-sm'>
+            {legalLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className='text-gray-500 hover:text-[var(--obl-red)] transition-colors'>
+                {link.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

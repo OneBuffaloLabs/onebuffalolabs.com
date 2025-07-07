@@ -8,6 +8,7 @@ import {
   faXTwitter,
   faGithub,
   faFacebookF,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
 // --- Type definition for the Tally object on the window ---
@@ -40,7 +41,12 @@ const socialLinks = [
   {
     name: 'Facebook',
     icon: faFacebookF,
-    url: '#', // Replace with your Facebook URL
+    url: 'https://www.facebook.com/profile.php?id=61578291081644',
+  },
+  {
+    name: 'Instagram',
+    icon: faInstagram,
+    url: 'https://www.instagram.com/onebuffalolabs/',
   },
 ];
 

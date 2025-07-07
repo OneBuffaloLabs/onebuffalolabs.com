@@ -1,0 +1,56 @@
+[
+  {
+    "title": "E-commerce Overhaul",
+    "client": "Queen City Goods",
+    "category": "Web Development",
+    "summary": "Scaled a local retailer's online presence with a lightning-fast, headless e-commerce platform, boosting conversions by 40%.",
+    "tech": ["Next.js", "Shopify API", "Vercel"],
+    "imageUrl": "https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070&auto=format&fit=crop",
+    "link": "#"
+  },
+  {
+    "title": "AI Customer Service Chatbot",
+    "client": "Nickel City Bank",
+    "category": "AI Integration",
+    "summary": "Developed an intelligent customer service chatbot that reduced support ticket volume by 30% and improved user satisfaction.",
+    "tech": ["Dialogflow", "Node.js", "React"],
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    "link": "#"
+  },
+  {
+    "title": "Mobile Banking App",
+    "client": "Nickel City Bank",
+    "category": "Mobile Apps",
+    "summary": "A secure and intuitive mobile banking application for iOS and Android, featuring biometric login and mobile check deposit.",
+    "tech": ["React Native", "TypeScript", "Stripe"],
+    "imageUrl": "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=2070&auto=format&fit=crop",
+    "link": "#"
+  },
+  {
+    "title": "SEO & Web Redesign",
+    "client": "Buffalo Legal",
+    "category": "Redesigns",
+    "summary": "Transformed an outdated website into a modern, SEO-optimized lead generation machine, resulting in a 200% increase in organic traffic.",
+    "tech": ["Astro", "Headless CMS", "SEO"],
+    "imageUrl": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop",
+    "link": "#"
+  },
+  {
+    "title": "SaaS Platform for Logistics",
+    "client": "Cross-Border Solutions",
+    "category": "Web Development",
+    "summary": "Built a multi-tenant SaaS platform for managing international shipments, featuring real-time tracking and customs documentation.",
+    "tech": ["Vue.js", "Firebase", "Google Maps API"],
+    "imageUrl": "https://images.unsplash.com/photo-1579621970795-87f54d504ba2?q=80&w=2070&auto=format&fit=crop",
+    "link": "#"
+  },
+  {
+    "title": "AI-Powered Inventory Management",
+    "client": "Elmwood Village Imports",
+    "category": "AI Integration",
+    "summary": "An AI system that predicts stock needs based on sales data and seasonal trends, reducing overstock by 25%.",
+    "tech": ["Python", "TensorFlow", "PostgreSQL"],
+    "imageUrl": "https://images.unsplash.com/photo-1542330952-bffc55e812b2?q=80&w=2070&auto=format&fit=crop",
+    "link": "#"
+  }
+]

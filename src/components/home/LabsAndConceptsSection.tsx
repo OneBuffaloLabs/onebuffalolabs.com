@@ -6,14 +6,12 @@ import Image from 'next/image';
 import { Github, ArrowRight } from 'lucide-react';
 
 // --- Data for Featured Projects ---
-// Added filameter.com to the array
 const featuredProjects = [
   {
     title: 'SiloCityPages',
     description:
       'A lightweight, zero-config static site generator designed for speed and simplicity, perfect for documentation.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop', // Abstract tech image
+    imageUrl: '/images/misc/code.webp',
     githubUrl: 'https://github.com/SiloCityLabs/SiloCityPages',
     label: 'Open Source',
   },
@@ -21,8 +19,7 @@ const featuredProjects = [
     title: 'codrcg.com',
     description:
       'An interactive coding challenge platform with real-time feedback and a competitive leaderboard to sharpen skills.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=2070&auto=format&fit=crop', // Abstract code image
+    imageUrl: '/images/misc/laptop.webp',
     githubUrl: 'https://github.com/SiloCityLabs/codrcg.com',
     label: 'Concept Project',
   },
@@ -30,8 +27,7 @@ const featuredProjects = [
     title: 'filameter.com',
     description:
       'A utility for 3D printing enthusiasts to calculate filament usage and costs for their projects.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1611606024846-646906518064?q=80&w=2070&auto=format&fit=crop', // Abstract 3D printing image
+    imageUrl: '/images/misc/3d-printing.webp',
     githubUrl: 'https://github.com/SiloCityLabs/filameter.com',
     label: 'Open Source',
   },
@@ -39,7 +35,7 @@ const featuredProjects = [
 
 const LabsAndConceptsSection = () => {
   return (
-    <section id='labs-concepts' className='w-full bg-[var(--obl-dark-blue)] py-16 px-8'>
+    <section id='labs-concepts' className='w-full bg-[var(--obl-dark-blue)] py-16 sm:py-24 px-8'>
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <div className='text-center mb-12'>
@@ -65,6 +61,9 @@ const LabsAndConceptsSection = () => {
                   fill
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   className='object-cover'
+                  onError={(e) => {
+                    e.currentTarget.srcset = `https://placehold.co/600x400/010123/FFFFFF?text=${project.title}`;
+                  }}
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent'></div>
               </div>

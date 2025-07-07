@@ -14,7 +14,7 @@ const partners = [
   },
   {
     name: 'Tin Roof',
-    logoUrl: '/partners/tin-roof.webp',
+    logoUrl: '/images/partners/tin-roof.webp',
     websiteUrl: 'https://tinroof.co/',
   },
   {

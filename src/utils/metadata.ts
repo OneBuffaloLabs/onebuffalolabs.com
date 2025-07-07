@@ -16,7 +16,7 @@ const TWITTER_CREATOR = '@onebuffalolabs';
 const DEFAULT_TITLE = "One Buffalo Labs | Powering Buffalo's Digital Future";
 const DEFAULT_DESCRIPTION =
   'One Buffalo Labs is a cutting-edge tech agency specializing in web development, app development, AI integration, and SEO optimization. We design, develop, and optimize digital solutions for businesses in Buffalo and beyond, driving growth and efficiency.';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/logos/one-buffalo-cartoon.jpg`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/images/logos/one-buffalo-cartoon.jpg`;
 const DEFAULT_KEYWORDS = [
   'One Buffalo Labs',
   'Buffalo tech agency',

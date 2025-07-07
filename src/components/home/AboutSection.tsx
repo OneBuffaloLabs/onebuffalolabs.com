@@ -112,7 +112,7 @@ const AboutSection = () => {
           {/* Main Image */}
           <div className='relative z-10 w-full h-full rounded-lg shadow-2xl overflow-hidden'>
             <Image
-              src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1887&auto=format&fit=crop'
+              src='/images/misc/about.webp'
               alt='One Buffalo Labs team collaborating'
               fill
               sizes='(max-width: 1024px) 100vw, 50vw'

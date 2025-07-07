@@ -1,16 +1,16 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 // --- DUMMY DATA ---
-// I've updated all imageUrls to ensure they are working.
 const projects = [
   {
     title: 'E-commerce Overhaul for Queen City Goods',
     description:
-      'Scaled a local retailer’s online presence with a lightning-fast, headless e-commerce platform, boosting conversions by 40%.',
+      'Scaled a local retailer\'s online presence with a lightning-fast, headless e-commerce platform, boosting conversions by 40%.',
     technologies: ['Next.js', 'Shopify API', 'Vercel'],
     imageUrl:
-      'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070&auto=format&fit=crop', // NEW, RELIABLE URL
+      'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070&auto=format&fit=crop',
     link: '#',
   },
   {
@@ -19,7 +19,7 @@ const projects = [
       'Developed an intelligent customer service chatbot that reduced support ticket volume by 30% and improved user satisfaction.',
     technologies: ['React Native', 'Dialogflow', 'Node.js'],
     imageUrl:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop', // This one was good, but kept for consistency.
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     link: '#',
   },
   {
@@ -28,7 +28,7 @@ const projects = [
       'Transformed an outdated website into a modern, SEO-optimized lead generation machine, resulting in a 200% increase in organic traffic.',
     technologies: ['Astro', 'Headless CMS', 'SEO'],
     imageUrl:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop', // NEW, RELIABLE URL
+      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop',
     link: '#',
   },
 ];
@@ -53,14 +53,14 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {/* Main CTA */}
+        {/* Main CTA - Updated to use Next.js Link */}
         <div className='text-center mt-16'>
-          <a
-            href='#all-projects' // This would link to a full portfolio page
+          <Link
+            href='/portfolio' // Corrected link to the portfolio page
             className='inline-block !px-10 !py-4 bg-[var(--obl-red)] text-white !rounded-full text-lg font-semibold shadow-lg transition-all
                        duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
             View All Projects
-          </a>
+          </Link>
         </div>
       </div>
     </section>

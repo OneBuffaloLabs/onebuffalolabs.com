@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 // --- Components ---
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 // --- Fonts ---
 import { Geist, Geist_Mono } from 'next/font/google';
 // --- Utils ---
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

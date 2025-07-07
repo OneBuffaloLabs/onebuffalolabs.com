@@ -8,7 +8,7 @@
   },
   {
     "title": "COD RCG",
-    "description": "COD RCG (Call of Duty Random Class Generator) is a comprehensive fan-made utility website for the Call of Duty franchise. It features a random loadout generator, a 'Where We Droppin'' tool for Warzone, and an extensive info hub with detailed data on weapons, equipment, perks, and more across various CoD titles. Built with Next.js and deployed on GitHub Pages, it's designed to enhance your gameplay experience.",
+    "description": "COD RCG is a fan-made Call of Duty utility for loadout generation, Warzone drop locations, and a detailed info hub for weapons, perks, and more across various CoD titles.",
     "imageUrl": "/images/misc/laptop.webp",
     "githubUrl": "https://github.com/SiloCityLabs/codrcg.com",
     "label": "Concept Project",
@@ -16,7 +16,7 @@
   },
   {
     "title": "FilaMeter",
-    "description": "FilaMeter is an open-source, local-first filament inventory manager designed for 3D printing enthusiasts. It helps makers track, manage, and optimize their filament usage by type, weight, material, and location, offering features like consumption tracking and import/export capabilities. Built with Next.js, React, TailwindCSS, and PouchDB, FilaMeter provides a free, no-login solution perfect for home labs or small print farms.",
+    "description": "FilaMeter is a local-first, open-source filament inventory manager for 3D printing, helping makers track and optimize usage without logins.",
     "imageUrl": "/images/misc/3d-printing.webp",
     "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
     "label": "Concept Project",

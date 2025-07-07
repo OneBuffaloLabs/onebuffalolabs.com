@@ -1,37 +1,10 @@
+// --- Next ---
 import Image from 'next/image';
 import Link from 'next/link';
+// --- Icons ---
 import { ArrowRight } from 'lucide-react';
-
-// --- DUMMY DATA ---
-const projects = [
-  {
-    title: 'E-commerce Overhaul for Queen City Goods',
-    description:
-      'Scaled a local retailer\'s online presence with a lightning-fast, headless e-commerce platform, boosting conversions by 40%.',
-    technologies: ['Next.js', 'Shopify API', 'Vercel'],
-    imageUrl:
-      'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070&auto=format&fit=crop',
-    link: '#',
-  },
-  {
-    title: 'AI-Powered Chatbot for Nickel City Bank',
-    description:
-      'Developed an intelligent customer service chatbot that reduced support ticket volume by 30% and improved user satisfaction.',
-    technologies: ['React Native', 'Dialogflow', 'Node.js'],
-    imageUrl:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-    link: '#',
-  },
-  {
-    title: 'SEO & Web Redesign for Buffalo Legal',
-    description:
-      'Transformed an outdated website into a modern, SEO-optimized lead generation machine, resulting in a 200% increase in organic traffic.',
-    technologies: ['Astro', 'Headless CMS', 'SEO'],
-    imageUrl:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop',
-    link: '#',
-  },
-];
+// --- Data ---
+import projects from '@/data/home/projects.json';
 
 const PortfolioSection = () => {
   return (

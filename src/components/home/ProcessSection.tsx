@@ -130,7 +130,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ icon: Icon, title, descriptio
 // --- Main Section Component ---
 const ProcessSection = () => {
   return (
-    <section id='process' className='w-full bg-[var(--obl-dark-blue)] py-16 sm:py-24 px-8'>
+    <section id='process' className='w-full bg-[var(--obl-dark-blue)] py-16 px-8'>
       <div className='max-w-4xl mx-auto'>
         <div className='text-center mb-20'>
           <h2 className='text-4xl sm:text-5xl font-bold text-white'>

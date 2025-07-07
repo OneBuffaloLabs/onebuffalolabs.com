@@ -52,7 +52,7 @@ const LABS_PROJECTS = [
 export default function OpenSourcePage() {
   return (
     <div className='w-full bg-[var(--obl-dark-blue)] text-white font-sans'>
-      <div className='relative max-w-7xl mx-auto px-8 py-16 sm:py-24'>
+      <div className='relative max-w-7xl mx-auto px-8 py-16'>
         {/* Decorative background gradients to add depth */}
         <div
           className='absolute inset-0 z-0 opacity-10 pointer-events-none'

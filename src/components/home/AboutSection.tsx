@@ -54,7 +54,7 @@ const ValuePill: React.FC<ValuePillProps> = ({ icon: Icon, title, description })
 // --- Main Section Component ---
 const AboutSection = () => {
   return (
-    <section id='about' className='w-full bg-gray-50 py-16 sm:py-24 px-8 overflow-hidden'>
+    <section id='about' className='w-full bg-gray-50 py-16 px-8 overflow-hidden'>
       <div className='max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
         {/* Text Content Column */}
         <div className='space-y-8'>

@@ -1,37 +1,14 @@
 'use client';
 
+// --- React ---
 import React from 'react';
+// --- Next ---
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, ArrowRight } from 'lucide-react';
-
-// --- Data for Featured Projects ---
-const featuredProjects = [
-  {
-    title: 'SiloCityPages',
-    description:
-      'A lightweight, zero-config static site generator designed for speed and simplicity, perfect for documentation.',
-    imageUrl: '/images/misc/code.webp',
-    githubUrl: 'https://github.com/SiloCityLabs/SiloCityPages',
-    label: 'Open Source',
-  },
-  {
-    title: 'codrcg.com',
-    description:
-      'An interactive coding challenge platform with real-time feedback and a competitive leaderboard to sharpen skills.',
-    imageUrl: '/images/misc/laptop.webp',
-    githubUrl: 'https://github.com/SiloCityLabs/codrcg.com',
-    label: 'Concept Project',
-  },
-  {
-    title: 'filameter.com',
-    description:
-      'A utility for 3D printing enthusiasts to calculate filament usage and costs for their projects.',
-    imageUrl: '/images/misc/3d-printing.webp',
-    githubUrl: 'https://github.com/SiloCityLabs/filameter.com',
-    label: 'Open Source',
-  },
-];
+// --- Icons ---
+import { Github, ArrowRight, ExternalLink } from 'lucide-react';
+// --- Data ---
+import featuredProjects from '@/data/home/labs.json';
 
 const LabsAndConceptsSection = () => {
   return (
@@ -43,17 +20,18 @@ const LabsAndConceptsSection = () => {
             Our Labs & <span className='text-[var(--obl-blue)]'>Innovations.</span>
           </h2>
           <p className='text-lg text-gray-400 mt-4 max-w-2xl mx-auto'>
-            Here`&apos;s a glimpse into our passion for technology. We`&apos;re constantly exploring
+            Here&apos;s a glimpse into our passion for technology. We&apos;re constantly exploring
             new ideas and contributing to the open-source community.
           </p>
         </div>
 
-        {/* Featured Projects Grid - Updated for 3 columns on large screens */}
+        {/* Featured Projects Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {featuredProjects.map((project) => (
             <div
               key={project.title}
-              className='group relative bg-white/5 border border-white/10 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-[var(--obl-blue)]/20'>
+              className='group relative flex flex-col bg-white/5 border border-white/10 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-[var(--obl-blue)]/20'>
+              {/* Image Container */}
               <div className='relative w-full h-56'>
                 <Image
                   src={project.imageUrl}
@@ -68,22 +46,42 @@ const LabsAndConceptsSection = () => {
                 <div className='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent'></div>
               </div>
 
-              <div className='p-6'>
-                <div className='flex justify-between items-start mb-2'>
-                  <h3 className='text-2xl font-bold text-white'>{project.title}</h3>
-                  <span className='text-xs font-semibold bg-[var(--obl-blue)] text-white px-3 py-1 rounded-full flex-shrink-0'>
-                    {project.label}
-                  </span>
+              {/* Content Container - Now a flex column */}
+              <div className='p-6 flex flex-col flex-grow'>
+                {/* Text content - flex-grow pushes actions to bottom */}
+                <div className='flex-grow'>
+                  <div className='flex justify-between items-start mb-2'>
+                    <h3 className='text-2xl font-bold text-white'>{project.title}</h3>
+                    <span className='text-xs font-semibold bg-[var(--obl-blue)] text-white px-3 py-1 rounded-full flex-shrink-0'>
+                      {project.label}
+                    </span>
+                  </div>
+                  <p className='text-gray-400 leading-relaxed mb-6'>{project.description}</p>
                 </div>
-                <p className='text-gray-400 leading-relaxed mb-6'>{project.description}</p>
-                <a
-                  href={project.githubUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='inline-flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
-                  <Github className='w-5 h-5 mr-2' />
-                  View on GitHub
-                </a>
+
+                {/* Action buttons at the bottom */}
+                <div className='mt-auto pt-4 border-t border-white/10 flex items-center justify-between gap-4'>
+                  <a
+                    href={project.githubUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
+                    <Github className='w-5 h-5 mr-2' />
+                    GitHub
+                  </a>
+
+                  {/* Conditionally render the "View Site" button */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='inline-flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
+                      View Site
+                      <ExternalLink className='w-5 h-5 ml-2' />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

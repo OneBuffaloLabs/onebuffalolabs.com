@@ -1,9 +1,10 @@
-'use client'; // It's good practice to mark components as client components if they use hooks or event listeners.
+'use client';
 
-import { Github, ArrowUpRight, GitFork } from 'lucide-react';
-
-// --- DATA ---
-// Keeping data separate makes the component easier to read and update.
+// --- Icons ---
+import { Github, ArrowUpRight, GitFork, ExternalLink } from 'lucide-react';
+// --- Data ---
+// Assuming labs.json is in /src/data/ and contains a root "projects" array.
+import LABS_PROJECTS from '@/data/labs.json';
 
 const GITHUB_ORGS = [
   {
@@ -20,39 +21,11 @@ const GITHUB_ORGS = [
   },
 ];
 
-const LABS_PROJECTS = [
-  {
-    name: 'SiloCityPages',
-    description:
-      'A lightweight, zero-config static site generator designed for speed and simplicity, perfect for documentation and personal blogs.',
-    tech: ['Node.js', 'TypeScript', 'Markdown'],
-    githubUrl: 'https://github.com/SiloCityLabs/SiloCityPages',
-    liveUrl: null,
-  },
-  {
-    name: 'codrcg.com',
-    description:
-      'An interactive coding challenge platform with real-time feedback and a competitive leaderboard to help developers sharpen their skills.',
-    tech: ['Next.js', 'React', 'Firebase', 'Docker'],
-    githubUrl: 'https://github.com/SiloCityLabs/codrcg.com',
-    liveUrl: 'https://codrcg.com',
-  },
-  {
-    name: 'fortnite.silocitygames.com',
-    description:
-      'A community-driven stats and analytics dashboard for Fortnite players, featuring rich data visualizations and performance tracking.',
-    tech: ['SvelteKit', 'D3.js', 'Python', 'FastAPI'],
-    githubUrl: 'https://github.com/SiloCityLabs/fortnite.silocitygames.com',
-    liveUrl: null,
-  },
-];
-
 // --- REACT COMPONENT ---
-// This is the main presentation component for the Labs page.
 export default function OpenSourcePage() {
   return (
     <div className='w-full bg-[var(--obl-dark-blue)] text-white font-sans'>
-      <div className='relative max-w-7xl mx-auto px-8 py-16'>
+      <div className='relative max-w-7xl mx-auto px-8 py-16 pt-28'>
         {/* Decorative background gradients to add depth */}
         <div
           className='absolute inset-0 z-0 opacity-10 pointer-events-none'
@@ -100,18 +73,23 @@ export default function OpenSourcePage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {LABS_PROJECTS.map((project) => (
               <div
-                key={project.name}
+                key={project.title}
                 className='group relative flex flex-col bg-white/5 border border-white/10 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_0_25px_-5px_var(--obl-blue)] hover:border-[var(--obl-blue)]'>
                 <div className='p-6 flex-grow flex flex-col'>
                   {/* Card Header */}
                   <div className='flex-grow'>
-                    <h3 className='text-2xl font-bold text-white mb-2'>{project.name}</h3>
-                    <p className='text-gray-400 leading-relaxed mb-6'>{project.description}</p>
+                    {/* CORRECTED: Added gradient styling to the project title */}
+                    <h3 className='text-2xl font-bold mb-2 text-center bg-gradient-to-r from-[var(--obl-blue)] to-[var(--obl-red)] bg-clip-text text-transparent'>
+                      {project.title}
+                    </h3>
+                    <p className='text-gray-400 leading-relaxed mb-6 text-center'>
+                      {project.description}
+                    </p>
                   </div>
 
                   {/* Tech Tags */}
                   <div className='mb-6'>
-                    <div className='flex flex-wrap gap-2'>
+                    <div className='flex flex-wrap gap-2 justify-center'>
                       {project.tech.map((tag) => (
                         <span
                           key={tag}
@@ -134,14 +112,14 @@ export default function OpenSourcePage() {
                     View on GitHub
                   </a>
 
-                  {project.liveUrl && (
+                  {project.link && (
                     <a
-                      href={project.liveUrl}
+                      href={project.link}
                       target='_blank'
                       rel='noopener noreferrer'
                       className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
                       Live Demo
-                      <ArrowUpRight className='w-5 h-5 ml-1' />
+                      <ExternalLink className='w-5 h-5 ml-1' />
                     </a>
                   )}
                 </div>

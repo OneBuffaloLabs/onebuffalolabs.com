@@ -1,0 +1,30 @@
+[
+  {
+    "title": "SiloCityPages",
+    "description": "SiloCityPages is a lightning-fast, zero-configuration static site generator from SiloCityLabs. It's built with Bootstrap, React, and Next.js, making it ideal for creating sleek documentation sites that deploy effortlessly to GitHub Pages.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/SiloCityLabs/SiloCityPages",
+    "link": null
+  },
+  {
+    "title": "COD RCG",
+    "description": "COD RCG (Call of Duty Random Class Generator) is a comprehensive fan-made utility website for the Call of Duty franchise. It features a random loadout generator, a 'Where We Droppin'' tool for Warzone, and an extensive info hub with detailed data on weapons, equipment, perks, and more across various CoD titles. Built with Next.js and deployed on GitHub Pages, it's designed to enhance your gameplay experience.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/SiloCityLabs/codrcg.com",
+    "link": "https://codrcg.com"
+  },
+  {
+    "title": "FilaMeter",
+    "description": "FilaMeter is an open-source, local-first filament inventory manager designed for 3D printing enthusiasts. It helps makers track, manage, and optimize their filament usage by type, weight, material, and location, offering features like consumption tracking and import/export capabilities. Built with Next.js, React, TailwindCSS, and PouchDB, FilaMeter provides a free, no-login solution perfect for home labs or small print farms.",
+    "tech": ["React", "PouchDB", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
+    "link": "https://filameter.com"
+  },
+  {
+    "title": "RoyalHub",
+    "description": "RoyalHub is a Fortnite utility website featuring a 'Drop Roulette' to randomly select in-game landing spots across various seasons, enhancing your gameplay.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/SiloCityLabs/fortnite.silocitygames.com",
+    "link": "https://fortnite.silocitygames.com"
+  }
+]

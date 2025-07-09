@@ -1,4 +1,4 @@
-# ![OneBuffaloLabs.com](/public/images/logos/one-buffalo-cartoon-no-text.svg) OneBuffaloLabs.com
+# <img src="/public/images/logos/one-buffalo-cartoon-no-text.svg" alt="OneBuffaloLabs.com" width="75"> OneBuffaloLabs.com
 
 Welcome to the official GitHub repository for **onebuffalolabs.com**\! This is where we herd the code that powers our digital home base.
 

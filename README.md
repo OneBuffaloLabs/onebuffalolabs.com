@@ -1,6 +1,7 @@
 <div align="center">
-  <img src="/public/images/logos/one-buffalo-cartoon-no-text.svg" alt="OneBuffaloLabs.com Logo" width="150">
+  <img src="/public/images/logos/one-buffalo-cartoon-no-text.svg" alt="OneBuffaloLabs.com Logo" width="200">
 </div>
+<hr />
 
 Welcome to the official GitHub repository for **onebuffalolabs.com**\! This is where we herd the code that powers our digital home base.
 

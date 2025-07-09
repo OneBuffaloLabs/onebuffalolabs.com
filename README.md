@@ -7,6 +7,7 @@
   <a href="https://x.com/OneBuffaloLabs" target="_blank"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
   <a href="https://www.instagram.com/onebuffalolabs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
   <a href="https://github.com/OneBuffaloLabs" target="_blank"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+  <a href="https://www.facebook.com/profile.php?id=61578291081644" target="_blank"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook"></a>
 </div>
 
 Welcome to the official GitHub repository for **onebuffalolabs.com**\! This is where we herd the code that powers our digital home base.

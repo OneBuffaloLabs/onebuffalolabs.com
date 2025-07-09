@@ -81,9 +81,9 @@ const Footer = () => {
               <li className='flex items-start'>
                 <Mail className='w-5 h-5 mr-3 mt-1 text-[var(--obl-blue)] flex-shrink-0' />
                 <a
-                  href='mailto:onebuffalolabs@gmail.com'
+                  href='mailto:info@onebuffalolabs.com'
                   className='text-gray-400 hover:text-[var(--obl-red)] transition-colors break-all'>
-                  onebuffalolabs@gmail.com
+                  info@onebuffalolabs.com
                 </a>
               </li>
               <li className='flex items-start'>

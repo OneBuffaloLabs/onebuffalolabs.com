@@ -286,9 +286,9 @@ const TermsPage = () => {
             <li>
               By email:{' '}
               <a
-                href='mailto:onebuffalolabs@gmail.com'
+                href='mailto:info@onebuffalolabs.com'
                 className='text-[var(--obl-blue)] hover:underline hover:text-[var(--obl-red)]'>
-                onebuffalolabs@gmail.com
+                info@onebuffalolabs.com
               </a>
             </li>
           </ul>

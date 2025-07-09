@@ -115,9 +115,9 @@ const ContactSection = () => {
                 <h3 className='text-xl font-bold text-[var(--obl-dark-blue)]'>Email Us</h3>
                 <p className='text-gray-600'>Direct inquiries or just want to say hello?</p>
                 <a
-                  href='mailto:onebuffalolabs@gmail.com'
+                  href='mailto:info@onebuffalolabs.com'
                   className='text-lg text-[var(--obl-dark-blue)] font-semibold break-all transition-colors hover:text-[var(--obl-red)]'>
-                  onebuffalolabs@gmail.com
+                  info@onebuffalolabs.com
                 </a>
               </div>
             </div>

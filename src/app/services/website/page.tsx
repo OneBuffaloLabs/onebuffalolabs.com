@@ -4,24 +4,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  Sparkles,
   Zap,
-  Layout,
   Rocket,
   ArrowRight,
   Lightbulb,
   Palette,
   Code,
-  Globe,
   BarChart,
-  DollarSign,
   Monitor,
   Cloud,
   Type,
   Gem,
   CheckCircle,
-  Cpu,
-  RefreshCcw,
   HardDrive,
 } from 'lucide-react';
 // --- Utils ---
@@ -82,34 +76,43 @@ const processSteps = [
 
 const packages = [
   {
-    title: 'The Launchpad',
-    idealFor: 'New businesses needing a professional online presence.',
+    title: 'The Essential Starter', // Renamed from Launchpad for a fresh feel
+    idealFor:
+      'New businesses and startups in Buffalo needing a strong, foundational online presence.',
     includes: [
-      '1-3 page static site',
-      'Mobile-responsive design',
-      'Contact form',
-      'Basic SEO setup',
+      '1-3 professionally designed pages',
+      'Mobile-responsive for all devices',
+      'Integrated contact form',
+      'Foundational SEO setup',
       'Our full "Handoff & Empower" process',
+      'Concierge Domain Setup assistance',
     ],
-    pricing: 'Starting at $2,500',
+    pricing: 'Starting at $1,800',
   },
   {
-    title: 'The Growth Engine',
-    idealFor: 'Businesses looking to actively market and generate leads online.',
+    title: 'The Growth Catalyst',
+    idealFor: 'Growing businesses ready to expand their digital reach and generate more leads.',
     includes: [
-      'Everything in Launchpad',
-      'Up to 10 pages',
-      'Content Management System (CMS) for a blog or portfolio',
-      'Google Analytics integration',
+      'Everything in The Essential Starter',
+      'Up to 10 strategically designed pages',
+      'Content Management System (CMS) for easy updates (blog/portfolio)',
+      'Google Analytics integration & setup',
+      'Basic lead capture functionality',
     ],
-    pricing: 'Starting at $5,000',
+    pricing: 'Starting at $3,800',
     mostPopular: true,
   },
   {
     title: 'The Custom Build',
-    idealFor: 'Businesses with unique needs, like e-commerce or custom web applications.',
-    includes: ['A fully custom solution tailored to your exact specifications.'],
-    pricing: "Custom Quote - Let's Talk!",
+    idealFor:
+      'Businesses with unique, complex needs: e-commerce, custom web applications, or advanced integrations.',
+    includes: [
+      'A fully custom, scalable solution built to your precise business requirements.',
+      'In-depth discovery & strategy session',
+      'Advanced SEO & marketing features',
+      'Ongoing support & optimization options',
+    ],
+    pricing: "Custom Quote - Let's Innovate Together!",
   },
 ];
 
@@ -164,7 +167,7 @@ export default function WebsiteServicesPage() {
       {/* 1. Hero Section */}
       <section
         id='hero'
-        className='relative min-h-screen flex items-center justify-center text-center p-8 pt-20 overflow-hidden'
+        className='relative min-h-screen flex items-center justify-center text-center p-8 overflow-hidden'
         style={{
           background: `linear-gradient(to bottom, ${companyColors.darkBlue}, ${companyColors.blue})`,
         }}>
@@ -206,8 +209,8 @@ export default function WebsiteServicesPage() {
             <p className='text-lg text-gray-700 leading-relaxed'>
               Many small business owners in Buffalo feel frustrated by their online presence.
               Perhaps your current website is outdated, hard to update, or simply not bringing in
-              new customers. It's a missed opportunity when your online storefront doesn't reflect
-              the quality and dedication you pour into your business every day.
+              new customers. It&apos;s a missed opportunity when your online storefront doesn&apos;t
+              reflect the quality and dedication you pour into your business every day.
             </p>
             <p className='text-lg text-gray-700 leading-relaxed'>
               Imagine a website that not only looks professional but actively works for you:
@@ -261,19 +264,7 @@ export default function WebsiteServicesPage() {
             ))}
           </div>
 
-          {/* Key Benefit Callout */}
-          <div
-            className='mt-16 p-8 rounded-lg shadow-lg text-center mx-auto max-w-3xl'
-            style={{ backgroundColor: companyColors.blue, color: 'white' }}>
-            <h3 className='text-2xl font-bold mb-3 flex items-center justify-center'>
-              <Sparkles className='w-6 h-6 mr-3' />
-              Concierge Domain Setup Included!
-            </h3>
-            <p className='text-lg leading-relaxed'>
-              Don't have a domain? Our Concierge Domain Setup is included. We'll walk you through it
-              so you have full ownership from day one. No technical stress, we promise.
-            </p>
-          </div>
+          {/* Key Benefit Callout - Removed from this section to integrate into package details for emphasis */}
         </div>
       </section>
 
@@ -286,9 +277,11 @@ export default function WebsiteServicesPage() {
               Business
             </h2>
             <p className='mt-4 text-lg text-gray-600 max-w-2xl mx-auto'>
-              Choose the package that best suits your needs, or let's build something completely
-              custom.
-            </p>
+              Choose the package that best suits your needs, or let&apos;s build something
+              completely custom. Each package includes our commitment to quality, responsiveness,
+              and empowering you with control.
+            </p>{' '}
+            {/* Added sentence */}
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -381,8 +374,8 @@ export default function WebsiteServicesPage() {
             <span style={{ color: companyColors.red }}>Buffalo</span>?
           </h2>
           <p className='text-lg leading-relaxed mb-8'>
-            Partner with a local agency that's as invested in your success as you are. Let's build a
-            website that delivers real results.
+            Partner with a local agency that&apos;s as invested in your success as you are.
+            Let&apos;s build a website that delivers real results.
           </p>
           <Link
             href='/#contact'

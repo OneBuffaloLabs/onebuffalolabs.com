@@ -18,6 +18,7 @@ const homeNavLinks = [
 
 const secondaryNavLinks = [
   { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
   { name: 'Our Labs', href: '/labs' },
 ];
 

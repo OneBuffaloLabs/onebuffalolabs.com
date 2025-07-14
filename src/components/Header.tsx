@@ -4,12 +4,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation'; // Import usePathname hook
+import { usePathname } from 'next/navigation';
 
 // --- Navigation Links Data ---
 const homeNavLinks = [
   { name: 'Services', href: '#services' },
-  { name: 'Portfolio', href: '#work' },
   { name: 'Process', href: '#process' },
   { name: 'About', href: '#about' },
   { name: 'Partners', href: '#partners' },
@@ -18,6 +17,7 @@ const homeNavLinks = [
 
 const secondaryNavLinks = [
   { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
   { name: 'Our Labs', href: '/labs' },
 ];
 

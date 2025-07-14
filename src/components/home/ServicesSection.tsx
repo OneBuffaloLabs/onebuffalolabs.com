@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Code, Smartphone, Search, Brain, LucideIcon, ArrowRight } from 'lucide-react';
+import { Code, Search, Brain, LucideIcon, ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: LucideIcon;

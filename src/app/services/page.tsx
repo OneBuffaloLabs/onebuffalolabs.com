@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 // --- Icons ---
-import { Code, BarChart, Smartphone, BrainCircuit, ArrowRight, Sparkles } from 'lucide-react';
+import { Code, BarChart, BrainCircuit, ArrowRight, Sparkles } from 'lucide-react';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
 

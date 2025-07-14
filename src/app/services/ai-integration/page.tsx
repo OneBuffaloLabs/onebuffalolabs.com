@@ -147,10 +147,10 @@ export default function AISolutionsPage() {
               <span style={{ color: companyColors.blue }}>Real Results.</span>
             </h2>
             <p className='text-lg text-gray-700 leading-relaxed'>
-              Forget the sci-fi movies – Artificial Intelligence for business isn't about replacing
-              people. It's about empowering your team and enhancing your operations. AI can give
-              your existing employees "superpowers" by taking on the mundane, repetitive tasks that
-              consume valuable time.
+              Forget the sci-fi movies - Artificial Intelligence for business isn&apos;t about
+              replacing people. It&apos;s about empowering your team and enhancing your operations.
+              AI can give your existing employees &quot;superpowers&quot; by taking on the mundane,
+              repetitive tasks that consume valuable time.
             </p>
             <p className='text-lg text-gray-700 leading-relaxed'>
               Imagine saving hours on data entry, providing instant 24/7 customer support, or
@@ -262,8 +262,8 @@ export default function AISolutionsPage() {
             className='mt-12 p-8 rounded-lg shadow-lg text-center mx-auto max-w-3xl'
             style={{ backgroundColor: companyColors.blue, color: 'white' }}>
             <p className='text-xl font-bold leading-relaxed'>
-              If you answered 'yes' to any of these, an AI solution could have a significant ROI for
-              your business. Let's discuss how.
+              If you answered &apos;yes&apos; to any of these, an AI solution could have a
+              significant ROI for your business. Let&apos;s discuss how.
             </p>
           </div>
         </div>
@@ -278,8 +278,8 @@ export default function AISolutionsPage() {
             Step Into the Future of <span style={{ color: companyColors.red }}>Business.</span>
           </h2>
           <p className='text-lg leading-relaxed mb-8 text-gray-300'>
-            Let's explore how a practical AI strategy can give your Buffalo business a competitive
-            edge. Schedule a free, no-obligation AI consultation today.
+            Let&apos;s explore how a practical AI strategy can give your Buffalo business a
+            competitive edge. Schedule a free, no-obligation AI consultation today.
           </p>
           <Link
             href='/#contact'

@@ -17,7 +17,6 @@ import {
   Gem,
   CheckCircle,
   HardDrive,
-  File,
 } from 'lucide-react';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';

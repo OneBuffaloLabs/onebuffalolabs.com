@@ -17,6 +17,7 @@ import {
   Gem,
   CheckCircle,
   HardDrive,
+  File,
 } from 'lucide-react';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
@@ -76,9 +77,23 @@ const processSteps = [
 
 const packages = [
   {
-    title: 'The Essential Starter', // Renamed from Launchpad for a fresh feel
+    title: 'Quick Start Landing Page',
     idealFor:
-      'New businesses and startups in Buffalo needing a strong, foundational online presence.',
+      'For new entrepreneurs or businesses needing a simple, professional online "business card" to get online quickly.',
+    includes: [
+      'Single-page, template-based site',
+      'Client provides all content upfront',
+      'Minimal SEO setup (title, meta)',
+      '1-2 rounds of minor revisions',
+      'Fast 5-7 day turnaround',
+      '100% upfront payment required',
+    ],
+    pricing: 'Starting at $750',
+  },
+  {
+    title: 'The Essential Starter',
+    idealFor:
+      'New businesses and startups in Buffalo needing a strong, foundational online presence that can grow.',
     includes: [
       '1-3 professionally designed pages',
       'Mobile-responsive for all devices',
@@ -88,19 +103,20 @@ const packages = [
       'Concierge Domain Setup assistance',
     ],
     pricing: 'Starting at $1,800',
+    mostPopular: true,
   },
   {
     title: 'The Growth Catalyst',
-    idealFor: 'Growing businesses ready to expand their digital reach and generate more leads.',
+    idealFor:
+      'Growing businesses ready to expand their digital reach and generate more leads with dynamic content.',
     includes: [
       'Everything in The Essential Starter',
       'Up to 10 strategically designed pages',
       'Content Management System (CMS) for easy updates (blog/portfolio)',
       'Google Analytics integration & setup',
-      'Basic lead capture functionality',
+      'Payment plans available',
     ],
     pricing: 'Starting at $3,800',
-    mostPopular: true,
   },
   {
     title: 'The Custom Build',
@@ -110,7 +126,7 @@ const packages = [
       'A fully custom, scalable solution built to your precise business requirements.',
       'In-depth discovery & strategy session',
       'Advanced SEO & marketing features',
-      'Ongoing support & optimization options',
+      'Payment plans and ongoing support options',
     ],
     pricing: "Custom Quote - Let's Innovate Together!",
   },
@@ -277,14 +293,12 @@ export default function WebsiteServicesPage() {
               Business
             </h2>
             <p className='mt-4 text-lg text-gray-600 max-w-2xl mx-auto'>
-              Choose the package that best suits your needs, or let&apos;s build something
-              completely custom. Each package includes our commitment to quality, responsiveness,
-              and empowering you with control.
-            </p>{' '}
-            {/* Added sentence */}
+              Choose from our packages designed for every stage of business growth. Each includes
+              our commitment to quality, performance, and empowering you with full ownership.
+            </p>
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {packages.map((pkg, index) => (
               <div
                 key={index}

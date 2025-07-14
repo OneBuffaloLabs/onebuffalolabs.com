@@ -49,15 +49,15 @@ const serviceCategories = [
     subServices: ['Local SEO', 'Technical Audits', 'On-Page Optimization', 'Analytics'],
     ctaText: 'Boost Your Visibility',
   },
-  {
-    link: '/services/app-development',
-    icon: Smartphone, // Using Smartphone for mobile/software
-    title: 'Custom App Development',
-    description:
-      "When off-the-shelf isn't enough, we design and build custom software and mobile applications tailored to your unique business needs.",
-    subServices: ['Mobile Apps', 'Cross-Platform Development', 'Internal Business Tools'],
-    ctaText: 'Build Your Application',
-  },
+  // {
+  //   link: '/services/app-development',
+  //   icon: Smartphone, // Using Smartphone for mobile/software
+  //   title: 'Custom App Development',
+  //   description:
+  //     "When off-the-shelf isn't enough, we design and build custom software and mobile applications tailored to your unique business needs.",
+  //   subServices: ['Mobile Apps', 'Cross-Platform Development', 'Internal Business Tools'],
+  //   ctaText: 'Build Your Application',
+  // },
   {
     link: '/services/ai-integration',
     icon: BrainCircuit, // Using BrainCircuit for AI/intelligence

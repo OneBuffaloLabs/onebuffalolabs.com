@@ -4,7 +4,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Code, Smartphone, Search, Brain, LucideIcon, ArrowRight } from 'lucide-react';
 
-// Props for the ServiceCard now include an href for linking
 interface ServiceCardProps {
   icon: LucideIcon;
   title: string;
@@ -21,7 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   href,
 }) => {
   const [inView, setInView] = useState(false);
-  const cardRef = useRef<HTMLAnchorElement>(null); // Changed to HTMLAnchorElement for the Link
+  const cardRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const node = cardRef.current;
@@ -51,7 +50,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   }, []);
 
   return (
-    // The entire card is now a clickable Link element
     <Link
       href={href}
       ref={cardRef}
@@ -91,13 +89,13 @@ const ServicesSection = () => {
         'Crafting custom websites, e-commerce solutions, and robust CMS platforms for a powerful online presence.',
       href: '/services/website',
     },
-    {
-      icon: Smartphone,
-      title: 'App Development',
-      description:
-        'Building intuitive mobile apps and cross-platform solutions that deliver exceptional user experiences.',
-      href: '/services/apps', // Example link
-    },
+    // {
+    //   icon: Smartphone,
+    //   title: 'App Development',
+    //   description:
+    //     'Building intuitive mobile apps and cross-platform solutions that deliver exceptional user experiences.',
+    //   href: '/services/apps',
+    // },
     {
       icon: Search,
       title: 'Digital Strategy & SEO',

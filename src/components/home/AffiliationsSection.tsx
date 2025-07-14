@@ -17,6 +17,11 @@ const partners = [
     logoUrl: '/images/partners/tin-roof.webp',
     websiteUrl: 'https://tinroof.co/',
   },
+  {
+    name: 'Crate',
+    logoUrl: '/images/partners/cratecc.webp',
+    websiteUrl: 'https://crate.cc/',
+  },
   //TODO: Get image and readd
   // {
   //   name: 'Silo City Games',

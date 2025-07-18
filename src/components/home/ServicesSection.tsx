@@ -61,7 +61,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       `}
       style={{ transitionDelay: `${delay}ms` }}>
       <div>
-        <div className='text-[var(--obl-blue)] mb-4'>
+        <div className='text-[var(--obl-blue)] mb-4 inline-block'>
           <Icon
             size={48}
             className='transition-colors duration-300 group-hover:text-[var(--obl-red)]'
@@ -107,7 +107,7 @@ const ServicesSection = () => {
       icon: Brain,
       title: 'AI Integration',
       description:
-        'Implementing intelligent chatbots, automation tools, and machine learning solutions to drive efficiency.',
+        'Implementing intelligent chatbots, missed call automation, and custom machine learning solutions to drive efficiency.',
       href: '/services/ai-integration',
     },
   ];
@@ -122,7 +122,7 @@ const ServicesSection = () => {
           We deliver comprehensive digital solutions designed to elevate your brand, engage your
           audience, and drive growth.
         </p>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}

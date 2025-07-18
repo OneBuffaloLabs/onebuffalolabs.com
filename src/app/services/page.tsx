@@ -64,7 +64,12 @@ const serviceCategories = [
     title: 'AI & Automation Solutions',
     description:
       'Leverage the power of artificial intelligence to enhance customer experiences, streamline operations, and unlock new efficiencies.',
-    subServices: ['AI-Powered Chatbots', 'Business Process Automation', 'Machine Learning Models'],
+    subServices: [
+      'AI-Powered Chatbots',
+      'Missed Call Automation',
+      'Business Process Automation',
+      'Machine Learning Models',
+    ],
     ctaText: 'Integrate AI Solutions',
   },
 ];

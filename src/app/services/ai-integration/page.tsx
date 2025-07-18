@@ -15,6 +15,7 @@ import {
   Rocket,
   LifeBuoy,
   CheckCircle,
+  PhoneMissed,
 } from 'lucide-react';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
@@ -32,6 +33,7 @@ export const metadata: Metadata = generateMetadata({
     'AI chatbots',
     'Machine learning Buffalo',
     'Buffalo tech solutions',
+    'missed call text back buffalo',
   ],
   urlPath: '/services/ai-integration',
 });
@@ -49,6 +51,12 @@ const aiSolutions = [
     title: 'Intelligent Chatbots',
     description:
       "Provide instant answers to your customers' most common questions, 24/7. Free up your team and capture leads even when you're closed.",
+  },
+  {
+    icon: PhoneMissed,
+    title: 'Automated Missed Call Assistant',
+    description:
+      "Instantly engage every missed caller with a custom text message. Stop losing customers to your voicemail and capture every lead while it's hot.",
   },
   {
     icon: Workflow,
@@ -93,6 +101,7 @@ const aiProcessSteps = [
 
 const aiReadinessQuestions = [
   'Do you find your team answering the same questions over and over?',
+  "Do you worry about losing leads when you can't answer the phone?",
   'Do you spend hours on manual data entry or repetitive administrative tasks?',
   'Do you wish you could provide instant support to website visitors after hours?',
 ];
@@ -136,7 +145,6 @@ export default function AISolutionsPage() {
           </Link>
         </div>
       </section>
-
       {/* 2. The Opportunity Section */}
       <section className='bg-white py-16 px-8'>
         <div className='max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
@@ -171,7 +179,6 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
-
       {/* 3. Our AI Solutions Section */}
       <section className='bg-gray-50 py-16 px-8'>
         <div className='max-w-7xl mx-auto'>
@@ -185,8 +192,7 @@ export default function AISolutionsPage() {
               and opportunities.
             </p>
           </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8'>
             {aiSolutions.map((solution, index) => (
               <div
                 key={index}
@@ -205,7 +211,6 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
-
       {/* 4. The Process Section */}
       <section className='bg-white py-16 px-8'>
         <div className='max-w-7xl mx-auto'>
@@ -218,7 +223,6 @@ export default function AISolutionsPage() {
               transition.
             </p>
           </div>
-
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
             {aiProcessSteps.map((step, index) => (
               <div
@@ -238,7 +242,6 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
-
       {/* 5. "Is AI Right for You?" Section */}
       <section className='bg-gray-50 py-16 px-8'>
         <div className='max-w-7xl mx-auto text-center'>
@@ -268,7 +271,6 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
-
       {/* 6. Final Call to Action Section */}
       <section
         className='py-16 px-8 text-center'

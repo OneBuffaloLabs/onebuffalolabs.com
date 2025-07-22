@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/public/images/logos/one-buffalo-cartoon-no-text.svg" alt="OneBuffaloLabs.com Logo" width="200">
+  <img src="/public/images/banners/logo-banner.png" alt="OneBuffaloLabs.com Logo">
 
   <hr />
 

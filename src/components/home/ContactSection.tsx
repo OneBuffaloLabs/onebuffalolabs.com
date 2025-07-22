@@ -9,6 +9,7 @@ import {
   faGithub,
   faFacebookF,
   faInstagram,
+  faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
 
 // --- Type definition for the Tally object on the window ---
@@ -47,6 +48,11 @@ const socialLinks = [
     name: 'Instagram',
     icon: faInstagram,
     url: 'https://www.instagram.com/onebuffalolabs/',
+  },
+  {
+    name: 'Bluesky',
+    icon: faBluesky,
+    url: 'https://bsky.app/profile/onebuffalolabs.com',
   },
 ];
 

@@ -87,5 +87,9 @@ export function generateMetadata({
       images: [DEFAULT_OG_IMAGE],
     },
     metadataBase: new URL(BASE_URL),
+    // Add the Google AdSense meta tag here within the 'other' property
+    other: {
+      'google-adsense-account': 'ca-pub-9488377852201328',
+    },
   };
 }

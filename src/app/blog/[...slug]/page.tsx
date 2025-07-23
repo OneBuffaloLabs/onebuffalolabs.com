@@ -2,7 +2,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link'; // Import Link
+import Link from 'next/link';
+import { AnchorHTMLAttributes } from 'react';
 
 // --- Libs ---
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -13,14 +14,16 @@ export const dynamicParams = false;
 
 // --- Component Props Type ---
 type PageProps = {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 };
 
 /**
  * Generates page metadata dynamically based on the post's frontmatter.
  */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const fullPath = params.slug.join('/');
+  const { slug } = await params;
+
+  const fullPath = slug.join('/');
   const post = getPostData(fullPath);
 
   if (!post) {
@@ -54,7 +57,9 @@ export async function generateStaticParams() {
  * The page component for rendering a single blog post.
  */
 export default async function PostPage({ params }: PageProps) {
-  const fullPath = params.slug.join('/');
+  const { slug } = await params;
+
+  const fullPath = slug.join('/');
   const post = getPostData(fullPath);
 
   // Ensure post exists and is published
@@ -72,11 +77,12 @@ export default async function PostPage({ params }: PageProps) {
 
   // Define a component for target blank on an external link
   const components = {
-    a: (props: any) => {
-      if (props.href.startsWith('http')) {
+    a: (props: AnchorHTMLAttributes<HTMLAnchorElement>) => {
+      if (props.href && props.href.startsWith('http')) {
         return <a {...props} target='_blank' rel='noopener noreferrer' />;
       }
-      return <Link {...props} />;
+      const { href, ...rest } = props;
+      return <Link href={href || ''} {...rest} />;
     },
   };
 

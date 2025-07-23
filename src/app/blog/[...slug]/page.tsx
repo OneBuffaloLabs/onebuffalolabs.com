@@ -2,6 +2,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link
 
 // --- Libs ---
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -31,14 +32,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Use the new frontmatter fields for richer metadata
   return {
     title: post.frontMatter.title,
-    description: post.frontMatter.description, // Using the dedicated description field
-    keywords: post.frontMatter.tags, // Adding tags as keywords for SEO
+    description: post.frontMatter.description,
+    keywords: post.frontMatter.tags,
   };
 }
 
 /**
  * This function generates the static paths for all published blog posts.
- * This function is REQUIRED for static export (`output: 'export'`).
  */
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
@@ -71,9 +71,17 @@ export default async function PostPage({ params }: PageProps) {
     });
 
   return (
-    // Reverted to the original light theme styling
     <div className='bg-gray-50 py-16 sm:py-24'>
       <article className='max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-lg'>
+        {/* --- BREADCRUMB --- */}
+        <nav className='mb-6 text-base text-slate-500'>
+          <Link href='/blog' className='hover:text-[var(--obl-blue)] hover:underline'>
+            Blog
+          </Link>
+          <span className='mx-2'>/</span>
+          <span className='font-medium text-slate-700'>{frontMatter.title}</span>
+        </nav>
+
         {/* --- HEADER --- */}
         <header className='mb-8 border-b border-gray-200 pb-6 text-center'>
           <h1 className='text-3xl font-extrabold tracking-tight text-[var(--obl-blue)] sm:text-4xl md:text-5xl'>
@@ -83,7 +91,6 @@ export default async function PostPage({ params }: PageProps) {
             <p>
               Published on {formatDate(frontMatter.date)} by {frontMatter.author}
             </p>
-            {/* Display last updated date if it exists on a new line */}
             {frontMatter.lastUpdated && (
               <p className='text-sm italic mt-1'>
                 (Updated on {formatDate(frontMatter.lastUpdated)})

@@ -70,6 +70,16 @@ export default async function PostPage({ params }: PageProps) {
       day: 'numeric',
     });
 
+  // Define a component for target blank on an external link
+  const components = {
+    a: (props: any) => {
+      if (props.href.startsWith('http')) {
+        return <a {...props} target='_blank' rel='noopener noreferrer' />;
+      }
+      return <Link {...props} />;
+    },
+  };
+
   return (
     <div className='bg-gray-50 py-16 sm:py-24'>
       <article className='max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-lg'>
@@ -129,7 +139,8 @@ export default async function PostPage({ params }: PageProps) {
             prose-pre:border prose-pre:rounded-lg
             prose-code:text-[var(--obl-red)]
           '>
-          <MDXRemote source={content} />
+          {/* Add the components prop to MDXRemote */}
+          <MDXRemote source={content} components={components} />
         </div>
 
         {/* --- TAGS --- */}

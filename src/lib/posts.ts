@@ -6,6 +6,13 @@ export interface FrontMatter {
   title: string;
   date: string;
   author: string;
+  summary: string;
+}
+
+// Define a type for a post that includes the slug and frontMatter
+export interface Post {
+  slug: string;
+  frontMatter: FrontMatter;
 }
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -22,7 +29,6 @@ function getMdxFiles(dir: string): string[] {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      // If it's a directory, recursively scan it and prepend the directory name.
       files = files.concat(getMdxFiles(fullPath).map((f) => path.join(entry.name, f)));
     } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
       files.push(entry.name);
@@ -37,9 +43,6 @@ export function getPostSlugs() {
   }
 
   const fileNames = getMdxFiles(postsDirectory);
-
-  // For a catch-all route, the slug needs to be an array of path segments.
-  // We split the file path by '/' and remove the '.mdx' extension.
   return fileNames.map((fileName) => ({
     slug: fileName.replace(/\.mdx$/, '').split('/'),
   }));
@@ -49,7 +52,6 @@ export function getPostSlugs() {
  * Gets the content and metadata for a single post by its full path slug.
  */
 export function getPostData(slug: string) {
-  // The slug is now the full path, e.g., "2025/08/test".
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 
   if (!fs.existsSync(fullPath)) {
@@ -63,4 +65,30 @@ export function getPostData(slug: string) {
     frontMatter: data as FrontMatter,
     content,
   };
+}
+
+/**
+ * Gets all posts, sorted by date.
+ */
+export function getAllPosts(): Post[] {
+  const slugs = getPostSlugs();
+
+  const posts = slugs
+    .map(({ slug }) => {
+      const fullPath = slug.join('/');
+      const postData = getPostData(fullPath);
+      console.log(`Processing post: ${fullPath}`, postData);
+      // Return a consistent shape, even if postData is null
+      return {
+        slug: fullPath,
+        frontMatter: postData?.frontMatter,
+      };
+    })
+    // Use a type predicate to filter and type guard
+    .filter((post): post is Post => post.frontMatter !== undefined && post.frontMatter !== null)
+    .sort(
+      (a, b) => new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
+    );
+
+  return posts;
 }

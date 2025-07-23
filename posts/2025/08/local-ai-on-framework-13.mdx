@@ -1,0 +1,194 @@
+---
+title: 'My DIY AI Powerhouse: A Guide to Local AI on a Framework 13 Laptop'
+date: '2025-08-04'
+author: 'Andrew Elbaneh'
+summary: 'Ever wanted to run your own private AI without a beefy GPU? I turned my Framework 13 laptop into a local AI server, and this guide shows you how I did it, step-by-step.'
+description: 'A complete, beginner-friendly guide to setting up a local AI server on a CPU-powered laptop. Learn how to install and configure Ollama, OpenWebUI (a ChatGPT-like interface), ComfyUI for image generation, and SearXNG for private search.'
+image: '/images/banners/blog/ai-laptop-banner.webp'
+imageLayout: 'banner'
+tags: ['AI', 'DIY', 'Tech Guide', 'Framework', 'CPU']
+status: 'draft'
+---
+
+I've always been fascinated by the idea of running my own private AI. No data sharing, no subscriptions, just pure, unadulterated access to powerful models right from my own machine. The only problem? Most guides out there are built for gaming rigs with massive, power-hungry GPUs.
+
+My daily driver is a Framework 13 laptop. It's a fantastic, repairable, and surprisingly powerful machine, but it's not a GPU monster. So, I set out on a mission: to build a complete local AI server that runs entirely on the CPU.
+
+And you know what? It works beautifully.
+
+This guide is the result of that experiment. I'll walk you through how I turned my laptop into a personal AI powerhouse, complete with a chat interface, image generation, and a private search engine.
+
+### My Laptop Specs
+
+First things first, here's the machine we're working with. While you don't need this exact setup, it helps to know what this guide was built on.
+
+- **System**: Framework Laptop 13
+- **Processor**: AMD Ryzen™ AI 7 350
+- **Memory (RAM)**: 32GB DDR5 5600MHz
+- **Storage (SSD)**: 4TB Crucial P3 Plus Gen4 NVMe M.2 SSD
+- **Display**: Matte Screen
+
+It's a solid, modern laptop, but the key here is that we're relying entirely on that powerful Ryzen CPU to do the heavy lifting.
+
+---
+
+## The Guide: Building Your CPU-Powered AI Server
+
+This process is broken down into a few key parts. We'll start with the foundation and build our way up to the fun stuff.
+
+### Step 1: Getting Docker Ready
+
+Think of Docker as a way to run apps in their own tidy little boxes, called containers. This keeps things clean and prevents them from messing with the rest of your computer. We'll use it for our web-based tools.
+
+1.  **Install Docker**: The best way to do this is to follow the official Docker installation guide for Ubuntu. It's a few command-line steps, but they walk you through it perfectly.
+2.  **Give Yourself Docker Powers**: To avoid typing `sudo` every time you use Docker, add your user to the `docker` group with this command:
+    ```bash
+    sudo usermod -aG docker ${USER}
+    ```
+    **Important**: You have to log out and log back in (or just restart your computer) for this change to take effect!
+
+### Step 2: Installing Ollama (The AI Brain)
+
+Ollama is the magic piece of software that will run the large language models (LLMs) on your computer's CPU.
+
+1.  **Install Ollama**: Pop open your terminal and run this command. It'll download and set up everything you need.
+    ```bash
+    curl -fsSL [https://ollama.com/install.sh](https://ollama.com/install.sh) | sh
+    ```
+2.  **Allow Network Access**: We need to tell Ollama it's okay to talk to our Docker containers. We do this by editing its service file.
+    ```bash
+    sudo nano /etc/systemd/system/ollama.service
+    ```
+    In the editor, find the `[Service]` section and add this line right below the other "Environment" line: `Environment="OLLAMA_HOST=0.0.0.0"`. Save the file with `Ctrl+O` and exit with `Ctrl+X`.
+3.  **Reload the Config**: Make the system aware of your changes.
+    ```bash
+    sudo systemctl daemon-reload
+    ```
+4.  **Stop it From Starting Automatically**: We want full control over when our AI server is running. This command will stop Ollama from starting up every time you boot your computer.
+    ```bash
+    sudo systemctl disable ollama
+    ```
+5.  **Download Your First Model**: Let's grab a model to play with. `llama3.1:8b` is a great starting point—it's powerful but still pretty snappy on a CPU.
+    ```bash
+    ollama run llama3.1:8b
+    ```
+    This will download the model and let you chat with it right in your terminal to confirm everything is working.
+
+### Step 3: Setting Up the Web Tools
+
+Now we'll create the containers for **OpenWebUI** (our ChatGPT-style interface) and **SearXNG** (our private search engine).
+
+1.  **Create a Folder for SearXNG**:
+    ```bash
+    mkdir -p ~/dev-ai/searxng
+    ```
+    And create an empty settings file inside it.
+2.  **Create the OpenWebUI Container**:
+    ```bash
+    docker run -d -p 716:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
+    ```
+3.  **Create the SearXNG Container**:
+    ```bash
+    docker run -d -p 4000:8080 --name searxng -v /home/bana/dev-ai/searxng/settings.yml:/etc/searxng/settings.yml searxng/searxng:latest
+    ```
+    It's totally normal for these containers to start and then immediately stop. Our control scripts will handle them from now on.
+
+### Step 4: Installing ComfyUI (For Image Generation)
+
+This part is the most detailed because getting image generation to work on a CPU requires a few specific steps to avoid errors.
+
+1.  **Get the Code and a Model**:
+    ```bash
+    mkdir -p ~/dev-ai/vision
+    cd ~/dev-ai/vision
+    git clone [https://github.com/comfyanonymous/ComfyUI.git](https://github.com/comfyanonymous/ComfyUI.git)
+    cd ~/dev-ai/vision/ComfyUI/models/checkpoints
+    wget [https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE/resolve/main/Realistic_Vision_V5.1.safetensors](https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE/resolve/main/Realistic_Vision_V5.1.safetensors) -O Realistic_Vision_V5.1.safetensors
+    ```
+2.  **Set Up a Clean Python Environment**: This keeps our ComfyUI installation separate from other Python projects.
+    ```bash
+    sudo apt install python3.12-venv
+    cd ~/dev-ai/vision/ComfyUI
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+3.  **Install CPU-Only PyTorch (CRITICAL STEP!)**: To avoid errors, we MUST install the CPU version of PyTorch _first_.
+    ```bash
+    pip install torch torchvision torchaudio --index-url [https://download.pytorch.org/whl/cpu](https://download.pytorch.org/whl/cpu)
+    ```
+4.  **Install Everything Else**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Step 5: Scripts for Easy Control
+
+Who wants to type all those commands every time? Not me. I created two simple scripts to start and stop all the AI services at once.
+
+1.  **Create a `start_ai_services.sh` script** in your `~/dev-ai` folder:
+    ```bash
+    #!/bin/bash
+    echo "--- Starting All AI Services ---"
+    sudo systemctl start ollama
+    sleep 2
+    docker start open-webui searxng
+    gnome-terminal -- bash -c "cd ~/dev-ai/vision/ComfyUI && source venv/bin/activate && echo 'ComfyUI is running...' && python3 main.py --cpu --listen; exec bash"
+    echo "--- Services are now running! ---"
+    echo "  - OpenWebUI: http://localhost:716"
+    echo "  - ComfyUI:   http://localhost:8188"
+    echo "  - SearXNG:   http://localhost:4000"
+    ```
+2.  **Create a `stop_ai_services.sh` script** in the same folder:
+    ```bash
+    #!/bin/bash
+    echo "--- Stopping All AI Services ---"
+    pkill -f "python3 main.py --cpu --listen"
+    docker stop open-webui searxng
+    sudo systemctl stop ollama
+    echo "--- All services stopped. ---"
+    ```
+3.  **Make them Executable**:
+    ```bash
+    chmod +x ~/dev-ai/start_ai_services.sh
+    chmod +x ~/dev-ai/stop_ai_services.sh
+    ```
+
+### Optional Step: One-Click Desktop Shortcuts
+
+To make things even easier, you can create desktop shortcuts to run these scripts.
+
+1.  **Create the Shortcut Files**: Right-click on your desktop and create two new empty files named `Start AI.desktop` and `Stop AI.desktop`.
+2.  **Edit the 'Start AI' Shortcut**: Open `Start AI.desktop` with a text editor and paste this in. **Remember to replace `bana` with your actual username!**
+    ```ini
+    [Desktop Entry]
+    Version=1.0
+    Name=Start AI Services
+    Comment=Starts all running AI services
+    Exec=gnome-terminal -- /home/bana/dev-ai/start_ai_services.sh
+    Icon=media-playback-start
+    Terminal=false
+    Type=Application
+    ```
+3.  **Edit the 'Stop AI' Shortcut**: Open `Stop AI.desktop` and paste this in, again replacing `bana` with your username.
+    ```ini
+    [Desktop Entry]
+    Version=1.0
+    Name=Stop AI Services
+    Comment=Stops all running AI services
+    Exec=gnome-terminal -- /home/bana/dev-ai/stop_ai_services.sh
+    Icon=media-playback-stop
+    Terminal=false
+    Type=Application
+    ```
+4.  **Make Them Executable**: For each new shortcut, right-click it, go to **Properties > Permissions**, and check the box that says **"Allow executing file as a program"**. You might need to right-click again and select "Allow Launching".
+
+### Final Step: Tying It All Together
+
+The first time you start your services, you'll need to configure OpenWebUI to talk to your other tools.
+
+1.  **Connect SearXNG**: Open your browser to `http://localhost:716`, create an account, and go to **Settings > Admin Panel > Web Search**. Enable it and set the "Searxng Query URL" to `http://host.docker.internal:4000/search?q=<query>`.
+2.  **Connect ComfyUI**: Go to **Settings > Admin Panel > Image Generation**. Enable it and set the "Image Generation URL" to `http://host.docker.internal:8188`.
+
+And that's it! You now have a fully functional, locally-hosted AI suite running on your laptop. You can chat with different models, generate images, and search the web privately.
+
+It's been an incredibly fun and rewarding project, and I hope this guide helps you build your own AI playground. Happy tinkering!

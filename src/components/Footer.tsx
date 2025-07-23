@@ -44,7 +44,7 @@ const Footer = () => {
           <div className='space-y-4 pr-4'>
             <Link href='/' className='flex items-center space-x-2 group'>
               <Image
-                src='/images/logos/one-buffalo-cartoon-no-text.svg'
+                src='/images/logos/no-text/one-buffalo-cartoon-no-text.svg'
                 alt='One Buffalo Labs Logo'
                 width={40}
                 height={40}

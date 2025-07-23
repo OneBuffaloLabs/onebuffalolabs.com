@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className='relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl mx-auto'>
         {/* Company Logo */}
         <Image
-          src='/images/logos/one-buffalo-cartoon-no-text.svg'
+          src='/images/logos/no-text/one-buffalo-cartoon-no-text.svg'
           alt='One Buffalo Labs Logo'
           width={150}
           height={150}

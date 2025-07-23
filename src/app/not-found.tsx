@@ -8,7 +8,7 @@ export default function NotFoundPage() {
       {/* Background Watermark Logo */}
       <div className='absolute inset-0 z-0 flex items-center justify-center'>
         <Image
-          src='/images/logos/one-buffalo-cartoon-no-text.svg'
+          src='/images/logos/no-text/one-buffalo-cartoon-no-text.svg'
           alt='One Buffalo Labs Mascot'
           width={500}
           height={500}

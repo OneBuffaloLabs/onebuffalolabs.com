@@ -6,32 +6,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-// --- Navigation Links Data ---
-const homeNavLinks = [
-  { name: 'Services', href: '#services' },
-  { name: 'Process', href: '#process' },
-  { name: 'About', href: '#about' },
-  { name: 'Partners', href: '#partners' },
-  { name: 'Our Labs', href: '/labs' },
-];
-
-const secondaryNavLinks = [
-  { name: 'Home', href: '/' },
+// --- Unified Navigation Links ---
+const navLinks = [
   { name: 'Services', href: '/services' },
+  { name: 'Portfolio', href: '/portfolio' },
   { name: 'Our Labs', href: '/labs' },
+  { name: 'Blog', href: '/blog' },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Get the current path to determine which links to show
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
 
-  // Choose the correct set of navigation links based on the current page
-  const navLinks = isHomePage ? homeNavLinks : secondaryNavLinks;
-
+  // Effect to handle header background style on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -40,28 +28,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    if (isHomePage) {
-      const sectionId = href.substring(1);
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on a secondary page, navigate to home and then scroll
-      window.location.href = `/${href}`;
-    }
-
+  // Close mobile menu on page change
+  useEffect(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
-  };
-
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, [pathname]);
 
   return (
     <>
@@ -75,59 +47,47 @@ const Header = () => {
           <div className='flex items-center justify-between h-20'>
             {/* Logo */}
             <div className='flex-shrink-0'>
-              {isHomePage ? (
-                <a href='#hero' onClick={scrollToTop} className='flex items-center space-x-2'>
-                  <Image
-                    src='/images/logos/one-buffalo-cartoon-no-text.svg'
-                    alt='One Buffalo Labs Logo'
-                    width={50}
-                    height={50}
-                  />
-                  <span className='font-bold text-xl hidden sm:inline text-white'>
-                    One Buffalo Labs
-                  </span>
-                </a>
-              ) : (
-                <Link href='/' className='flex items-center space-x-2'>
-                  <Image
-                    src='/images/logos/one-buffalo-cartoon-no-text.svg'
-                    alt='One Buffalo Labs Logo'
-                    width={50}
-                    height={50}
-                  />
-                  <span className='font-bold text-xl hidden sm:inline text-white'>
-                    One Buffalo Labs
-                  </span>
-                </Link>
-              )}
+              <Link href='/' className='flex items-center space-x-2'>
+                <Image
+                  src='/images/logos/no-text/one-buffalo-cartoon-no-text-trans.webp'
+                  alt='One Buffalo Labs Logo'
+                  width={70}
+                  height={70}
+                />
+                <span className='font-bold text-xl hidden sm:inline text-white'>
+                  One Buffalo Labs
+                </span>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav className='hidden lg:flex items-center space-x-8'>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) =>
-                    isHomePage && link.href.startsWith('#')
-                      ? handleScrollToSection(e, link.href)
-                      : undefined
-                  }
-                  className='text-gray-300 hover:text-[var(--obl-red)] transition-colors duration-200 font-medium relative group'>
-                  {link.name}
-                  <span className='absolute bottom-0 left-0 w-full h-0.5 bg-[var(--obl-red)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center'></span>
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`font-medium relative group transition-colors duration-200 ${
+                      isActive ? 'text-white' : 'text-gray-300 hover:text-[var(--obl-red)]'
+                    }`}>
+                    {link.name}
+                    <span
+                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-[var(--obl-red)] transition-transform duration-300 ease-out origin-center ${
+                        isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}></span>
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* CTA Button - Desktop */}
             <div className='hidden lg:block'>
-              <a
-                href={isHomePage ? '#contact' : '/#contact'}
-                onClick={(e) => (isHomePage ? handleScrollToSection(e, '#contact') : undefined)}
+              <Link
+                href='/#contact'
                 className='px-6 py-2 bg-[var(--obl-red)] text-white rounded-full font-semibold shadow-md transition-all duration-300 hover:bg-[var(--obl-red)]/90 hover:scale-105'>
                 Start Your Project
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -168,29 +128,15 @@ const Header = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={(e) => {
-                  if (isHomePage && link.href.startsWith('#')) {
-                    handleScrollToSection(e, link.href);
-                  } else {
-                    setIsMenuOpen(false);
-                  }
-                }}
                 className='text-2xl font-bold text-gray-200 hover:text-[var(--obl-red)] transition-colors'>
                 {link.name}
               </Link>
             ))}
-            <a
-              href={isHomePage ? '#contact' : '/#contact'}
-              onClick={(e) => {
-                if (isHomePage) {
-                  handleScrollToSection(e, '#contact');
-                } else {
-                  setIsMenuOpen(false);
-                }
-              }}
+            <Link
+              href='/#contact'
               className='mt-8 px-8 py-3 bg-[var(--obl-red)] text-white rounded-full font-semibold shadow-lg transition-all duration-300 hover:bg-[var(--obl-red)]/90 hover:scale-105'>
               Start Your Project
-            </a>
+            </Link>
           </nav>
         </div>
       </div>

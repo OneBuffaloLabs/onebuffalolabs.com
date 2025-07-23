@@ -28,16 +28,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  // Use the new frontmatter fields for richer metadata
   return {
     title: post.frontMatter.title,
-    description: post.frontMatter.description,
-    keywords: post.frontMatter.tags,
+    description: post.frontMatter.description, // Using the dedicated description field
+    keywords: post.frontMatter.tags, // Adding tags as keywords for SEO
   };
 }
 
 /**
- * This is the function the build process is looking for.
- * It generates the static paths for all published blog posts.
+ * This function generates the static paths for all published blog posts.
  * This function is REQUIRED for static export (`output: 'export'`).
  */
 export async function generateStaticParams() {
@@ -57,7 +57,7 @@ export default async function PostPage({ params }: PageProps) {
   const fullPath = params.slug.join('/');
   const post = getPostData(fullPath);
 
-  // Ensure the post exists and is published, otherwise show a 404 page.
+  // Ensure post exists and is published
   if (!post || post.frontMatter.status !== 'published') {
     notFound();
   }
@@ -71,22 +71,24 @@ export default async function PostPage({ params }: PageProps) {
     });
 
   return (
-    // Using the original light theme as requested
+    // Reverted to the original light theme styling
     <div className='bg-gray-50 py-16 sm:py-24'>
       <article className='max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-lg'>
-        <header className='mb-8 border-b border-gray-200 pb-6'>
+        {/* --- HEADER --- */}
+        <header className='mb-8 border-b border-gray-200 pb-6 text-center'>
           <h1 className='text-3xl font-extrabold tracking-tight text-[var(--obl-blue)] sm:text-4xl md:text-5xl'>
             {frontMatter.title}
           </h1>
-          <div className='mt-3 text-base text-slate-600'>
-            <span>Published on {formatDate(frontMatter.date)}</span>
+          <div className='mt-4 text-base text-slate-600'>
+            <p>
+              Published on {formatDate(frontMatter.date)} by {frontMatter.author}
+            </p>
+            {/* Display last updated date if it exists on a new line */}
             {frontMatter.lastUpdated && (
-              <span className='ml-4 italic'>
+              <p className='text-sm italic mt-1'>
                 (Updated on {formatDate(frontMatter.lastUpdated)})
-              </span>
+              </p>
             )}
-            <span className='mx-2'>by</span>
-            <span>{frontMatter.author}</span>
           </div>
         </header>
 
@@ -96,14 +98,15 @@ export default async function PostPage({ params }: PageProps) {
             <Image
               src={frontMatter.image}
               alt={`${frontMatter.title} cover image`}
-              width={1200} // Provide a base width for Next.js to optimize
-              height={630} // Provide a base height to calculate aspect ratio
+              width={1200}
+              height={630}
               className='w-full h-auto'
               priority
             />
           </div>
         )}
 
+        {/* --- MDX CONTENT --- */}
         <div
           className='
             prose
@@ -122,6 +125,7 @@ export default async function PostPage({ params }: PageProps) {
           <MDXRemote source={content} />
         </div>
 
+        {/* --- TAGS --- */}
         <footer className='mt-10 pt-6 border-t border-gray-200'>
           <p className='text-sm text-slate-500 mb-3'>Tagged in:</p>
           <div className='flex flex-wrap gap-2'>

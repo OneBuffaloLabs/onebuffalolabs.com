@@ -3,13 +3,11 @@ import { getPostData, getPostSlugs } from '@/lib/posts';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-// This setting tells Next.js to only build pages for slugs
-// returned by generateStaticParams, which is correct for a static export.
 export const dynamicParams = false;
 
-// This type definition is the key to solving the `npm run build` type error.
+// The props type now expects `slug` to be an array of strings.
 type PageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 };
 
 /**
@@ -17,7 +15,10 @@ type PageProps = {
  */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostData(slug);
+  // The slug is now an array of path segments (e.g., ['2025', '08', 'test']).
+  // We join them to form the full path used for data fetching.
+  const fullPath = slug.join('/');
+  const post = getPostData(fullPath);
 
   if (!post) {
     return {
@@ -43,7 +44,9 @@ export async function generateStaticParams() {
  */
 export default async function PostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = getPostData(slug);
+  // Join the array of path segments to get the full slug.
+  const fullPath = slug.join('/');
+  const post = getPostData(fullPath);
 
   if (!post) {
     notFound();
@@ -52,18 +55,13 @@ export default async function PostPage({ params }: PageProps) {
   const { frontMatter, content } = post;
 
   return (
-    // Main wrapper using a light gray background.
+    // The styles remain the same.
     <div className='bg-gray-50 py-16 sm:py-24'>
-      <article
-        // The article card has a white background to contrast with the page
-        // and create a clean, elevated look with the shadow.
-        className='max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-lg'>
+      <article className='max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-lg'>
         <header className='mb-8 border-b border-gray-200 pb-6'>
-          {/* Use the vibrant --obl-blue for the main heading to make it pop. */}
           <h1 className='text-3xl font-extrabold tracking-tight text-[var(--obl-blue)] sm:text-4xl md:text-5xl'>
             {frontMatter.title}
           </h1>
-          {/* Byline text is now slightly darker for better contrast. */}
           <p className='mt-3 text-base text-slate-600'>
             Published on{' '}
             {new Date(frontMatter.date).toLocaleDateString('en-US', {
@@ -74,9 +72,6 @@ export default async function PostPage({ params }: PageProps) {
             by {frontMatter.author}
           </p>
         </header>
-
-        {/* This div applies typographic defaults. We are now directly overriding
-            the CSS variables for code blocks to ensure our styles apply. */}
         <div
           className='
           prose

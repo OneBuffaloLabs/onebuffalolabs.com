@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
 :root {
   /* Consolidate all custom colors here for direct CSS variable access */

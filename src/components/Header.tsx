@@ -78,7 +78,7 @@ const Header = () => {
               {isHomePage ? (
                 <a href='#hero' onClick={scrollToTop} className='flex items-center space-x-2'>
                   <Image
-                    src='/images/logos/one-buffalo-cartoon-no-text.svg'
+                    src='/images/logos/no-text/one-buffalo-cartoon-no-text.svg'
                     alt='One Buffalo Labs Logo'
                     width={50}
                     height={50}
@@ -90,7 +90,7 @@ const Header = () => {
               ) : (
                 <Link href='/' className='flex items-center space-x-2'>
                   <Image
-                    src='/images/logos/one-buffalo-cartoon-no-text.svg'
+                    src='/images/logos/no-text/one-buffalo-cartoon-no-text.svg'
                     alt='One Buffalo Labs Logo'
                     width={50}
                     height={50}

@@ -5,11 +5,16 @@ import matter from 'gray-matter';
 export interface FrontMatter {
   title: string;
   date: string;
+  lastUpdated?: string;
   author: string;
   summary: string;
+  description: string;
+  image?: string;
+  imageLayout?: 'banner' | 'icon'; // Add new layout field
+  tags: string[];
+  status: 'draft' | 'published';
 }
 
-// Define a type for a post that includes the slug and frontMatter
 export interface Post {
   slug: string;
   frontMatter: FrontMatter;
@@ -17,11 +22,8 @@ export interface Post {
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-/**
- * Recursively scans a directory to find all MDX file paths.
- * @param dir The directory to scan.
- * @returns An array of file paths relative to the initial directory.
- */
+// ... (The rest of the file remains the same)
+
 function getMdxFiles(dir: string): string[] {
   let files: string[] = [];
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -48,9 +50,6 @@ export function getPostSlugs() {
   }));
 }
 
-/**
- * Gets the content and metadata for a single post by its full path slug.
- */
 export function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 
@@ -67,9 +66,6 @@ export function getPostData(slug: string) {
   };
 }
 
-/**
- * Gets all posts, sorted by date.
- */
 export function getAllPosts(): Post[] {
   const slugs = getPostSlugs();
 
@@ -77,15 +73,14 @@ export function getAllPosts(): Post[] {
     .map(({ slug }) => {
       const fullPath = slug.join('/');
       const postData = getPostData(fullPath);
-      console.log(`Processing post: ${fullPath}`, postData);
-      // Return a consistent shape, even if postData is null
       return {
         slug: fullPath,
         frontMatter: postData?.frontMatter,
       };
     })
-    // Use a type predicate to filter and type guard
-    .filter((post): post is Post => post.frontMatter !== undefined && post.frontMatter !== null)
+    .filter((post): post is Post => {
+      return post.frontMatter?.status === 'published';
+    })
     .sort(
       (a, b) => new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
     );

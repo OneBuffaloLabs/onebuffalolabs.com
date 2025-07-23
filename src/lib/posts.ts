@@ -22,10 +22,11 @@ export function getPostSlugs() {
 
 /**
  * Gets the content and metadata for a single post by slug.
+ * This function is now synchronous as it uses readFileSync, which is more accurate
+ * and helps simplify type inference in the page component.
  * If the post is not found, it returns null instead of throwing an error.
- * This is a more robust pattern for the Next.js App Router.
  */
-export async function getPostData(slug: string) {
+export function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 
   if (!fs.existsSync(fullPath)) {

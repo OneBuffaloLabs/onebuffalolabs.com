@@ -1,19 +1,10 @@
-import type { NextConfig } from 'next';
-import nextMdx from '@next/mdx';
+import createMDX from '@next/mdx';
 import rehypeHighlight from 'rehype-highlight';
+import type { NextConfig } from 'next';
 
-// Configure MDX
-const withMdx = nextMdx({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [rehypeHighlight],
-  },
-});
-
-// Main Next.js configuration
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
+  // Your existing Next.js config
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
@@ -23,7 +14,17 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure pageExtensions is here, inside the main config object.
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 };
 
-// Export the combined configuration
-export default withMdx(nextConfig);
+// This function configures MDX support.
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
+});
+
+// Export the final configuration by wrapping it with the MDX plugin.
+export default withMDX(nextConfig);

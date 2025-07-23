@@ -90,13 +90,15 @@ export default async function PostPage({ params }: PageProps) {
           </div>
         </header>
 
+        {/* --- BANNER IMAGE --- */}
         {frontMatter.image && frontMatter.imageLayout !== 'icon' && (
-          <div className='relative h-64 md:h-96 w-full rounded-lg overflow-hidden mb-8'>
+          <div className='relative w-full rounded-lg overflow-hidden mb-8'>
             <Image
               src={frontMatter.image}
               alt={`${frontMatter.title} cover image`}
-              fill
-              style={{ objectFit: 'cover' }}
+              width={1200} // Provide a base width for Next.js to optimize
+              height={630} // Provide a base height to calculate aspect ratio
+              className='w-full h-auto'
               priority
             />
           </div>

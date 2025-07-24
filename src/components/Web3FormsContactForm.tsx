@@ -68,9 +68,10 @@ const Web3FormsContactForm = () => {
           <span className='block sm:inline ml-2'>Please wait.</span>
         </div>
       )}
-      <form onSubmit={handleSubmit} className='space-y-4 flex-grow flex flex-col justify-between'>
-        {/* Name field */}
-        <div>
+      {/* Removed flex-grow and justify-between from the form */}
+      <form onSubmit={handleSubmit} className='flex flex-col'>
+        {/* Name field - added mb-4 for spacing */}
+        <div className='mb-4'>
           <label htmlFor='name' className='block text-gray-700 text-sm font-semibold mb-2'>
             Name
           </label>
@@ -83,8 +84,8 @@ const Web3FormsContactForm = () => {
             aria-label='Your Name'
           />
         </div>
-        {/* Email field */}
-        <div>
+        {/* Email field - added mb-4 for spacing */}
+        <div className='mb-4'>
           <label htmlFor='email' className='block text-gray-700 text-sm font-semibold mb-2'>
             Email
           </label>
@@ -97,8 +98,8 @@ const Web3FormsContactForm = () => {
             aria-label='Your Email'
           />
         </div>
-        {/* Message field */}
-        <div>
+        {/* Message field - added mb-6 for spacing before the button */}
+        <div className='mb-6'>
           <label htmlFor='message' className='block text-gray-700 text-sm font-semibold mb-2'>
             Message
           </label>
@@ -113,7 +114,7 @@ const Web3FormsContactForm = () => {
         {/* Submit button */}
         <button
           type='submit'
-          className='w-full bg-[var(--obl-blue)] hover:bg-[var(--obl-red)] text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--obl-red)] focus:ring-offset-2 transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed mt-auto'
+          className='w-full bg-[var(--obl-blue)] hover:bg-[var(--obl-red)] text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--obl-red)] focus:ring-offset-2 transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed'
           disabled={status === 'sending'}
           aria-label='Send Message'>
           {status === 'sending' ? 'Sending...' : 'Send Message'}

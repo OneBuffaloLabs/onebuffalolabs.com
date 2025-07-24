@@ -1,9 +1,9 @@
 // --- Next ---
 import type { Metadata } from 'next';
-import Script from 'next/script';
 // --- Components ---
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import AnalyticsInitializer from '@/components/AnalyticsInitializer';
 // --- Fonts ---
 import { Geist, Geist_Mono } from 'next/font/google';
 // --- Utils ---
@@ -34,24 +34,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-
-        {/* Google Analytics Scripts - Only loads in production */}
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <Script
-              strategy='afterInteractive'
-              src='https://www.googletagmanager.com/gtag/js?id=G-BQSX9D3LMP'
-            />
-            <Script id='google-analytics' strategy='afterInteractive'>
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-BQSX9D3LMP');
-              `}
-            </Script>
-          </>
-        )}
+        <AnalyticsInitializer />
       </body>
     </html>
   );

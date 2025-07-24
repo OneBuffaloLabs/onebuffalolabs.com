@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,18 +11,9 @@ import {
   faInstagram,
   faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
+import Web3FormsContactForm from '@/components/Web3FormsContactForm';
 
-// --- Type definition for the Tally object on the window ---
-interface Tally {
-  loadEmbeds: () => void;
-}
-
-declare global {
-  interface Window {
-    Tally?: Tally;
-  }
-}
-
+// Social media links data
 const socialLinks = [
   {
     name: 'LinkedIn',
@@ -56,48 +47,7 @@ const socialLinks = [
   },
 ];
 
-// --- A dedicated component to handle the Tally form embed script ---
-const TallyEmbed = () => {
-  useEffect(() => {
-    const scriptId = 'tally-embed-script';
-    const scriptSrc = 'https://tally.so/widgets/embed.js';
-
-    const loadTally = () => {
-      if (typeof window.Tally !== 'undefined') {
-        window.Tally.loadEmbeds();
-      }
-    };
-
-    if (document.getElementById(scriptId)) {
-      loadTally();
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.id = scriptId;
-    script.src = scriptSrc;
-    script.onload = loadTally;
-    script.onerror = () => console.error('Failed to load Tally script.');
-    document.body.appendChild(script);
-
-    return () => {
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-      }
-    };
-  }, []);
-
-  return (
-    <iframe
-      data-tally-src='https://tally.so/embed/310dAQ?hideTitle=1'
-      loading='lazy'
-      width='100%'
-      height='100%'
-      title='Contact Us Form'
-      className='h-full w-full'></iframe>
-  );
-};
-
+// --- Main ContactSection Component ---
 const ContactSection = () => {
   return (
     <section id='contact' className='w-full bg-white py-16 px-8'>
@@ -161,8 +111,9 @@ const ContactSection = () => {
 
           {/* Right Column: Embedded Form */}
           <div className='bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 shadow-lg'>
+            {/* The Web3FormsContactForm component is now directly rendered here */}
             <div className='h-[550px] overflow-hidden rounded-md'>
-              <TallyEmbed />
+              <Web3FormsContactForm />
             </div>
           </div>
         </div>

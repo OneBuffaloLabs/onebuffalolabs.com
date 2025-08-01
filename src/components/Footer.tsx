@@ -10,12 +10,17 @@ import {
   faXTwitter,
   faGithub,
   faInstagram,
+  faFacebookF,
+  faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
 
 // --- Data for links to keep JSX clean ---
 const mainFooterLinks = [
   { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Portfolio', href: '/portfolio' },
   { name: 'Our Labs', href: '/labs' },
+  { name: 'Blog', href: '/blog' },
 ];
 
 const legalLinks = [
@@ -29,9 +34,31 @@ const socialLinks = [
     icon: faLinkedinIn,
     url: 'https://www.linkedin.com/company/one-buffalo-labs',
   },
-  { name: 'Twitter', icon: faXTwitter, url: 'https://x.com/OneBuffaloLabs' },
-  { name: 'GitHub', icon: faGithub, url: 'https://github.com/OneBuffaloLabs' },
-  { name: 'Instagram', icon: faInstagram, url: 'https://www.instagram.com/onebuffalolabs/' },
+  {
+    name: 'Twitter',
+    icon: faXTwitter,
+    url: 'https://x.com/OneBuffaloLabs',
+  },
+  {
+    name: 'GitHub',
+    icon: faGithub,
+    url: 'https://github.com/OneBuffaloLabs',
+  },
+  {
+    name: 'Facebook',
+    icon: faFacebookF,
+    url: 'https://www.facebook.com/profile.php?id=61578291081644',
+  },
+  {
+    name: 'Instagram',
+    icon: faInstagram,
+    url: 'https://www.instagram.com/onebuffalolabs/',
+  },
+  {
+    name: 'Bluesky',
+    icon: faBluesky,
+    url: 'https://bsky.app/profile/onebuffalolabs.com',
+  },
 ];
 
 const Footer = () => {

@@ -29,7 +29,7 @@
   },
   {
     "title": "Vitals",
-    "description": "A lightweight and privacy-focused uptime monitoring and status page, perfect for keeping track of your websites and services.",
+    "description": "Vitals is a privacy-focused SEO tool that performs all analysis directly in your browser. Nothing is stored on a server. It provides an instant health check of a website's most critical elements.",
     "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
     "githubUrl": "https://github.com/OneBuffaloLabs/vitals",
     "link": "https://vitals.onebuffalolabs.com/"

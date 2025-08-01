@@ -1,5 +1,9 @@
+'use client';
+
 // --- Next ---
 import Image from 'next/image';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 const HeroSection = () => {
   return (
@@ -39,12 +43,14 @@ const HeroSection = () => {
         <div className='flex flex-col sm:flex-row gap-4 pt-4'>
           <a
             href='#contact'
+            onClick={() => logEvent('cta_click', 'consultation_hero', 'Get a Free Consultation')}
             className='!px-10 !py-4 bg-[var(--obl-red)] text-white !rounded-full text-lg font-semibold shadow-lg transition-all
                                              duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
             Get a Free Consultation
           </a>
           <a
             href='#services'
+            onClick={() => logEvent('cta_click', 'explore_services_hero', 'Explore Our Services')}
             className='!px-10 !py-4 bg-transparent border-2 border-[var(--obl-blue)] text-[var(--obl-blue)] !rounded-full
                                             text-lg font-semibold transition-all duration-300 ease-in-out hover:bg-[var(--obl-blue)] hover:text-white hover:scale-105'>
             Explore Our Services

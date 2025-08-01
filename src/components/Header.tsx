@@ -70,6 +70,7 @@ const Header = () => {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={() => logEvent('navigation_click', 'header_link', link.name)}
                     className={`font-medium relative group transition-colors duration-200 ${
                       isActive ? 'text-white' : 'text-gray-300 hover:text-[var(--obl-red)]'
                     }`}>

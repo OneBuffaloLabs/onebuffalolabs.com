@@ -13,6 +13,8 @@ import {
   faFacebookF,
   faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 // --- Data for links to keep JSX clean ---
 const mainFooterLinks = [
@@ -93,6 +95,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    onClick={() => logEvent('navigation_click', 'footer_link', link.name)}
                     className='text-gray-400 hover:text-[var(--obl-red)] transition-colors'>
                     {link.name}
                   </Link>
@@ -149,6 +152,7 @@ const Footer = () => {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={() => logEvent('navigation_click', 'footer_link', link.name)}
                 className='text-gray-500 hover:text-[var(--obl-red)] transition-colors'>
                 {link.name}
               </Link>

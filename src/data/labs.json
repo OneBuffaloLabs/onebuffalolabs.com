@@ -1,5 +1,12 @@
 [
   {
+    "title": "OneBuffaloGames",
+    "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
+    "link": "https://onebuffalogames.com/"
+  },
+  {
     "title": "SiloCityPages",
     "description": "SiloCityPages is a lightning-fast, zero-configuration static site generator from SiloCityLabs. It's built with Bootstrap, React, and Next.js, making it ideal for creating sleek documentation sites that deploy effortlessly to GitHub Pages.",
     "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],

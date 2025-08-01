@@ -131,6 +131,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.url}
+                  onClick={() => logEvent('social_link_click', 'social_footer_link', social.name)}
                   target='_blank'
                   rel='noopener noreferrer'
                   aria-label={social.name}

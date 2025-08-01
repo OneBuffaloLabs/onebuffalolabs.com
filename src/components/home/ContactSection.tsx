@@ -12,6 +12,8 @@ import {
   faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
 import Web3FormsContactForm from '@/components/Web3FormsContactForm';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 // Social media links data
 const socialLinks = [
@@ -98,6 +100,9 @@ const ContactSection = () => {
                   <a
                     key={social.name}
                     href={social.url}
+                    onClick={() =>
+                      logEvent('social_link_click', 'social_contact_link', social.name)
+                    }
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label={social.name}

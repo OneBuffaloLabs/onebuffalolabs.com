@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 // --- Unified Navigation Links ---
 const navLinks = [
@@ -28,7 +30,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on page change
+  // Close mobile menu on page change (good fallback)
   useEffect(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -85,6 +87,10 @@ const Header = () => {
             <div className='hidden lg:block'>
               <Link
                 href='/#contact'
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  logEvent('cta_click', 'start_project_header', 'Start Your Project');
+                }}
                 className='px-6 py-2 bg-[var(--obl-red)] text-white rounded-full font-semibold shadow-md transition-all duration-300 hover:bg-[var(--obl-red)]/90 hover:scale-105'>
                 Start Your Project
               </Link>
@@ -94,7 +100,7 @@ const Header = () => {
             <div className='lg:hidden flex items-center'>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white z-50'
+                className='inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white z-50 cursor-pointer'
                 aria-expanded={isMenuOpen}>
                 <span className='sr-only'>Open main menu</span>
                 <div className='w-6 h-6 flex flex-col justify-around'>
@@ -128,12 +134,17 @@ const Header = () => {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={() => setIsMenuOpen(false)}
                 className='text-2xl font-bold text-gray-200 hover:text-[var(--obl-red)] transition-colors'>
                 {link.name}
               </Link>
             ))}
             <Link
               href='/#contact'
+              onClick={() => {
+                setIsMenuOpen(false);
+                logEvent('cta_click', 'start_project_mobile', 'Start Your Project');
+              }}
               className='mt-8 px-8 py-3 bg-[var(--obl-red)] text-white rounded-full font-semibold shadow-lg transition-all duration-300 hover:bg-[var(--obl-red)]/90 hover:scale-105'>
               Start Your Project
             </Link>

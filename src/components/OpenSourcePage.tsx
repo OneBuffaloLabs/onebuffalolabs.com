@@ -1,10 +1,13 @@
 'use client';
 
+// --- React & Next ---
+import React from 'react';
 // --- Icons ---
 import { Github, GitFork, ExternalLink } from 'lucide-react';
 // --- Data ---
-// Assuming labs.json is in /src/data/ and contains a root "projects" array.
 import LABS_PROJECTS from '@/data/labs.json';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 const GITHUB_ORGS = [
   {
@@ -58,6 +61,7 @@ export default function OpenSourcePage() {
                   href={org.url}
                   target='_blank'
                   rel='noopener noreferrer'
+                  onClick={() => logEvent('open_source_page', 'github_org_click', org.name)}
                   className='block p-6 bg-white/5 border border-white/10 rounded-lg transition-all duration-300 hover:border-[var(--obl-blue)] hover:bg-white/10'>
                   <div className='flex items-center mb-2'>
                     <org.icon className='w-6 h-6 mr-3 text-[var(--obl-blue)]' />
@@ -78,7 +82,6 @@ export default function OpenSourcePage() {
                 <div className='p-6 flex-grow flex flex-col'>
                   {/* Card Header */}
                   <div className='flex-grow'>
-                    {/* CORRECTED: Added gradient styling to the project title */}
                     <h3 className='text-2xl font-bold mb-2 text-center bg-gradient-to-r from-[var(--obl-blue)] to-[var(--obl-red)] bg-clip-text text-transparent'>
                       {project.title}
                     </h3>
@@ -107,6 +110,9 @@ export default function OpenSourcePage() {
                     href={project.githubUrl}
                     target='_blank'
                     rel='noopener noreferrer'
+                    onClick={() =>
+                      logEvent('open_source_page', 'project_github_click', project.title)
+                    }
                     className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
                     <Github className='w-5 h-5 mr-2' />
                     View on GitHub
@@ -117,6 +123,9 @@ export default function OpenSourcePage() {
                       href={project.link}
                       target='_blank'
                       rel='noopener noreferrer'
+                      onClick={() =>
+                        logEvent('open_source_page', 'project_demo_click', project.title)
+                      }
                       className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
                       Live Demo
                       <ExternalLink className='w-5 h-5 ml-1' />

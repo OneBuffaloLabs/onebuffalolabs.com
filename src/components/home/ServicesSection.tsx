@@ -3,6 +3,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Code, Search, Brain, LucideIcon, ArrowRight } from 'lucide-react';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -53,6 +55,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     <Link
       href={href}
       ref={cardRef}
+      onClick={() => logEvent('services_section_home', 'card_click', title)}
       className={`
         group bg-white p-8 rounded-lg shadow-md border border-gray-200 transition-all duration-500 ease-in-out
         hover:shadow-xl hover:-translate-y-1 hover:border-[var(--obl-blue)] focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--obl-blue)]
@@ -138,6 +141,7 @@ const ServicesSection = () => {
         <div className='text-center mt-16'>
           <Link
             href='/services'
+            onClick={() => logEvent('services_section_home', 'card_click', 'View All Services')}
             className='inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-[var(--obl-red)] rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-105'>
             View All Our Services
             <ArrowRight className='ml-2 h-5 w-5' />

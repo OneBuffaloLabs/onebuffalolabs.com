@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+// --- Analytics ---
+import { logEvent } from '@/lib/analytics';
 
 const Web3FormsContactForm = () => {
   const [status, setStatus] = useState(''); // State to manage form submission status
@@ -24,14 +26,17 @@ const Web3FormsContactForm = () => {
 
       if (response.ok) {
         setStatus('success'); // Set status to success
+        logEvent('contact_form', 'submit_success', 'Message sent successfully');
         form.reset(); // Clear the form fields
       } else {
         const result = await response.json(); // Get error details from response
         setStatus('error'); // Set status to error
+        logEvent('contact_form', 'submit_error', `API Error: ${result.message}`);
         console.error('Web3Forms error:', result); // Log the error to console for debugging
       }
     } catch (error) {
       setStatus('error'); // Set status to error
+      logEvent('contact_form', 'submit_error', 'Network or client-side error');
       console.error('Network or other error:', error); // Log the error to console for debugging
     }
   };
@@ -68,9 +73,9 @@ const Web3FormsContactForm = () => {
           <span className='block sm:inline ml-2'>Please wait.</span>
         </div>
       )}
-      {/* Removed flex-grow and justify-between from the form */}
+      {/* Form */}
       <form onSubmit={handleSubmit} className='flex flex-col'>
-        {/* Name field - added mb-4 for spacing */}
+        {/* Name field */}
         <div className='mb-4'>
           <label htmlFor='name' className='block text-gray-700 text-sm font-semibold mb-2'>
             Name
@@ -84,7 +89,7 @@ const Web3FormsContactForm = () => {
             aria-label='Your Name'
           />
         </div>
-        {/* Email field - added mb-4 for spacing */}
+        {/* Email field */}
         <div className='mb-4'>
           <label htmlFor='email' className='block text-gray-700 text-sm font-semibold mb-2'>
             Email
@@ -98,7 +103,7 @@ const Web3FormsContactForm = () => {
             aria-label='Your Email'
           />
         </div>
-        {/* Message field - added mb-6 for spacing before the button */}
+        {/* Message field */}
         <div className='mb-6'>
           <label htmlFor='message' className='block text-gray-700 text-sm font-semibold mb-2'>
             Message

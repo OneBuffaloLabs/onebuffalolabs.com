@@ -1,6 +1,6 @@
 [
   {
-    "title": "OneBuffaloGames",
+    "title": "One Buffalo Games",
     "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
     "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
     "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
@@ -26,6 +26,13 @@
     "tech": ["React", "PouchDB", "Bootstrap", "Next.js"],
     "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
     "link": "https://filameter.com"
+  },
+  {
+    "title": "Vitals",
+    "description": "A lightweight and privacy-focused uptime monitoring and status page, perfect for keeping track of your websites and services.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/vitals",
+    "link": "https://vitals.onebuffalolabs.com/"
   },
   {
     "title": "RoyalHub",

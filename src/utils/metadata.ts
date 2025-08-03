@@ -18,7 +18,7 @@ const TWITTER_CREATOR = '@onebuffalolabs';
 const DEFAULT_TITLE = "One Buffalo Labs | Powering Buffalo's Digital Future";
 const DEFAULT_DESCRIPTION =
   'One Buffalo Labs is a cutting-edge tech agency specializing in web development, app development, AI integration, and SEO optimization. We design, develop, and optimize digital solutions for businesses in Buffalo and beyond, driving growth and efficiency.';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/images/logos/one-buffalo-cartoon.jpg`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/images/logos/top-text/one-buffalo-cartoon-top-text-white.png`;
 const DEFAULT_KEYWORDS = [
   'One Buffalo Labs',
   'Buffalo tech agency',
@@ -53,11 +53,15 @@ export function generateMetadata({
   const pageDescription = description || DEFAULT_DESCRIPTION;
   const pageUrl = `${BASE_URL}${urlPath}`;
   const allKeywords = [...new Set([...DEFAULT_KEYWORDS, ...keywords])];
-
-  // Determine which image to use: the specific page image or the default one.
   const ogImageUrl = imageUrl ? `${BASE_URL}${imageUrl}` : DEFAULT_OG_IMAGE;
 
   return {
+    // This tells Next.js the base URL for resolving all relative paths.
+    metadataBase: new URL(BASE_URL),
+    // Sets the canonical URL to prevent SEO penalties from duplicate content.
+    alternates: {
+      canonical: pageUrl,
+    },
     title: {
       template: `%s | ${SITE_NAME}`,
       default: DEFAULT_TITLE,
@@ -80,8 +84,8 @@ export function generateMetadata({
       images: [
         {
           url: ogImageUrl,
-          width: 1200,
-          height: 630,
+          width: 1200, // Explicitly setting the image size
+          height: 630, // an ideal aspect ratio is 1.91:1.
           alt: `${title || 'One Buffalo Labs'} - Digital Solutions`,
         },
       ],
@@ -95,7 +99,6 @@ export function generateMetadata({
       creator: TWITTER_CREATOR,
       images: [ogImageUrl],
     },
-    metadataBase: new URL(BASE_URL),
     other: {
       'google-adsense-account': 'ca-pub-9488377852201328',
     },

@@ -5,8 +5,9 @@ import type { Metadata } from 'next';
 interface PageMetadata {
   title?: string;
   description?: string;
-  keywords?: string[]; // Always treat keywords as an array for easier merging
-  urlPath?: string; // The path of the page, e.g., "/labs"
+  keywords?: string[];
+  urlPath?: string;
+  imageUrl?: string;
   robots?: Metadata['robots'];
 }
 
@@ -39,22 +40,22 @@ const DEFAULT_KEYWORDS = [
 
 /**
  * Generates metadata for a page, merging with site-wide defaults.
- * @param pageMeta - Page-specific metadata overrides.
- * @returns A Next.js Metadata object.
  */
 export function generateMetadata({
   title,
   description,
-  keywords = [], // Default to an empty array
+  keywords = [],
   urlPath = '',
+  imageUrl,
   robots,
 }: PageMetadata = {}): Metadata {
   const pageTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   const pageDescription = description || DEFAULT_DESCRIPTION;
   const pageUrl = `${BASE_URL}${urlPath}`;
-
-  // Combine default and page-specific keywords, ensuring no duplicates
   const allKeywords = [...new Set([...DEFAULT_KEYWORDS, ...keywords])];
+
+  // Determine which image to use: the specific page image or the default one.
+  const ogImageUrl = imageUrl ? `${BASE_URL}${imageUrl}` : DEFAULT_OG_IMAGE;
 
   return {
     title: {
@@ -78,7 +79,7 @@ export function generateMetadata({
       siteName: SITE_NAME,
       images: [
         {
-          url: DEFAULT_OG_IMAGE,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: `${title || 'One Buffalo Labs'} - Digital Solutions`,
@@ -92,10 +93,9 @@ export function generateMetadata({
       title: pageTitle,
       description: pageDescription,
       creator: TWITTER_CREATOR,
-      images: [DEFAULT_OG_IMAGE],
+      images: [ogImageUrl],
     },
     metadataBase: new URL(BASE_URL),
-    // Add the Google AdSense meta tag here within the 'other' property
     other: {
       'google-adsense-account': 'ca-pub-9488377852201328',
     },

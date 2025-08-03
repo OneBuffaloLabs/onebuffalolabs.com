@@ -4,10 +4,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
-
 // --- Libs ---
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPostData, getPostSlugs } from '@/lib/posts';
+// --- Utils ---
+import { generateMetadata as generatePageMetadata } from '@/utils/metadata';
 
 // --- Dynamic Generation Config ---
 export const dynamicParams = false;
@@ -33,11 +34,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   // Use the new frontmatter fields for richer metadata
-  return {
+  return generatePageMetadata({
     title: post.frontMatter.title,
     description: post.frontMatter.description,
-    keywords: post.frontMatter.tags,
-  };
+    keywords: post.frontMatter.tags || [],
+    urlPath: `/blog/${fullPath}`,
+    imageUrl: post.frontMatter.image,
+  });
 }
 
 /**

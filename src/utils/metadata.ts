@@ -12,7 +12,7 @@ interface PageMetadata {
 }
 
 // --- Base Metadata ---
-const BASE_URL = 'https://www.onebuffalolabs.com';
+const BASE_URL = 'https://onebuffalolabs.com';
 const SITE_NAME = 'One Buffalo Labs';
 const TWITTER_CREATOR = '@onebuffalolabs';
 const DEFAULT_TITLE = "One Buffalo Labs | Powering Buffalo's Digital Future";

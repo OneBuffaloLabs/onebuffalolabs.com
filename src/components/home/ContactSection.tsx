@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Mail, MapPin } from 'lucide-react';
+import Link from 'next/link'; // --- Import Link
+import { Mail, MapPin, ArrowRight } from 'lucide-react'; // --- Import ArrowRight
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLinkedinIn,
@@ -18,9 +19,9 @@ import { logEvent } from '@/lib/analytics';
 // Social media links data
 const socialLinks = [
   {
-    name: 'LinkedIn',
-    icon: faLinkedinIn,
-    url: 'https://www.linkedin.com/company/one-buffalo-labs',
+    name: 'Facebook',
+    icon: faFacebookF,
+    url: 'https://www.facebook.com/profile.php?id=61578291081644',
   },
   {
     name: 'Twitter',
@@ -28,14 +29,14 @@ const socialLinks = [
     url: 'https://x.com/OneBuffaloLabs',
   },
   {
+    name: 'LinkedIn',
+    icon: faLinkedinIn,
+    url: 'https://www.linkedin.com/company/one-buffalo-labs',
+  },
+  {
     name: 'GitHub',
     icon: faGithub,
     url: 'https://github.com/OneBuffaloLabs',
-  },
-  {
-    name: 'Facebook',
-    icon: faFacebookF,
-    url: 'https://www.facebook.com/profile.php?id=61578291081644',
   },
   {
     name: 'Instagram',
@@ -91,32 +92,49 @@ const ContactSection = () => {
               </div>
             </div>
 
+            {/* UPDATED: "Connect With Us" section */}
             <div className='pt-4'>
               <h3 className='text-xl font-bold text-[var(--obl-dark-blue)] text-center lg:text-left'>
                 Connect With Us
               </h3>
-              <div className='flex justify-center lg:justify-start space-x-4 mt-4'>
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    onClick={() =>
-                      logEvent('social_link_click', 'social_contact_link', social.name)
-                    }
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    aria-label={social.name}
-                    className='h-12 w-12 flex items-center justify-center bg-[var(--obl-dark-blue)] rounded-full text-white transition-colors hover:bg-[var(--obl-red)]'>
-                    <FontAwesomeIcon icon={social.icon} className='text-xl' />
-                  </a>
-                ))}
+              <p className='text-gray-600 mt-2 text-center lg:text-left'>
+                Follow our journey and see our latest work on all our social platforms.
+              </p>
+              <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
+                <Link
+                  href='/socials'
+                  className='group inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-300 ease-in-out w-full sm:w-auto'
+                  style={{ backgroundColor: 'var(--obl-red)' }}
+                  onClick={() => logEvent('navigation_click', 'contact_to_socials_page')}>
+                  View All Socials
+                  <ArrowRight className='w-4 h-4 ml-2 transition-transform group-hover:translate-x-1' />
+                </Link>
+                <div className='flex items-center space-x-2'>
+                  {socialLinks.slice(0, 3).map(
+                    (
+                      social // Show first 3 icons
+                    ) => (
+                      <a
+                        key={social.name}
+                        href={social.url}
+                        onClick={() =>
+                          logEvent('social_link_click', 'social_contact_link', social.name)
+                        }
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label={social.name}
+                        className='h-10 w-10 flex items-center justify-center bg-gray-200 rounded-full text-gray-600 transition-colors hover:bg-[var(--obl-dark-blue)] hover:text-white'>
+                        <FontAwesomeIcon icon={social.icon} className='text-lg' />
+                      </a>
+                    )
+                  )}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right Column: Embedded Form */}
           <div className='bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 shadow-lg'>
-            {/* The Web3FormsContactForm component is now directly rendered here */}
             <div className='h-[550px] overflow-hidden rounded-md'>
               <Web3FormsContactForm />
             </div>

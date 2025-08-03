@@ -23,6 +23,7 @@ const mainFooterLinks = [
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Our Labs', href: '/labs' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Socials', href: '/socials' },
 ];
 
 const legalLinks = [

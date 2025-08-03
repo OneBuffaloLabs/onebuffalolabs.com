@@ -8,12 +8,13 @@ import { usePathname } from 'next/navigation';
 // --- Analytics ---
 import { logEvent } from '@/lib/analytics';
 
-// --- Unified Navigation Links ---
+// --- UPDATED: Unified Navigation Links ---
 const navLinks = [
   { name: 'Services', href: '/services' },
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Our Labs', href: '/labs' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Socials', href: '/socials' },
 ];
 
 const Header = () => {

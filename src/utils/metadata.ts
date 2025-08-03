@@ -56,9 +56,7 @@ export function generateMetadata({
   const ogImageUrl = imageUrl ? `${BASE_URL}${imageUrl}` : DEFAULT_OG_IMAGE;
 
   return {
-    // This tells Next.js the base URL for resolving all relative paths.
     metadataBase: new URL(BASE_URL),
-    // Sets the canonical URL to prevent SEO penalties from duplicate content.
     alternates: {
       canonical: pageUrl,
     },
@@ -84,9 +82,10 @@ export function generateMetadata({
       images: [
         {
           url: ogImageUrl,
-          width: 1200, // Explicitly setting the image size
-          height: 630, // an ideal aspect ratio is 1.91:1.
+          width: 1200,
+          height: 630,
           alt: `${title || 'One Buffalo Labs'} - Digital Solutions`,
+          type: 'image/png',
         },
       ],
       locale: 'en_US',

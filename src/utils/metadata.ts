@@ -73,6 +73,7 @@ export function generateMetadata({
       icon: [
         // SVG icon for modern browsers
         { url: '/icon.svg', type: 'image/svg+xml' },
+        { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
         // PNG icon as a fallback
         { url: '/icon.png', type: 'image/png' },
       ],

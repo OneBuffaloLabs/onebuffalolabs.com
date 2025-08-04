@@ -69,6 +69,17 @@ export function generateMetadata({
     keywords: allKeywords,
     ...(robots && { robots: robots }),
     manifest: '/manifest.json',
+    icons: {
+      icon: [
+        {
+          url: '/icon.svg',
+          type: 'image/svg+xml',
+          sizes: 'any',
+          rel: 'icon',
+        },
+      ],
+      apple: '/apple-touch-icon.png',
+    },
     appleWebApp: {
       title: SITE_NAME,
       capable: true,

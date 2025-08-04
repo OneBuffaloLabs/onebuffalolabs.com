@@ -15,6 +15,7 @@ interface PageMetadata {
 const BASE_URL = 'https://onebuffalolabs.com';
 const SITE_NAME = 'One Buffalo Labs';
 const TWITTER_CREATOR = '@onebuffalolabs';
+const GOOGLE_ADSENSE_ACCOUNT = 'ca-pub-9488377852201328';
 const DEFAULT_TITLE = "One Buffalo Labs | Powering Buffalo's Digital Future";
 const DEFAULT_DESCRIPTION =
   'One Buffalo Labs is a cutting-edge tech agency specializing in web development, app development, AI integration, and SEO optimization. We design, develop, and optimize digital solutions for businesses in Buffalo and beyond, driving growth and efficiency.';
@@ -54,6 +55,10 @@ export function generateMetadata({
   const pageUrl = `${BASE_URL}${urlPath}`;
   const allKeywords = [...new Set([...DEFAULT_KEYWORDS, ...keywords])];
   const ogImageUrl = imageUrl ? `${BASE_URL}${imageUrl}` : DEFAULT_OG_IMAGE;
+  const otherMetadata: Metadata['other'] = {};
+  if (GOOGLE_ADSENSE_ACCOUNT) {
+    otherMetadata['google-adsense-account'] = GOOGLE_ADSENSE_ACCOUNT;
+  }
 
   return {
     metadataBase: new URL(BASE_URL),
@@ -109,8 +114,6 @@ export function generateMetadata({
       creator: TWITTER_CREATOR,
       images: [ogImageUrl],
     },
-    other: {
-      'google-adsense-account': 'ca-pub-9488377852201328',
-    },
+    ...(Object.keys(otherMetadata).length > 0 && { other: otherMetadata }),
   };
 }

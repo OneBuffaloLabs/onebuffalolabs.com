@@ -71,14 +71,13 @@ export function generateMetadata({
     manifest: '/manifest.json',
     icons: {
       icon: [
-        {
-          url: '/icon.svg',
-          type: 'image/svg+xml',
-          sizes: 'any',
-          rel: 'icon',
-        },
+        // SVG icon for modern browsers
+        { url: '/icon.svg', type: 'image/svg+xml' },
+        // PNG icon as a fallback
+        { url: '/icon.png', type: 'image/png' },
       ],
-      apple: '/apple-touch-icon.png',
+      // Apple touch icon for iOS devices
+      apple: '/apple-icon.png',
     },
     appleWebApp: {
       title: SITE_NAME,

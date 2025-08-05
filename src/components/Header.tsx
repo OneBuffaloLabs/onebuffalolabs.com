@@ -53,7 +53,7 @@ const Header = () => {
             <div className='flex-shrink-0'>
               <Link href='/' className='flex items-center space-x-2'>
                 <Image
-                  src='/images/logos/no-text/one-buffalo-cartoon-no-text-trans.webp'
+                  src='/images/logos/no-text/one-buffalo-cartoon-no-text.svg'
                   alt='One Buffalo Labs Logo'
                   width={70}
                   height={70}

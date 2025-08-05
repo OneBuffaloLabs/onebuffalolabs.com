@@ -28,6 +28,7 @@ const HeroSection = () => {
           width={150}
           height={150}
           className='w-50 h-50 sm:w-65 sm:h-65 md:w-75 md:h-75'
+          priority
         />
         {/* Main Headline */}
         <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight'>

@@ -1,17 +1,18 @@
 [
   {
-    "title": "SiloCityPages",
-    "description": "SiloCityPages is a lightning-fast, zero-configuration static site generator from SiloCityLabs. It's built with Bootstrap, React, and Next.js, making it ideal for creating sleek documentation sites that deploy effortlessly to GitHub Pages.",
+    "title": "One Buffalo Games",
+    "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
     "imageUrl": "/images/misc/code.webp",
-    "githubUrl": "https://github.com/SiloCityLabs/SiloCityPages",
-    "label": "Open Source"
+    "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
+    "label": "Showcase Project",
+    "link": "https://onebuffalogames.com/"
   },
   {
     "title": "COD RCG",
     "description": "COD RCG is a fan-made Call of Duty utility for loadout generation, Warzone drop locations, and a detailed info hub for weapons, perks, and more across various CoD titles.",
     "imageUrl": "/images/misc/laptop.webp",
     "githubUrl": "https://github.com/SiloCityLabs/codrcg.com",
-    "label": "Concept Project",
+    "label": "Showcase Project",
     "link": "https://codrcg.com"
   },
   {
@@ -19,7 +20,7 @@
     "description": "FilaMeter is a local-first, open-source filament inventory manager for 3D printing, helping makers track and optimize usage without logins.",
     "imageUrl": "/images/misc/3d-printing.webp",
     "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
-    "label": "Concept Project",
+    "label": "Showcase Project",
     "link": "https://filameter.com"
   }
 ]

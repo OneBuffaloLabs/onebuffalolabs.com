@@ -96,7 +96,7 @@ export default function OpenSourcePage() {
                       {project.tech.map((tag) => (
                         <span
                           key={tag}
-                          className='font-mono text-sm bg-[var(--obl-blue)]/20 text-[var(--obl-blue)] px-3 py-1 rounded-full'>
+                          className='font-mono text-sm bg-[var(--obl-red)]/20   px-3 py-1 rounded-full'>
                           {tag}
                         </span>
                       ))}

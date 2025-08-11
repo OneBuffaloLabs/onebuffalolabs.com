@@ -91,7 +91,7 @@ Now we'll create the containers for **OpenWebUI** (our ChatGPT-style interface) 
     ```bash
     docker run -d -p 4000:8080 --name searxng -v /home/bana/dev-ai/searxng/settings.yml:/etc/searxng/settings.yml searxng/searxng:latest
     ```
-    It's totally normal for these containers to start and then immediately stop. Our control scripts will handle them from now on.
+    It's totally normal for these containers to start and then immediately stop. Our control scripts will handle them from now on. **Remember to replace `bana` with your actual username!**
 
 ### Step 4: Installing ComfyUI (For Image Generation)
 

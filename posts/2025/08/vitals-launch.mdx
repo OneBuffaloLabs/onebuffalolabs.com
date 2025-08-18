@@ -3,14 +3,14 @@
 # --- BLOG POST: VITALS LAUNCH ---
 # ---------------------------------
 title: 'Vitals: A Deep Dive Into Our New Client-Side SEO Tool 🚀'
-date: '2025-08-12'
+date: '2025-08-18'
 author: 'Andrew Elbaneh'
 summary: 'A deep dive into Vitals, a new, fast, modern, and privacy-focused client-side SEO analysis tool from One Buffalo Labs.'
 description: 'Learn about the core features of Vitals, our new client-side SEO analysis tool. We cover on-page basics, technical SEO, branding analysis, our privacy-first approach, and a sneak peek at upcoming features like Core Web Vitals integration.'
 tags: ['SEO', 'Next.js', 'TypeScript', 'Client-Side', 'Developer Tool']
 image: '/images/blog/2025/08/vitals-1200-630.webp'
 imageLayout: 'banner'
-status: 'draft'
+status: 'published'
 ---
 
 Hey tech community! We're excited to officially introduce you to **Vitals**, a new SEO analysis tool from **One Buffalo Labs**. We've been hard at work building a tool that's not only powerful but also respects your privacy. In a world where data is everything, we decided to take a different approach: what if you could get a comprehensive SEO audit without sending your data to a server?
@@ -23,6 +23,12 @@ The "client-side" aspect is what makes Vitals special. It means that when you en
 
 1.  **Privacy**: Your data is yours and yours alone.
 2.  **Speed**: By cutting out the back-and-forth with a server, the analysis is incredibly fast.
+
+### The Challenge of Cross-Origin Data
+
+One of the hurdles for a purely client-side tool is the browser's security model, specifically CORS (Cross-Origin Resource Sharing), which prevents a website from fetching data from another domain directly.
+
+To solve this, Vitals uses reliable, third-party CORS proxies to retrieve website content for analysis. While this works well most of the time, the analysis can occasionally fail if a target server blocks these proxies or if the proxy services are temporarily unavailable. We're continuously working to make this process more robust and reliable.
 
 ### Core Features: What's Under the Hood? 🛠️
 

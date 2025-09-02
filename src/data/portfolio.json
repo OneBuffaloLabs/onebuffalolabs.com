@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "title": "Website Development",
+    "client": "Out Here Construction",
+    "category": "Web Development",
+    "summary": "A digital presence for a reliable handyman service in Buffalo, NY, offering home remodeling and repairs with a commitment to 'Honest Work at Honest Prices.' The site showcases a complete range of services from foundation to roof.",
+    "tech": ["Next.js", "React", "Tailwind", "Cloudflare Pages"],
+    "imageUrl": "/images/portfolio/outhereconstruction.svg",
+    "link": "https://outhereconstruction.com/"
+  },
+  {
+    "title": "Website Development",
+    "client": "Cash Spot LLC",
+    "category": "Web Development",
+    "summary": "A straightforward, reliable website for a financial services company that acts as a partner for personal and business success. The site clearly outlines their comprehensive services, from tax preparation to business setup.",
+    "tech": ["Next.js", "React", "Tailwind", "Cloudflare Pages"],
+    "imageUrl": "/images/portfolio/cashspotllc.svg",
+    "link": "https://cashspotllc.com/"
+  }
+]

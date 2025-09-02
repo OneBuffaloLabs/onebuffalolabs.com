@@ -36,14 +36,13 @@ const PortfolioPage = () => {
   }, [activeCategory]);
 
   return (
-    <div className='bg-gray-50 font-sans'>
+    <div className='bg-white font-sans'>
       <div className='max-w-7xl mx-auto px-8 py-16 pt-28'>
         {/* --- HEADER --- */}
         <div className='text-center mb-12'>
           <h1 className='text-4xl sm:text-5xl font-bold text-[var(--obl-dark-blue)]'>
             Our Client Work
           </h1>
-          {/* The main description is now only shown if there are projects */}
           {allProjects && allProjects.length > 0 && (
             <p className='mt-4 text-lg text-gray-600 max-w-3xl mx-auto'>
               We partner with businesses of all sizes to deliver innovative solutions that drive
@@ -76,10 +75,10 @@ const PortfolioPage = () => {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
+                  className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 cursor-pointer ${
                     activeCategory === category
                       ? 'bg-[var(--obl-red)] text-white shadow-md'
-                      : 'bg-white text-gray-700 hover:bg-gray-200'
+                      : 'bg-white text-gray-700 hover:bg-gray-200 border'
                   }`}>
                   {category}
                 </button>
@@ -90,26 +89,39 @@ const PortfolioPage = () => {
               {filteredProjects.map((project, index) => (
                 <div
                   key={`${project.title}-${index}`}
-                  className='group relative block w-full aspect-[4/3] bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-[var(--obl-blue)]/30 hover:scale-105'>
-                  <Image
-                    src={project.imageUrl}
-                    alt={project.title}
-                    fill
-                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                    className='object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110'
-                  />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent'></div>
+                  className='group flex flex-col bg-white rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-[var(--obl-blue)] hover:-translate-y-1'>
+                  {/* Image Container */}
+                  <div className='relative w-full aspect-[4/3] bg-gray-100 p-4'>
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.title}
+                      fill
+                      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                      className='object-contain w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105'
+                    />
+                  </div>
 
-                  <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
-                    <h3 className='text-xl font-bold'>{project.title}</h3>
-                    <p className='text-sm text-gray-300 mb-4'>{project.client}</p>
-
-                    <div className='opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 ease-in-out overflow-hidden'>
-                      <p className='text-sm text-gray-200 mb-4'>{project.summary}</p>
+                  {/* Content */}
+                  <div className='p-6 flex flex-col flex-grow'>
+                    <h3 className='text-xl font-bold text-gray-900'>{project.title}</h3>
+                    <p className='text-sm text-gray-500 mb-4'>{project.client}</p>
+                    <p className='text-sm text-gray-600 mb-4 flex-grow'>{project.summary}</p>
+                    <div className='flex justify-between items-center mt-auto pt-4 border-t border-gray-200'>
+                      <div className='flex flex-wrap gap-2'>
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className='bg-blue-100 text-[var(--obl-blue)] text-xs font-semibold px-2 py-1 rounded-full'>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                       <Link
                         href={project.link}
-                        className='inline-flex items-center text-sm font-semibold text-white bg-[var(--obl-red)] px-4 py-2 rounded-full hover:bg-[var(--obl-red)]/80'>
-                        View Case Study <ArrowRight className='w-4 h-4 ml-2' />
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='inline-flex items-center text-sm font-semibold text-[var(--obl-red)] hover:underline'>
+                        View Site <ArrowRight className='w-4 h-4 ml-1' />
                       </Link>
                     </div>
                   </div>

@@ -21,7 +21,7 @@ const socialLinks = [
   {
     name: 'Facebook',
     icon: faFacebookF,
-    url: 'https://www.facebook.com/profile.php?id=61578291081644',
+    url: 'https://www.facebook.com/onebuffalolabs',
   },
   {
     name: 'Twitter',

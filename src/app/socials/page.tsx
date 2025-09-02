@@ -41,7 +41,7 @@ const socialLinks = [
     name: 'Facebook',
     handle: 'OneBuffaloLabs',
     icon: faFacebookF,
-    url: 'https://www.facebook.com/profile.php?id=61578291081644',
+    url: 'https://www.facebook.com/onebuffalolabs',
     cta: 'Like',
     colorClass: 'hover:border-blue-600',
     iconColorClass: 'text-blue-600',

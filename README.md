@@ -43,5 +43,4 @@ Everything we build is guided by our core values:
 Beyond our client work, we're always experimenting with new ideas and contributing to the open-source community. Be sure to check out our [Labs & Open Source Initiatives](https://onebuffalolabs.com/labs) to see what we're cooking up\!
 
 ---
-
 Thanks for stopping by\! We're proud of the work we do and excited to be a part of Buffalo's resurgence. If you're interested in learning more or starting a project with us, be sure to visit our website.

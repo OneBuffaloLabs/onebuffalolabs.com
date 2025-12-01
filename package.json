@@ -16,7 +16,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.3",
-    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.4.3",
     "gray-matter": "^4.0.3",

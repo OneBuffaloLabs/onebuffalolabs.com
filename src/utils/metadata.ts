@@ -46,13 +46,14 @@ export function generateMetadata({
   title,
   description,
   keywords = [],
-  urlPath = '',
+  urlPath = '/',
   imageUrl,
   robots,
 }: PageMetadata = {}): Metadata {
   const pageTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   const pageDescription = description || DEFAULT_DESCRIPTION;
-  const pageUrl = `${BASE_URL}${urlPath}`;
+  const cleanPath = urlPath === '/' ? '/' : `${urlPath.replace(/\/$/, '')}/`;
+  const pageUrl = `${BASE_URL}${cleanPath}`;
   const allKeywords = [...new Set([...DEFAULT_KEYWORDS, ...keywords])];
   const ogImageUrl = imageUrl ? `${BASE_URL}${imageUrl}` : DEFAULT_OG_IMAGE;
   const otherMetadata: Metadata['other'] = {};

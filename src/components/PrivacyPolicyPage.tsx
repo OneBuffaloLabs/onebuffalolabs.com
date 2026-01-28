@@ -81,7 +81,7 @@ const PrivacyPolicyPage = () => {
               <strong>Website</strong> refers to One Buffalo Labs, accessible from{' '}
               <a
                 href='https://onebuffalolabs.com/'
-                rel='external nofollow noopener'
+                rel="external nofollow noopener noreferrer"
                 target='_blank'
                 className='text-[var(--obl-blue)] hover:underline hover:text-[var(--obl-red)]'>
                 https://onebuffalolabs.com/

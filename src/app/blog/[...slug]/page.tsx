@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
 // --- Libs ---
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypeHighlight from 'rehype-highlight';
 import { getPostData, getPostSlugs } from '@/lib/posts';
 // --- Utils ---
 import { generateMetadata as generatePageMetadata } from '@/utils/metadata';
@@ -14,9 +15,7 @@ import { generateMetadata as generatePageMetadata } from '@/utils/metadata';
 export const dynamicParams = false;
 
 // --- Component Props Type ---
-type PageProps = {
-  params: Promise<{ slug: string[] }>;
-};
+type PageProps = { params: Promise<{ slug: string[] }> };
 
 /**
  * Generates page metadata dynamically based on the post's frontmatter.
@@ -28,9 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPostData(fullPath);
 
   if (!post) {
-    return {
-      title: 'Post Not Found',
-    };
+    return { title: 'Post Not Found' };
   }
 
   // Use the new frontmatter fields for richer metadata
@@ -80,12 +77,19 @@ export default async function PostPage({ params }: PageProps) {
 
   // Define a component for target blank on an external link
   const components = {
-    a: (props: AnchorHTMLAttributes<HTMLAnchorElement>) => {
-      if (props.href && props.href.startsWith('http')) {
-        return <a {...props} target='_blank' rel='noopener noreferrer' />;
+    a: ({ href, children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
+      if (href && href.startsWith('http')) {
+        return (
+          <a href={href} {...props} target='_blank' rel='noopener noreferrer'>
+            {children}
+          </a>
+        );
       }
-      const { href, ...rest } = props;
-      return <Link href={href || ''} {...rest} />;
+      return (
+        <Link href={href || ''} {...props}>
+          {children}
+        </Link>
+      );
     },
   };
 
@@ -148,8 +152,11 @@ export default async function PostPage({ params }: PageProps) {
             prose-pre:border prose-pre:rounded-lg
             prose-code:text-[var(--obl-red)]
           '>
-          {/* Add the components prop to MDXRemote */}
-          <MDXRemote source={content} components={components} />
+          <MDXRemote
+            source={content}
+            components={components}
+            options={{ mdxOptions: { rehypePlugins: [rehypeHighlight] } }}
+          />
         </div>
 
         {/* --- TAGS --- */}

@@ -1,6 +1,24 @@
 [
   {
     "title": "Website Development",
+    "client": "McClelland Small Animal Hospital",
+    "category": "Web Development",
+    "summary": "A comprehensive redesign for Buffalo’s oldest operating animal hospital. The new site modernizes their digital presence while honoring their century-long legacy, providing pet owners with seamless access to information on surgical, dental, and wellness care.",
+    "tech": ["Next.js", "React", "Tailwind", "Cloudflare Pages"],
+    "imageUrl": "/images/portfolio/mcclellandsah.svg",
+    "link": "https://mcclellandsah.com/"
+  },
+  {
+    "title": "Website Development",
+    "client": "Town & Village Pediatrics",
+    "category": "Web Development",
+    "summary": "A warm, informative redesign for a patient-centered pediatric practice in Williamsville, NY. The site emphasizes their commitment to accessible care—including same-day sick visits and 24/7 physician availability—serving as a trusted digital resource for families from infancy to young adulthood.",
+    "tech": ["Next.js", "React", "Tailwind", "Cloudflare Pages"],
+    "imageUrl": "/images/portfolio/townandvillagepediatrics.webp",
+    "link": "https://townandvillagepediatrics.com/"
+  },
+  {
+    "title": "Website Development",
     "client": "Out Here Construction",
     "category": "Web Development",
     "summary": "A digital presence for a reliable handyman service in Buffalo, NY, offering home remodeling and repairs with a commitment to 'Honest Work at Honest Prices.' The site showcases a complete range of services from foundation to roof.",

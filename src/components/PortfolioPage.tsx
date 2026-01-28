@@ -24,7 +24,7 @@ interface Project {
 // Type the imported data to ensure TypeScript understands it.
 const allProjects: Project[] = portfolioData;
 
-const categories = ['All', 'Web Development', 'Mobile Apps', 'AI Integration', 'Redesigns'];
+const categories = ['All', 'Web Development', 'Mobile Apps', 'AI Integration'];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');

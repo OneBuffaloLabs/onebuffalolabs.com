@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default function NotFoundPage() {
   return (
@@ -36,7 +37,7 @@ export default function NotFoundPage() {
         <Link
           href='/'
           className='inline-flex items-center px-8 py-3 bg-[var(--obl-red)] text-white rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:bg-[var(--obl-red)]/90 hover:scale-105'>
-          <ArrowLeft className='w-5 h-5 mr-2' />
+          <FontAwesomeIcon icon={faArrowLeft} className='w-5 h-5 mr-2' />
           Go Back Home
         </Link>
       </div>

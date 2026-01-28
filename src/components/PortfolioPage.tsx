@@ -5,8 +5,9 @@ import React, { useState, useMemo } from 'react';
 // --- Next ---
 import Image from 'next/image';
 import Link from 'next/link';
-// --- Icons ---
-import { ArrowRight, Beaker } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faFlask } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
 import portfolioData from '@/data/portfolio.json';
 
@@ -55,7 +56,10 @@ const PortfolioPage = () => {
         {!allProjects || allProjects.length === 0 ? (
           // --- EMPTY STATE ---
           <div className='text-center'>
-            <Beaker className='w-16 h-16 text-[var(--obl-blue)] mb-4 mx-auto' />
+            {/* Replaced Beaker with faFlask */}
+            <div className='w-16 h-16 mx-auto mb-4 flex items-center justify-center text-[var(--obl-blue)]'>
+              <FontAwesomeIcon icon={faFlask} className='text-6xl' />
+            </div>
             <h2 className='text-2xl font-bold text-gray-800 mb-2'>Our Portfolio is Growing</h2>
             <p className='text-gray-600 max-w-lg mx-auto mb-6'>
               We&apos;re currently preparing our client success stories to share with you. In the
@@ -64,7 +68,7 @@ const PortfolioPage = () => {
             <Link
               href='/labs'
               className='inline-flex items-center !px-8 !py-3 bg-[var(--obl-red)] text-white !rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
-              Explore Our Labs <ArrowRight className='w-5 h-5 ml-2' />
+              Explore Our Labs <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 ml-2' />
             </Link>
           </div>
         ) : (
@@ -121,7 +125,7 @@ const PortfolioPage = () => {
                         target='_blank'
                         rel='noopener noreferrer'
                         className='inline-flex items-center text-sm font-semibold text-[var(--obl-red)] hover:underline'>
-                        View Site <ArrowRight className='w-4 h-4 ml-1' />
+                        View Site <FontAwesomeIcon icon={faArrowRight} className='w-4 h-4 ml-1' />
                       </Link>
                     </div>
                   </div>

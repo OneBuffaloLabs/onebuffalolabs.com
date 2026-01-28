@@ -2,8 +2,9 @@
 
 // --- Next & React ---
 import Link from 'next/link';
-// --- Icons ---
-import { ArrowRight, BrainCircuit } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faBrain } from '@fortawesome/free-solid-svg-icons';
 // --- Analytics ---
 import { logEvent } from '@/lib/analytics';
 
@@ -30,7 +31,8 @@ export default function AIHeroClientSection() {
           mixBlendMode: 'lighten',
         }}></div>
       <div className='relative z-10 flex flex-col items-center justify-center gap-6 max-w-4xl mx-auto text-white'>
-        <BrainCircuit size={80} className='mb-4' />
+        <FontAwesomeIcon icon={faBrain} className='mb-4 h-20 w-20 text-[80px]' />
+
         <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight'>
           Make Your Business Work <span style={{ color: companyColors.red }}>Smarter,</span> Not
           Harder.
@@ -47,7 +49,7 @@ export default function AIHeroClientSection() {
             background: `linear-gradient(to right, ${companyColors.blue}, ${companyColors.red})`,
             color: 'white',
           }}>
-          Explore AI Solutions <ArrowRight className='w-5 h-5 ml-2' />
+          Explore AI Solutions <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 ml-2' />
         </Link>
       </div>
     </section>

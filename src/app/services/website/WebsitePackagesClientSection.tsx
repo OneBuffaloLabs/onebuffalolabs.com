@@ -2,7 +2,9 @@
 
 // --- Components ---
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 // --- Analytics ---
 import { logEvent } from '@/lib/analytics';
 
@@ -105,7 +107,10 @@ export default function WebsitePackagesClientSection() {
                 <ul className='list-none space-y-2 text-gray-700'>
                   {pkg.includes.map((item, i) => (
                     <li key={i} className='flex items-center'>
-                      <ArrowRight className='w-4 h-4 mr-2 text-[var(--obl-red)] flex-shrink-0' />
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        className='w-4 h-4 mr-2 text-[var(--obl-red)] flex-shrink-0'
+                      />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -136,7 +141,8 @@ export default function WebsitePackagesClientSection() {
             }
             className='inline-flex items-center px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105'
             style={{ backgroundColor: companyColors.red, color: 'white' }}>
-            Book a Call to Get Your Exact Quote <ArrowRight className='w-5 h-5 ml-2' />
+            Book a Call to Get Your Exact Quote{' '}
+            <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 ml-2' />
           </Link>
         </div>
       </div>

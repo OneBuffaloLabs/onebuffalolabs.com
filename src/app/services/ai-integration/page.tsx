@@ -2,19 +2,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-// --- Icons ---
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  Bot,
-  Workflow,
-  BarChart4,
-  Sparkles,
-  Handshake,
-  ClipboardList,
-  Rocket,
-  LifeBuoy,
-  CheckCircle,
-  PhoneMissed,
-} from 'lucide-react';
+  faRobot,
+  faPhoneSlash,
+  faGears,
+  faChartLine,
+  faHandshake,
+  faClipboardList,
+  faRocket,
+  faLifeRing,
+  faCheckCircle,
+  faWandMagicSparkles,
+} from '@fortawesome/free-solid-svg-icons';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
 // --- Client Components ---
@@ -47,25 +48,25 @@ const companyColors = {
 
 const aiSolutions = [
   {
-    icon: Bot,
+    icon: faRobot,
     title: 'Intelligent Chatbots',
     description:
       "Provide instant answers to your customers' most common questions, 24/7. Free up your team and capture leads even when you're closed.",
   },
   {
-    icon: PhoneMissed,
+    icon: faPhoneSlash,
     title: 'Automated Missed Call Assistant',
     description:
       "Instantly engage every missed caller with a custom text message. Stop losing customers to your voicemail and capture every lead while it's hot.",
   },
   {
-    icon: Workflow,
+    icon: faGears,
     title: 'Automate Repetitive Tasks',
     description:
       'From data entry to appointment scheduling, we identify and automate the time-consuming tasks that slow your business down.',
   },
   {
-    icon: BarChart4,
+    icon: faChartLine,
     title: 'Unlock Business Insights',
     description:
       'Use machine learning to analyze your business data, predict trends, and make smarter, data-driven decisions for future growth.',
@@ -74,25 +75,25 @@ const aiSolutions = [
 
 const aiProcessSteps = [
   {
-    icon: Handshake,
+    icon: faHandshake,
     title: 'Identify Opportunity',
     description:
       'We start with a consultation to understand your business processes and find the highest-impact areas for automation.',
   },
   {
-    icon: ClipboardList,
+    icon: faClipboardList,
     title: 'Propose Solution',
     description:
       'We design a clear, practical AI solution with defined goals and transparent pricing. No "black box" technology.',
   },
   {
-    icon: Rocket,
+    icon: faRocket,
     title: 'Implement & Integrate',
     description:
       'We build and seamlessly integrate the AI tool into your existing website or workflow.',
   },
   {
-    icon: LifeBuoy,
+    icon: faLifeRing,
     title: 'Train & Support',
     description:
       'We provide full training for your team and ongoing support to ensure the solution delivers maximum value.',
@@ -147,6 +148,7 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
+
       {/* 3. Our AI Solutions Section */}
       <section className='bg-gray-50 py-16 px-8'>
         <div className='max-w-7xl mx-auto'>
@@ -168,7 +170,8 @@ export default function AISolutionsPage() {
                 <div
                   className='flex items-center justify-center h-16 w-16 rounded-full text-white mb-4'
                   style={{ backgroundColor: companyColors.blue }}>
-                  <solution.icon size={32} />
+                  {/* Updated to text-3xl for proper sizing inside the 64px (h-16) container */}
+                  <FontAwesomeIcon icon={solution.icon} className='text-3xl' />
                 </div>
                 <h3 className='text-2xl font-bold text-[var(--obl-dark-blue)] mb-2'>
                   {solution.title}
@@ -179,6 +182,7 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
+
       {/* 4. The Process Section */}
       <section className='bg-white py-16 px-8'>
         <div className='max-w-7xl mx-auto'>
@@ -210,6 +214,7 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
+
       {/* 5. "Is AI Right for You?" Section */}
       <section className='bg-gray-50 py-16 px-8'>
         <div className='max-w-7xl mx-auto text-center'>
@@ -221,8 +226,10 @@ export default function AISolutionsPage() {
               <div
                 key={index}
                 className='flex items-start bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-left'>
-                <CheckCircle
-                  className='flex-shrink-0 w-6 h-6 mr-3 mt-1'
+                {/* Updated to text-2xl (~24px) to match previous size */}
+                <FontAwesomeIcon
+                  icon={faCheckCircle}
+                  className='flex-shrink-0 mr-3 mt-1 text-2xl'
                   style={{ color: companyColors.blue }}
                 />
                 <p className='text-lg text-gray-700 font-semibold'>{question}</p>
@@ -239,6 +246,7 @@ export default function AISolutionsPage() {
           </div>
         </div>
       </section>
+
       {/* 6. Final Call to Action Section */}
       <section
         className='py-16 px-8 text-center'
@@ -254,7 +262,8 @@ export default function AISolutionsPage() {
           <Link
             href='/#contact'
             className='inline-flex items-center px-10 py-4 bg-white text-[var(--obl-dark-blue)] rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-gray-200'>
-            Book Your Free AI Consultation <Sparkles className='w-5 h-5 ml-2' />
+            Book Your Free AI Consultation{' '}
+            <FontAwesomeIcon icon={faWandMagicSparkles} className='ml-2 text-xl' />
           </Link>
         </div>
       </section>

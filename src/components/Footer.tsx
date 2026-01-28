@@ -3,8 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, MapPin } from 'lucide-react';
+// --- FontAwesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import {
   faLinkedinIn,
   faXTwitter,
@@ -37,31 +38,11 @@ const socialLinks = [
     icon: faLinkedinIn,
     url: 'https://www.linkedin.com/company/one-buffalo-labs',
   },
-  {
-    name: 'Twitter',
-    icon: faXTwitter,
-    url: 'https://x.com/OneBuffaloLabs',
-  },
-  {
-    name: 'GitHub',
-    icon: faGithub,
-    url: 'https://github.com/OneBuffaloLabs',
-  },
-  {
-    name: 'Facebook',
-    icon: faFacebookF,
-    url: 'https://www.facebook.com/onebuffalolabs',
-  },
-  {
-    name: 'Instagram',
-    icon: faInstagram,
-    url: 'https://www.instagram.com/onebuffalolabs/',
-  },
-  {
-    name: 'Bluesky',
-    icon: faBluesky,
-    url: 'https://bsky.app/profile/onebuffalolabs.com',
-  },
+  { name: 'Twitter', icon: faXTwitter, url: 'https://x.com/OneBuffaloLabs' },
+  { name: 'GitHub', icon: faGithub, url: 'https://github.com/OneBuffaloLabs' },
+  { name: 'Facebook', icon: faFacebookF, url: 'https://www.facebook.com/onebuffalolabs' },
+  { name: 'Instagram', icon: faInstagram, url: 'https://www.instagram.com/onebuffalolabs/' },
+  { name: 'Bluesky', icon: faBluesky, url: 'https://bsky.app/profile/onebuffalolabs.com' },
 ];
 
 const Footer = () => {
@@ -110,7 +91,10 @@ const Footer = () => {
             <h3 className='font-bold text-lg mb-4 text-gray-200'>Get in Touch</h3>
             <ul className='space-y-3'>
               <li className='flex items-start'>
-                <Mail className='w-5 h-5 mr-3 mt-1 text-[var(--obl-blue)] flex-shrink-0' />
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className='w-5 h-5 mr-3 mt-1 text-[var(--obl-blue)] flex-shrink-0'
+                />
                 <a
                   href='mailto:info@onebuffalolabs.com'
                   className='text-gray-400 hover:text-[var(--obl-red)] transition-colors break-all'>
@@ -118,7 +102,10 @@ const Footer = () => {
                 </a>
               </li>
               <li className='flex items-start'>
-                <MapPin className='w-5 h-5 mr-3 mt-1 text-[var(--obl-blue)] flex-shrink-0' />
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className='w-5 h-5 mr-3 mt-1 text-[var(--obl-blue)] flex-shrink-0'
+                />
                 <span className='text-gray-400'>Buffalo, NY</span>
               </li>
             </ul>

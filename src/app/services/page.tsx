@@ -1,8 +1,15 @@
 // --- Next ---
 import type { Metadata } from 'next';
 import Link from 'next/link';
-// --- Icons ---
-import { Code, BarChart, BrainCircuit, ArrowRight, Sparkles } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCode,
+  faChartSimple,
+  faBrain,
+  faArrowRight,
+  faWandMagicSparkles,
+} from '@fortawesome/free-solid-svg-icons';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
 
@@ -33,7 +40,7 @@ const companyColors = {
 const serviceCategories = [
   {
     link: '/services/website',
-    icon: Code, // Using Code for web development
+    icon: faCode, // Using faCode for web development
     title: 'Website Design & Development',
     description:
       'We build stunning, high-performance websites that capture your brand, engage your audience, and drive business growth.',
@@ -42,7 +49,7 @@ const serviceCategories = [
   },
   {
     link: '/services/seo',
-    icon: BarChart, // Using BarChart for growth/analytics
+    icon: faChartSimple, // Using faChartSimple for growth/analytics
     title: 'Digital Strategy & SEO',
     description:
       'A beautiful website is just the beginning. We help customers find you on Google and turn traffic into tangible results.',
@@ -51,7 +58,7 @@ const serviceCategories = [
   },
   // {
   //   link: '/services/app-development',
-  //   icon: Smartphone, // Using Smartphone for mobile/software
+  //   icon: faMobileScreenButton, // Example if you uncomment this later
   //   title: 'Custom App Development',
   //   description:
   //     "When off-the-shelf isn't enough, we design and build custom software and mobile applications tailored to your unique business needs.",
@@ -60,7 +67,7 @@ const serviceCategories = [
   // },
   {
     link: '/services/ai-integration',
-    icon: BrainCircuit, // Using BrainCircuit for AI/intelligence
+    icon: faBrain, // Using faBrain for AI/intelligence
     title: 'AI & Automation Solutions',
     description:
       'Leverage the power of artificial intelligence to enhance customer experiences, streamline operations, and unlock new efficiencies.',
@@ -135,7 +142,8 @@ export default function ServicesPage() {
                   <div
                     className='flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full text-white'
                     style={{ backgroundColor: companyColors.blue }}>
-                    <service.icon size={32} />
+                    {/* Replaced Icon with FontAwesomeIcon and size class */}
+                    <FontAwesomeIcon icon={service.icon} className='text-3xl' />
                   </div>
                   <h3 className='ml-5 text-3xl font-bold text-[var(--obl-dark-blue)]'>
                     {service.title}
@@ -151,7 +159,10 @@ export default function ServicesPage() {
                   className='flex items-center text-lg font-semibold'
                   style={{ color: companyColors.red }}>
                   {service.ctaText}{' '}
-                  <ArrowRight className='w-5 h-5 ml-2 transition-transform group-hover:translate-x-1' />
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className='w-5 h-5 ml-2 transition-transform group-hover:translate-x-1'
+                  />
                 </div>
               </Link>
             ))}
@@ -175,7 +186,8 @@ export default function ServicesPage() {
           <Link
             href='/#contact'
             className='inline-flex items-center px-10 py-4 bg-white text-[var(--obl-dark-blue)] rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-gray-200'>
-            Schedule a Custom Consultation <Sparkles className='w-5 h-5 ml-2' />
+            Schedule a Custom Consultation{' '}
+            <FontAwesomeIcon icon={faWandMagicSparkles} className='w-5 h-5 ml-2' />
           </Link>
         </div>
       </section>

@@ -3,21 +3,23 @@ import type { Metadata } from 'next';
 // --- Components ---
 import Link from 'next/link';
 import Image from 'next/image';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  Zap,
-  Rocket,
-  ArrowRight,
-  Lightbulb,
-  Palette,
-  Code,
-  BarChart,
-  Monitor,
-  Cloud,
-  Type,
-  Gem,
-  CheckCircle,
-  HardDrive,
-} from 'lucide-react';
+  faBolt,
+  faRocket,
+  faArrowRight,
+  faLightbulb,
+  faPalette,
+  faCode,
+  faChartSimple,
+  faDesktop,
+  faCloud,
+  faFont,
+  faGem,
+  faCheckCircle,
+  faHardDrive,
+} from '@fortawesome/free-solid-svg-icons';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
 // --- Client Components ---
@@ -52,24 +54,24 @@ const companyColors = {
 
 const processSteps = [
   {
-    icon: Lightbulb,
+    icon: faLightbulb,
     title: 'Discovery & Strategy',
     description: 'We start by understanding your business, your goals, and your customers.',
   },
   {
-    icon: Palette,
+    icon: faPalette,
     title: 'Design & Build',
     description:
       'We craft a custom design and build a fast, secure website on a modern technology stack.',
   },
   {
-    icon: Rocket,
+    icon: faRocket,
     title: 'Launch & Deploy',
     description:
       'We handle all the technical details of going live, ensuring a smooth, stress-free launch.',
   },
   {
-    icon: CheckCircle,
+    icon: faCheckCircle,
     title: 'Handoff & Empower',
     description:
       'The best part? You own everything. We transfer the website, code, and hosting to you and show you how to manage it.',
@@ -81,42 +83,43 @@ const technologies = [
     name: 'Next.js',
     description:
       'We use this to make your site incredibly fast, which Google and your customers love.',
-    icon: <Zap className='w-8 h-8 text-white' />,
+    // Sizing: w-10 (40px) + text-[30px] to match FontAwesome sizing logic
+    icon: <FontAwesomeIcon icon={faBolt} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'React',
     description: 'A powerful library for building dynamic and interactive user interfaces.',
-    icon: <Code className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faCode} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'TypeScript',
     description: 'Adds type safety, making our code more robust and easier to maintain.',
-    icon: <Type className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faFont} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'Tailwind CSS',
     description: 'For crafting beautiful, responsive designs directly in the JSX.',
-    icon: <Gem className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faGem} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'Vercel',
     description: 'For lightning-fast global deployments and a seamless development experience.',
-    icon: <Cloud className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faCloud} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'Digital Ocean',
     description: 'Robust and scalable cloud infrastructure for reliable hosting.',
-    icon: <HardDrive className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faHardDrive} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'CMS Integration',
     description: 'Empowering you to easily manage your own content, like blogs and portfolios.',
-    icon: <Monitor className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faDesktop} className='w-10 h-10 text-[30px] text-white' />,
   },
   {
     name: 'SEO Best Practices',
     description: 'Built-in strategies to help your website rank higher and attract more visitors.',
-    icon: <BarChart className='w-8 h-8 text-white' />,
+    icon: <FontAwesomeIcon icon={faChartSimple} className='w-10 h-10 text-[30px] text-white' />,
   },
 ];
 
@@ -151,7 +154,8 @@ export default function WebsiteServicesPage() {
             href='/#contact'
             className='inline-flex items-center px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105'
             style={{ backgroundColor: companyColors.red, color: 'white' }}>
-            Schedule Your Free Discovery Call <ArrowRight className='w-5 h-5 ml-2' />
+            Schedule Your Free Discovery Call{' '}
+            <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 ml-2 text-xl' />
           </Link>
         </div>
       </section>
@@ -270,7 +274,8 @@ export default function WebsiteServicesPage() {
           <Link
             href='/#contact'
             className='inline-flex items-center px-10 py-4 bg-white text-[var(--obl-dark-blue)] rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-gray-200'>
-            Schedule Your Free, No-Pressure Discovery Call <ArrowRight className='w-5 h-5 ml-2' />
+            Schedule Your Free, No-Pressure Discovery Call{' '}
+            <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 ml-2 text-xl' />
           </Link>
         </div>
       </section>

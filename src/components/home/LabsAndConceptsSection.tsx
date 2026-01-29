@@ -5,8 +5,10 @@ import React from 'react';
 // --- Next ---
 import Link from 'next/link';
 import Image from 'next/image';
-// --- Icons ---
-import { Github, ArrowRight, ExternalLink } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faArrowRight, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
 import featuredProjects from '@/data/home/labs.json';
 // --- Analytics ---
@@ -71,7 +73,8 @@ const LabsAndConceptsSection = () => {
                       logEvent('labs_section_home', 'github_link_click', project.title)
                     }
                     className='inline-flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
-                    <Github className='w-5 h-5 mr-2' />
+                    {/* Size match: w-5 (20px) -> text-[20px] */}
+                    <FontAwesomeIcon icon={faGithub} className='text-[20px] mr-2' />
                     GitHub
                   </a>
 
@@ -86,7 +89,8 @@ const LabsAndConceptsSection = () => {
                       }
                       className='inline-flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
                       View Site
-                      <ExternalLink className='w-5 h-5 ml-2' />
+                      {/* Size match: w-5 (20px) -> text-[20px] */}
+                      <FontAwesomeIcon icon={faUpRightFromSquare} className='text-[20px] ml-2' />
                     </a>
                   )}
                 </div>
@@ -101,7 +105,8 @@ const LabsAndConceptsSection = () => {
             href='/labs'
             onClick={() => logEvent('labs_section_home', 'cta_click', 'View All Labs Projects')}
             className='inline-flex items-center !px-10 !py-4 bg-[var(--obl-red)] text-white !rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
-            View All Labs Projects <ArrowRight className='w-5 h-5 ml-2' />
+            View All Labs Projects {/* Size match: w-5 (20px) -> text-[20px] */}
+            <FontAwesomeIcon icon={faArrowRight} className='text-[20px] ml-2' />
           </Link>
         </div>
       </div>

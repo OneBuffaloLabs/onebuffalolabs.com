@@ -2,18 +2,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-// --- Icons ---
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  MapPin,
-  ShieldCheck,
-  FileText,
-  Sparkles,
-  Search,
-  Lightbulb,
-  ClipboardList,
-  Rocket,
-  ScrollText,
-} from 'lucide-react';
+  faMapLocationDot,
+  faShieldHalved,
+  faFileLines,
+  faWandMagicSparkles,
+  faMagnifyingGlass,
+  faLightbulb,
+  faClipboardList,
+  faRocket,
+  faScroll,
+} from '@fortawesome/free-solid-svg-icons';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
 
@@ -44,19 +45,19 @@ const companyColors = {
 
 const coreSEOServices = [
   {
-    icon: MapPin,
+    icon: faMapLocationDot,
     title: 'Dominate the Local Map',
     description:
       'For Buffalo businesses, being found locally is everything. We optimize your Google Business Profile and local listings to attract customers in your area.',
   },
   {
-    icon: ShieldCheck,
+    icon: faShieldHalved,
     title: 'Technical Health & Performance',
     description:
       "We audit your site's technical foundation, fixing errors and improving site speed to ensure search engines can crawl and rank you effectively.",
   },
   {
-    icon: FileText,
+    icon: faFileLines,
     title: 'Content That Converts',
     description:
       'We help you target the right keywords and structure your content to answer customer questions, establishing you as an authority in your field.',
@@ -65,25 +66,25 @@ const coreSEOServices = [
 
 const seoProcessSteps = [
   {
-    icon: Lightbulb,
+    icon: faLightbulb,
     title: 'Deep Dive Audit',
     description:
       'We analyze your website, your competitors, and your market to identify your biggest opportunities.',
   },
   {
-    icon: ClipboardList,
+    icon: faClipboardList,
     title: 'Strategic Roadmap',
     description:
       'We deliver a clear, prioritized action plan. No jargon, just a straightforward path to results.',
   },
   {
-    icon: Rocket,
+    icon: faRocket,
     title: 'Implementation & Optimization',
     description:
       'We get to work, implementing the changes needed to improve your visibility and performance.',
   },
   {
-    icon: ScrollText,
+    icon: faScroll,
     title: 'Reporting & Insights',
     description:
       'We provide clear, easy-to-understand reports showing your progress, so you always know how your investment is performing.',
@@ -120,7 +121,8 @@ export default function SEOServicesPage() {
             href='/#contact'
             className='inline-flex items-center px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105'
             style={{ backgroundColor: companyColors.blue, color: 'white' }}>
-            Get Your Free SEO Analysis <Search className='w-5 h-5 ml-2' />
+            Get Your Free SEO Analysis{' '}
+            <FontAwesomeIcon icon={faMagnifyingGlass} className='w-5 h-5 ml-2' />
           </Link>
         </div>
       </section>
@@ -181,7 +183,7 @@ export default function SEOServicesPage() {
                 <div
                   className='flex items-center justify-center h-16 w-16 rounded-full text-white mb-4'
                   style={{ backgroundColor: companyColors.red }}>
-                  <service.icon size={32} />
+                  <FontAwesomeIcon icon={service.icon} className='text-3xl' />
                 </div>
                 <h3 className='text-2xl font-bold text-[var(--obl-dark-blue)] mb-2'>
                   {service.title}
@@ -277,7 +279,8 @@ export default function SEOServicesPage() {
           <Link
             href='/#contact'
             className='inline-flex items-center px-10 py-4 bg-white text-[var(--obl-dark-blue)] rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-gray-200'>
-            Request Your Free SEO Analysis & Proposal <Sparkles className='w-5 h-5 ml-2' />
+            Request Your Free SEO Analysis & Proposal{' '}
+            <FontAwesomeIcon icon={faWandMagicSparkles} className='w-5 h-5 ml-2' />
           </Link>
         </div>
       </section>

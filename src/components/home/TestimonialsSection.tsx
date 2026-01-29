@@ -1,7 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faQuoteLeft,
+  faStar,
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 // --- DUMMY DATA ---
 const testimonials = [
@@ -60,7 +67,10 @@ const TestimonialsSection = () => {
                 {/* --- CARD LAYOUT CORRECTED --- */}
                 <div className='relative flex flex-col justify-center items-center h-full bg-white rounded-lg p-8 sm:p-10 border border-gray-200 shadow-lg overflow-hidden'>
                   {/* Decorative Quote Icon in the background */}
-                  <Quote className='text-gray-200 absolute top-6 left-6' size={50} />
+                  {/* Matched size: size={50} -> text-[50px] */}
+                  <div className='absolute top-6 left-6 text-gray-200'>
+                    <FontAwesomeIcon icon={faQuoteLeft} className='text-[50px]' />
+                  </div>
 
                   {/* Main content container is centered with horizontal padding to prevent overlap */}
                   <div className='relative z-10 text-center px-8 sm:px-12'>
@@ -74,11 +84,10 @@ const TestimonialsSection = () => {
                       <p className='text-gray-500'>{testimonial.title}</p>
                       <div className='flex justify-center mt-2'>
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star
+                          <FontAwesomeIcon
                             key={i}
-                            className='text-[var(--obl-red)]'
-                            fill='currentColor'
-                            size={20}
+                            icon={faStar}
+                            className='text-[var(--obl-red)] text-[20px] mx-0.5' // Matched size={20}
                           />
                         ))}
                       </div>
@@ -97,14 +106,16 @@ const TestimonialsSection = () => {
             disabled={currentIndex === 0}
             className='p-3 rounded-full bg-gray-200 text-gray-700 transition-colors hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed'
             aria-label='Previous testimonial'>
-            <ChevronLeft size={24} />
+            {/* Matched size: size={24} -> text-[24px] */}
+            <FontAwesomeIcon icon={faChevronLeft} className='text-[24px]' />
           </button>
           <button
             onClick={handleNext}
             disabled={currentIndex === testimonials.length - 1}
             className='p-3 rounded-full bg-gray-200 text-gray-700 transition-colors hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed'
             aria-label='Next testimonial'>
-            <ChevronRight size={24} />
+            {/* Matched size: size={24} -> text-[24px] */}
+            <FontAwesomeIcon icon={faChevronRight} className='text-[24px]' />
           </button>
         </div>
       </div>

@@ -1,8 +1,9 @@
 // --- Next ---
 import Image from 'next/image';
 import Link from 'next/link';
-// --- Icons ---
-import { ArrowRight } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
 import projects from '@/data/home/projects.json';
 
@@ -31,7 +32,7 @@ const PortfolioSection = () => {
           <Link
             href='/portfolio' // Corrected link to the portfolio page
             className='inline-block !px-10 !py-4 bg-[var(--obl-red)] text-white !rounded-full text-lg font-semibold shadow-lg transition-all
-                       duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
+                        duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
             View All Projects
           </Link>
         </div>
@@ -87,7 +88,8 @@ const ProjectCard = ({ title, description, technologies, imageUrl, link }: Proje
             </div>
             <div className='flex items-center text-[var(--obl-red)] font-semibold'>
               <span className='text-sm'>View Project</span>
-              <ArrowRight size={16} className='ml-1' />
+              {/* Size match: size={16} -> text-[16px] */}
+              <FontAwesomeIcon icon={faArrowRight} className='ml-1 text-[16px]' />
             </div>
           </div>
         </div>

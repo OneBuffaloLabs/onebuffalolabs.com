@@ -2,8 +2,10 @@
 
 // --- React & Next ---
 import React from 'react';
-// --- Icons ---
-import { Github, GitFork, ExternalLink } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faCodeBranch, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
 import LABS_PROJECTS from '@/data/labs.json';
 // --- Analytics ---
@@ -13,13 +15,13 @@ const GITHUB_ORGS = [
   {
     name: 'OneBuffaloLabs',
     url: 'https://github.com/OneBuffaloLabs',
-    icon: GitFork,
+    icon: faCodeBranch,
     description: 'Primary organization for our main projects and collaborations.',
   },
   {
     name: 'SiloCityLabs',
     url: 'https://github.com/SiloCityLabs',
-    icon: GitFork,
+    icon: faCodeBranch,
     description: 'Experimental projects and community-focused initiatives.',
   },
 ];
@@ -64,7 +66,11 @@ export default function OpenSourcePage() {
                   onClick={() => logEvent('open_source_page', 'github_org_click', org.name)}
                   className='block p-6 bg-white/5 border border-white/10 rounded-lg transition-all duration-300 hover:border-[var(--obl-blue)] hover:bg-white/10'>
                   <div className='flex items-center mb-2'>
-                    <org.icon className='w-6 h-6 mr-3 text-[var(--obl-blue)]' />
+                    {/* Updated Rendering: FontAwesomeIcon component */}
+                    <FontAwesomeIcon
+                      icon={org.icon}
+                      className='w-6 h-6 mr-3 text-2xl text-[var(--obl-blue)]'
+                    />
                     <span className='text-xl font-bold text-white'>{org.name}</span>
                   </div>
                   <p className='text-gray-400'>{org.description}</p>
@@ -114,7 +120,7 @@ export default function OpenSourcePage() {
                       logEvent('open_source_page', 'project_github_click', project.title)
                     }
                     className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
-                    <Github className='w-5 h-5 mr-2' />
+                    <FontAwesomeIcon icon={faGithub} className='w-5 h-5 mr-2 text-xl' />
                     View on GitHub
                   </a>
 
@@ -128,7 +134,10 @@ export default function OpenSourcePage() {
                       }
                       className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
                       Live Demo
-                      <ExternalLink className='w-5 h-5 ml-1' />
+                      <FontAwesomeIcon
+                        icon={faUpRightFromSquare}
+                        className='w-5 h-5 ml-1 text-xl'
+                      />
                     </a>
                   )}
                 </div>

@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link'; // --- Import Link
-import { Mail, MapPin, ArrowRight } from 'lucide-react'; // --- Import ArrowRight
+import Link from 'next/link';
+// --- FontAwesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLocationDot, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {
   faLinkedinIn,
   faXTwitter,
@@ -18,36 +19,16 @@ import { logEvent } from '@/lib/analytics';
 
 // Social media links data
 const socialLinks = [
-  {
-    name: 'Facebook',
-    icon: faFacebookF,
-    url: 'https://www.facebook.com/onebuffalolabs',
-  },
-  {
-    name: 'Twitter',
-    icon: faXTwitter,
-    url: 'https://x.com/OneBuffaloLabs',
-  },
+  { name: 'Facebook', icon: faFacebookF, url: 'https://www.facebook.com/onebuffalolabs' },
+  { name: 'Twitter', icon: faXTwitter, url: 'https://x.com/OneBuffaloLabs' },
   {
     name: 'LinkedIn',
     icon: faLinkedinIn,
     url: 'https://www.linkedin.com/company/one-buffalo-labs',
   },
-  {
-    name: 'GitHub',
-    icon: faGithub,
-    url: 'https://github.com/OneBuffaloLabs',
-  },
-  {
-    name: 'Instagram',
-    icon: faInstagram,
-    url: 'https://www.instagram.com/onebuffalolabs/',
-  },
-  {
-    name: 'Bluesky',
-    icon: faBluesky,
-    url: 'https://bsky.app/profile/onebuffalolabs.com',
-  },
+  { name: 'GitHub', icon: faGithub, url: 'https://github.com/OneBuffaloLabs' },
+  { name: 'Instagram', icon: faInstagram, url: 'https://www.instagram.com/onebuffalolabs/' },
+  { name: 'Bluesky', icon: faBluesky, url: 'https://bsky.app/profile/onebuffalolabs.com' },
 ];
 
 // --- Main ContactSection Component ---
@@ -69,7 +50,11 @@ const ContactSection = () => {
           {/* Left Column: Contact Details */}
           <div className='flex flex-col justify-center space-y-8'>
             <div className='flex items-start p-6 rounded-lg bg-gray-50 border border-gray-200'>
-              <Mail className='h-8 w-8 text-[var(--obl-blue)] mt-1 flex-shrink-0' />
+              {/* FIXED: Added text-[32px] to match h-8 w-8 size */}
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className='text-[32px] text-[var(--obl-blue)] mt-1 flex-shrink-0'
+              />
               <div className='ml-4'>
                 <h3 className='text-xl font-bold text-[var(--obl-dark-blue)]'>Email Us</h3>
                 <p className='text-gray-600'>Direct inquiries or just want to say hello?</p>
@@ -82,7 +67,11 @@ const ContactSection = () => {
             </div>
 
             <div className='flex items-start p-6 rounded-lg bg-gray-50 border border-gray-200'>
-              <MapPin className='h-8 w-8 text-[var(--obl-blue)] mt-1 flex-shrink-0' />
+              {/* FIXED: Added text-[32px] to match h-8 w-8 size */}
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                className='text-[32px] text-[var(--obl-blue)] mt-1 flex-shrink-0'
+              />
               <div className='ml-4'>
                 <h3 className='text-xl font-bold text-[var(--obl-dark-blue)]'>Our Location</h3>
                 <p className='text-lg text-gray-600'>
@@ -92,7 +81,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* UPDATED: "Connect With Us" section */}
+            {/* "Connect With Us" section */}
             <div className='pt-4'>
               <h3 className='text-xl font-bold text-[var(--obl-dark-blue)] text-center lg:text-left'>
                 Connect With Us
@@ -107,7 +96,10 @@ const ContactSection = () => {
                   style={{ backgroundColor: 'var(--obl-red)' }}
                   onClick={() => logEvent('navigation_click', 'contact_to_socials_page')}>
                   View All Socials
-                  <ArrowRight className='w-4 h-4 ml-2 transition-transform group-hover:translate-x-1' />
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className='ml-2 text-sm transition-transform group-hover:translate-x-1'
+                  />
                 </Link>
                 <div className='flex items-center space-x-2'>
                   {socialLinks.slice(0, 3).map(
@@ -124,7 +116,8 @@ const ContactSection = () => {
                         rel='noopener noreferrer'
                         aria-label={social.name}
                         className='h-10 w-10 flex items-center justify-center bg-gray-200 rounded-full text-gray-600 transition-colors hover:bg-[var(--obl-dark-blue)] hover:text-white'>
-                        <FontAwesomeIcon icon={social.icon} className='text-lg' />
+                        {/* Increased social icon size slightly to text-xl for better visibility */}
+                        <FontAwesomeIcon icon={social.icon} className='text-xl' />
                       </a>
                     )
                   )}

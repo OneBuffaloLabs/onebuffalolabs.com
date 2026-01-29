@@ -1,7 +1,16 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Compass, PencilRuler, Code, Rocket, BarChart3, LucideIcon } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCompass,
+  faPenRuler,
+  faCode,
+  faRocket,
+  faChartSimple,
+} from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 // --- TYPE-SAFE OPTIONS FOR THE HOOK ---
 interface UseInViewOptions extends IntersectionObserverInit {
@@ -45,31 +54,31 @@ const useInView = (options: UseInViewOptions) => {
 // --- Data for the process steps ---
 const processSteps = [
   {
-    icon: Compass,
+    icon: faCompass,
     title: 'Discovery & Strategy',
     description:
       'We start by understanding your vision, goals, and audience to create a comprehensive project roadmap and strategy for success.',
   },
   {
-    icon: PencilRuler,
+    icon: faPenRuler,
     title: 'Design & Prototyping',
     description:
       'Our team designs intuitive, user-centric interfaces, creating interactive prototypes to refine the user experience before development begins.',
   },
   {
-    icon: Code,
+    icon: faCode,
     title: 'Development & Testing',
     description:
       'Using cutting-edge tech, we build your application with clean, scalable code. Rigorous testing ensures a flawless, bug-free launch.',
   },
   {
-    icon: Rocket,
+    icon: faRocket,
     title: 'Deployment & Launch',
     description:
       'We handle the entire deployment process, ensuring a smooth and seamless launch on a robust, scalable infrastructure.',
   },
   {
-    icon: BarChart3,
+    icon: faChartSimple,
     title: 'Support & Growth',
     description:
       'Our partnership continues post-launch with ongoing support, performance monitoring, and data-driven strategies for future growth.',
@@ -77,14 +86,14 @@ const processSteps = [
 ];
 
 interface ProcessStepProps {
-  icon: LucideIcon;
+  icon: IconDefinition; // Changed from LucideIcon
   title: string;
   description: string;
   index: number;
 }
 
 // --- Individual Step Component ---
-const ProcessStep: React.FC<ProcessStepProps> = ({ icon: Icon, title, description, index }) => {
+const ProcessStep: React.FC<ProcessStepProps> = ({ icon, title, description, index }) => {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
   const isOdd = index % 2 !== 0;
 
@@ -116,7 +125,11 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ icon: Icon, title, descriptio
 
         {/* Card Content */}
         <div className='flex items-start'>
-          <Icon className='text-[var(--obl-blue)] mr-4 mt-1 flex-shrink-0' size={32} />
+          {/* Replaced Icon with FontAwesomeIcon and text-[32px] size */}
+          <FontAwesomeIcon
+            icon={icon}
+            className='text-[var(--obl-blue)] mr-4 mt-1 flex-shrink-0 text-[32px]'
+          />
           <div>
             <h3 className='text-2xl font-bold text-white mb-2'>{title}</h3>
             <p className='text-gray-400 leading-relaxed'>{description}</p>

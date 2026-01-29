@@ -2,46 +2,49 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Lightbulb, Users, Gem, Target, LucideIcon } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLightbulb, faUsers, faGem, faBullseye } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 // --- Data for the company values ---
 const values = [
   {
-    icon: Lightbulb,
+    icon: faLightbulb,
     title: 'Innovation',
     description:
       'We push the boundaries of technology to deliver creative and effective solutions.',
   },
   {
-    icon: Users,
+    icon: faUsers,
     title: 'Community',
     description:
       'Deeply rooted in Buffalo, we are committed to fostering local growth and collaboration.',
   },
   {
-    icon: Gem,
+    icon: faGem,
     title: 'Quality',
     description: 'We uphold the highest standards in every line of code and every pixel designed.',
   },
   {
-    icon: Target,
+    icon: faBullseye,
     title: 'Client-Centric',
     description: 'Your success is our ultimate goal. We build partnerships, not just projects.',
   },
 ];
 
 interface ValuePillProps {
-  icon: LucideIcon;
+  icon: IconDefinition;
   title: string;
   description: string;
 }
 
 // --- Individual Value Component ---
-const ValuePill: React.FC<ValuePillProps> = ({ icon: Icon, title, description }) => (
+const ValuePill: React.FC<ValuePillProps> = ({ icon, title, description }) => (
   <div className='flex items-start'>
     <div className='flex-shrink-0'>
       <div className='flex items-center justify-center h-12 w-12 rounded-full bg-[var(--obl-blue)]/10 text-[var(--obl-blue)] transition-transform duration-300 hover:scale-110'>
-        <Icon className='h-6 w-6' />
+        <FontAwesomeIcon icon={icon} className='h-12 w-12 text-xl' />
       </div>
     </div>
     <div className='ml-4'>

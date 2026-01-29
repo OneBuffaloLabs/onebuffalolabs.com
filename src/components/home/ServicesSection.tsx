@@ -2,25 +2,27 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Code, Search, Brain, LucideIcon, ArrowRight } from 'lucide-react';
+// --- FontAwesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCode,
+  faMagnifyingGlass,
+  faBrain,
+  faArrowRight,
+} from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 // --- Analytics ---
 import { logEvent } from '@/lib/analytics';
 
 interface ServiceCardProps {
-  icon: LucideIcon;
+  icon: IconDefinition;
   title: string;
   description: string;
   delay: number;
   href: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  icon: Icon,
-  title,
-  description,
-  delay,
-  href,
-}) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, delay, href }) => {
   const [inView, setInView] = useState(false);
   const cardRef = useRef<HTMLAnchorElement>(null);
 
@@ -35,11 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           observer.disconnect();
         }
       },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
-      }
+      { root: null, rootMargin: '0px', threshold: 0.1 }
     );
 
     observer.observe(node);
@@ -65,9 +63,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       style={{ transitionDelay: `${delay}ms` }}>
       <div>
         <div className='text-[var(--obl-blue)] mb-4 inline-block'>
-          <Icon
-            size={48}
-            className='transition-colors duration-300 group-hover:text-[var(--obl-red)]'
+          {/* Matched size: size={48} -> text-[48px] */}
+          <FontAwesomeIcon
+            icon={icon}
+            className='text-[48px] transition-colors duration-300 group-hover:text-[var(--obl-red)]'
           />
         </div>
         <h3 className='text-2xl font-semibold mb-3 text-gray-900'>{title}</h3>
@@ -76,7 +75,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className='mt-6'>
         <span className='inline-flex items-center font-semibold text-[var(--obl-blue)]'>
           Learn More
-          <ArrowRight className='ml-2 w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1' />
+          {/* Matched size: w-4 h-4 (16px) -> text-[16px] */}
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            className='ml-2 text-[16px] transition-transform duration-300 ease-in-out group-hover:translate-x-1'
+          />
         </span>
       </div>
     </Link>
@@ -86,28 +89,28 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 const ServicesSection = () => {
   const services = [
     {
-      icon: Code,
+      icon: faCode,
       title: 'Web Development',
       description:
         'Crafting custom websites, e-commerce solutions, and robust CMS platforms for a powerful online presence.',
       href: '/services/website',
     },
     // {
-    //   icon: Smartphone,
+    //   icon: faMobileScreenButton, // Example placeholder if you uncomment apps later
     //   title: 'App Development',
     //   description:
     //     'Building intuitive mobile apps and cross-platform solutions that deliver exceptional user experiences.',
     //   href: '/services/apps',
     // },
     {
-      icon: Search,
+      icon: faMagnifyingGlass,
       title: 'Digital Strategy & SEO',
       description:
         'Optimizing your online visibility with comprehensive SEO audits, analytics, and growth strategies.',
       href: '/services/seo',
     },
     {
-      icon: Brain,
+      icon: faBrain,
       title: 'AI Integration',
       description:
         'Implementing intelligent chatbots, missed call automation, and custom machine learning solutions to drive efficiency.',
@@ -144,7 +147,8 @@ const ServicesSection = () => {
             onClick={() => logEvent('services_section_home', 'card_click', 'View All Services')}
             className='inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-[var(--obl-red)] rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-105'>
             View All Our Services
-            <ArrowRight className='ml-2 h-5 w-5' />
+            {/* Matched size: h-5 w-5 (20px) -> text-[20px] */}
+            <FontAwesomeIcon icon={faArrowRight} className='ml-2 text-[20px]' />
           </Link>
         </div>
       </div>

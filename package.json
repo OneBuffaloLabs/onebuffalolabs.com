@@ -37,7 +37,7 @@
     "@types/estree": "^1.0.8",
     "@types/json-schema": "^7.0.15",
     "@types/node": "^25.0.10",
-    "@types/react": "^19.2.10",
+    "@types/react": "^19.2.13",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.19.0",

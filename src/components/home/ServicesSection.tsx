@@ -9,6 +9,7 @@ import {
   faMagnifyingGlass,
   faBrain,
   faArrowRight,
+  faCubes, // Added for 3D Printing
 } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 // --- Analytics ---
@@ -116,6 +117,13 @@ const ServicesSection = () => {
         'Implementing intelligent chatbots, missed call automation, and custom machine learning solutions to drive efficiency.',
       href: '/services/ai-integration',
     },
+    {
+      icon: faCubes,
+      title: 'Custom 3D Printing',
+      description:
+        'Turning digital designs into reality with rapid prototyping, custom parts, and small-batch manufacturing.',
+      href: '/services/3d-printing',
+    },
   ];
 
   return (
@@ -125,10 +133,11 @@ const ServicesSection = () => {
           Our <span className='text-[var(--obl-blue)]'>Expertise</span>
         </h2>
         <p className='text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12'>
-          We deliver comprehensive digital solutions designed to elevate your brand, engage your
-          audience, and drive growth.
+          We deliver comprehensive digital and physical solutions designed to elevate your brand,
+          streamline your operations, and bring your ideas to life.
         </p>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {/* Updated grid to handle 4 items nicely on large screens */}
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}

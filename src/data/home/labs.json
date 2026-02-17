@@ -1,11 +1,11 @@
 [
   {
-    "title": "One Buffalo Games",
-    "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
-    "imageUrl": "/images/misc/code.webp",
-    "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
+    "title": "FilaMeter",
+    "description": "FilaMeter is a local-first, open-source filament inventory manager for 3D printing, helping makers track and optimize usage without logins.",
+    "imageUrl": "/images/misc/3d-printing.webp",
+    "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
     "label": "Showcase Project",
-    "link": "https://onebuffalogames.com/"
+    "link": "https://filameter.com"
   },
   {
     "title": "COD RCG",
@@ -16,11 +16,11 @@
     "link": "https://codrcg.com"
   },
   {
-    "title": "FilaMeter",
-    "description": "FilaMeter is a local-first, open-source filament inventory manager for 3D printing, helping makers track and optimize usage without logins.",
-    "imageUrl": "/images/misc/3d-printing.webp",
-    "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
+    "title": "One Buffalo Games",
+    "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
+    "imageUrl": "/images/misc/code.webp",
+    "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
     "label": "Showcase Project",
-    "link": "https://filameter.com"
+    "link": "https://onebuffalogames.com/"
   }
 ]

@@ -9,6 +9,7 @@ import {
   faBrain,
   faArrowRight,
   faWandMagicSparkles,
+  faCubes,
 } from '@fortawesome/free-solid-svg-icons';
 // --- Utils ---
 import { generateMetadata } from '@/utils/metadata';
@@ -17,7 +18,7 @@ import { generateMetadata } from '@/utils/metadata';
 export const metadata: Metadata = generateMetadata({
   title: 'Our Services | One Buffalo Labs',
   description:
-    'Explore the comprehensive digital solutions offered by One Buffalo Labs: web design, app development, digital strategy & SEO, and AI integration for businesses.',
+    'Explore the comprehensive digital solutions offered by One Buffalo Labs: web design, app development, digital strategy & SEO, AI integration, and custom 3D printing.',
   keywords: [
     'Buffalo digital solutions',
     'tech services Buffalo',
@@ -26,6 +27,8 @@ export const metadata: Metadata = generateMetadata({
     'SEO services',
     'AI integration services',
     'custom software Buffalo',
+    '3D printing Buffalo',
+    'rapid prototyping',
   ],
   urlPath: '/services',
 });
@@ -40,7 +43,7 @@ const companyColors = {
 const serviceCategories = [
   {
     link: '/services/website',
-    icon: faCode, // Using faCode for web development
+    icon: faCode,
     title: 'Website Design & Development',
     description:
       'We build stunning, high-performance websites that capture your brand, engage your audience, and drive business growth.',
@@ -49,7 +52,7 @@ const serviceCategories = [
   },
   {
     link: '/services/seo',
-    icon: faChartSimple, // Using faChartSimple for growth/analytics
+    icon: faChartSimple,
     title: 'Digital Strategy & SEO',
     description:
       'A beautiful website is just the beginning. We help customers find you on Google and turn traffic into tangible results.',
@@ -67,7 +70,7 @@ const serviceCategories = [
   // },
   {
     link: '/services/ai-integration',
-    icon: faBrain, // Using faBrain for AI/intelligence
+    icon: faBrain,
     title: 'AI & Automation Solutions',
     description:
       'Leverage the power of artificial intelligence to enhance customer experiences, streamline operations, and unlock new efficiencies.',
@@ -78,6 +81,20 @@ const serviceCategories = [
       'Machine Learning Models',
     ],
     ctaText: 'Integrate AI Solutions',
+  },
+  {
+    link: '/services/3d-printing',
+    icon: faCubes,
+    title: 'Custom 3D Printing',
+    description:
+      'From rapid prototyping to custom replacement parts, we offer high-quality 3D printing services to bring your digital designs into the physical world.',
+    subServices: [
+      'Rapid Prototyping',
+      'Custom Parts & Fixes',
+      'Small Batch Production',
+      'One Buffalo Prints Catalog',
+    ],
+    ctaText: 'Explore 3D Printing',
   },
 ];
 

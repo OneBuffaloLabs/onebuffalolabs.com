@@ -3,7 +3,7 @@
     "title": "Website Development",
     "client": "McClelland Small Animal Hospital",
     "category": "Web Development",
-    "summary": "A comprehensive redesign for Buffalo’s oldest operating animal hospital. The new site modernizes their digital presence while honoring their century-long legacy, providing pet owners with seamless access to information on surgical, dental, and wellness care.",
+    "summary": "A comprehensive redesign for Buffalo's oldest operating animal hospital. The new site modernizes their digital presence while honoring their century-long legacy, providing pet owners with seamless access to information on surgical, dental, and wellness care.",
     "tech": ["Next.js", "React", "Tailwind", "Cloudflare Pages"],
     "imageUrl": "/images/portfolio/mcclellandsah.svg",
     "link": "https://mcclellandsah.com/"

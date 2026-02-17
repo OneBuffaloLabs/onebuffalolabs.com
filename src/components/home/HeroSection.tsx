@@ -32,13 +32,12 @@ const HeroSection = () => {
         />
         {/* Main Headline */}
         <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight'>
-          Powering <span className='text-[var(--obl-blue)]'>Buffalo&apos;s</span> Digital{' '}
+          Powering <span className='text-[var(--obl-blue)]'>Buffalo&apos;s</span>{' '}
           <span className='text-[var(--obl-red)]'>Future.</span>{' '}
         </h1>
         {/* Sub-headline */}
         <p className='text-lg sm:text-xl md:text-2xl max-w-3xl leading-relaxed opacity-90'>
-          We design, develop, and optimize websites and applications for businesses big and small,
-          driving growth and efficiency with cutting-edge tech and AI.
+          From custom software engineering and AI integration to rapid 3D prototyping, we build the tools businesses need to drive growth and efficiency.
         </p>
         {/* Call-to-Action Buttons */}
         <div className='flex flex-col sm:flex-row gap-4 pt-4'>

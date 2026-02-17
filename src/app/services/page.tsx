@@ -118,12 +118,11 @@ export default function ServicesPage() {
           }}></div>
         <div className='relative z-10 max-w-4xl mx-auto text-white'>
           <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4'>
-            Digital Solutions to Power Your{' '}
+            Solutions to Power Your{' '}
             <span style={{ color: companyColors.red }}>Buffalo Business.</span>
           </h1>
           <p className='text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90'>
-            From foundational websites to advanced AI integration, we offer a complete suite of
-            technology services to help you achieve your goals.
+            From foundational websites and AI integration to physical prototyping, we offer a complete suite of tech services to help you achieve your goals.
           </p>
         </div>
       </section>

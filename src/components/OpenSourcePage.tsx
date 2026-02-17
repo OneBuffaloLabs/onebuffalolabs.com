@@ -127,16 +127,16 @@ export default function OpenSourcePage() {
                   {project.link && (
                     <a
                       href={project.link}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target={project.link.startsWith('/') ? '_self' : '_blank'}
+                      rel={project.link.startsWith('/') ? '' : 'noopener noreferrer'}
                       onClick={() =>
                         logEvent('open_source_page', 'project_demo_click', project.title)
                       }
                       className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
-                      Live Demo
+                      {project.linkText || 'Live Demo'}
                       <FontAwesomeIcon
                         icon={faUpRightFromSquare}
-                        className='w-5 h-5 ml-1 text-xl'
+                        className='w-5 h-5 ml-2 text-xl'
                       />
                     </a>
                   )}

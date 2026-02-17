@@ -152,7 +152,7 @@ export default function WebsitePackagesClientSection() {
             Not sure which one is right for you?
           </h3>
           <p className='text-gray-600 mb-6 max-w-xl mx-auto'>
-            Most agencies will quote you blindly. We prefer to listen first. Let's have a quick
+            Most agencies will quote you blindly. We prefer to listen first. Let&apos;s have a quick
             15-minute chat to hear about your goals.
           </p>
           <Link

@@ -1,17 +1,10 @@
 [
   {
-    "title": "One Buffalo Games",
-    "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
-    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
-    "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
-    "link": "https://onebuffalogames.com/"
-  },
-  {
-    "title": "SiloCityPages",
-    "description": "SiloCityPages is a lightning-fast, zero-configuration static site generator from SiloCityLabs. It's built with Bootstrap, React, and Next.js, making it ideal for creating sleek documentation sites that deploy effortlessly to GitHub Pages.",
-    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
-    "githubUrl": "https://github.com/SiloCityLabs/SiloCityPages",
-    "link": null
+    "title": "FilaMeter",
+    "description": "FilaMeter is a local-first, open-source filament inventory manager for 3D printing, helping makers track and optimize usage without logins.",
+    "tech": ["React", "PouchDB", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
+    "link": "https://filameter.com"
   },
   {
     "title": "COD RCG",
@@ -21,11 +14,33 @@
     "link": "https://codrcg.com"
   },
   {
-    "title": "FilaMeter",
-    "description": "FilaMeter is a local-first, open-source filament inventory manager for 3D printing, helping makers track and optimize usage without logins.",
-    "tech": ["React", "PouchDB", "Bootstrap", "Next.js"],
-    "githubUrl": "https://github.com/SiloCityLabs/filameter.com",
-    "link": "https://filameter.com"
+    "title": "One Buffalo Prints",
+    "description": "Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free customizable designs for the 3D printing community.",
+    "tech": ["OpenSCAD", "3D Printing", "Customizable Models"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/one-buffalo-prints",
+    "link": "/labs/one-buffalo-prints",
+    "linkText": "More Details"
+  },
+  {
+    "title": "TallyPad",
+    "description": "TallyPad is a simple, beautiful, and free scorekeeper for all your favorite card and board games. Focus on the fun, not the math.",
+    "tech": ["React", "PouchDB", "Tailwind CSS", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/tally-pad",
+    "link": "https://tallypad.onebuffalolabs.com"
+  },
+  {
+    "title": "Grit",
+    "description": "Grit: A privacy-focused, client-only PWA for tracking mental toughness challenges, starting with 75 Hard.",
+    "tech": ["React", "PouchDB", "PWA", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/grit",
+    "link": "https://grit.onebuffalolabs.com"
+  },
+  {
+    "title": "SiloCityPages",
+    "description": "SiloCityPages is a lightning-fast, zero-configuration static site generator from SiloCityLabs. It's built with Bootstrap, React, and Next.js, making it ideal for creating sleek documentation sites that deploy effortlessly to GitHub Pages.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/SiloCityLabs/SiloCityPages",
+    "link": null
   },
   {
     "title": "Vitals",
@@ -33,6 +48,13 @@
     "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
     "githubUrl": "https://github.com/OneBuffaloLabs/vitals",
     "link": "https://vitals.onebuffalolabs.com/"
+  },
+  {
+    "title": "One Buffalo Games",
+    "description": "Our retro-arcade portal for game hubs, original titles, and classic browser-based fun. Built to be a central hub for all of our gaming projects.",
+    "tech": ["React", "TypeScript", "Bootstrap", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/onebuffalogames.com",
+    "link": "https://onebuffalogames.com/"
   },
   {
     "title": "RoyalHub",

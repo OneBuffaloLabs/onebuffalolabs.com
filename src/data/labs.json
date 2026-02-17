@@ -15,7 +15,7 @@
   },
   {
     "title": "One Buffalo Prints",
-    "description": "Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free parametric designs for the maker community.",
+    "description": "Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free customizable designs for the 3D printing community.",
     "tech": ["OpenSCAD", "3D Printing", "Customizable Models"],
     "githubUrl": "https://github.com/OneBuffaloLabs/one-buffalo-prints",
     "link": "/labs/one-buffalo-prints",

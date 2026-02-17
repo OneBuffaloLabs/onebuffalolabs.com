@@ -16,10 +16,24 @@
   {
     "title": "One Buffalo Prints",
     "description": "Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free parametric designs for the maker community.",
-    "tech": ["OpenSCAD", "3D Printing", "Parametric Design"],
+    "tech": ["OpenSCAD", "3D Printing", "Customizable Models"],
     "githubUrl": "https://github.com/OneBuffaloLabs/one-buffalo-prints",
     "link": "/labs/one-buffalo-prints",
     "linkText": "More Details"
+  },
+  {
+    "title": "TallyPad",
+    "description": "TallyPad is a simple, beautiful, and free scorekeeper for all your favorite card and board games. Focus on the fun, not the math.",
+    "tech": ["React", "PouchDB", "Tailwind CSS", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/tally-pad",
+    "link": "https://tallypad.onebuffalolabs.com"
+  },
+  {
+    "title": "Grit",
+    "description": "Grit: A privacy-focused, client-only PWA for tracking mental toughness challenges, starting with 75 Hard.",
+    "tech": ["React", "PouchDB", "PWA", "Next.js"],
+    "githubUrl": "https://github.com/OneBuffaloLabs/grit",
+    "link": "https://grit.onebuffalolabs.com"
   },
   {
     "title": "SiloCityPages",

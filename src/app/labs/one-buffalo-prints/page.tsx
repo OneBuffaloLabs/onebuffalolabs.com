@@ -14,6 +14,7 @@ import {
   faEnvelope,
   faScrewdriverWrench,
   faArrowRight,
+  faPrint,
 } from '@fortawesome/free-solid-svg-icons';
 
 // --- METADATA ---
@@ -98,6 +99,18 @@ export default function OneBuffaloPrintsPage() {
                   <span className='flex items-center text-lg font-semibold'>
                     <FontAwesomeIcon icon={faGithub} className='text-2xl mr-3' />
                     GitHub Repository
+                  </span>
+                  <FontAwesomeIcon icon={faArrowRight} className='text-gray-500' />
+                </a>
+
+                <a
+                  href='https://www.printables.com/@Bana0615_4259106'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center justify-between p-4 bg-black/30 border border-white/10 rounded hover:border-[#FA6831] transition-colors'>
+                  <span className='flex items-center text-lg font-semibold'>
+                    <FontAwesomeIcon icon={faPrint} className='text-2xl mr-3' />
+                    Printables Profile
                   </span>
                   <FontAwesomeIcon icon={faArrowRight} className='text-gray-500' />
                 </a>

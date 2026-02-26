@@ -104,7 +104,7 @@ export default function OneBuffaloPrintsPage() {
                 </a>
 
                 <a
-                  href='https://www.printables.com/@Bana0615_4259106'
+                  href='https://www.printables.com/@OneBuffalo3D_4259106'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center justify-between p-4 bg-black/30 border border-white/10 rounded hover:border-[#FA6831] transition-colors'>

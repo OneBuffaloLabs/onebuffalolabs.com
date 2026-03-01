@@ -93,6 +93,7 @@ const serviceCategories = [
       'Custom Parts & Fixes',
       'Small Batch Production',
       'One Buffalo Prints Catalog',
+      '1BfloPrints Catalog',
     ],
     ctaText: 'Explore 3D Printing',
   },

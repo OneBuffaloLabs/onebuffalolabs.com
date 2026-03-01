@@ -19,7 +19,7 @@ import {
 
 // --- METADATA ---
 export const metadata: Metadata = generateMetadata({
-  title: 'One Buffalo Prints | Open-Source 3D Models',
+  title: '1BfloPrints | Open-Source 3D Models',
   description:
     'Free, open-source 3D models and parametric OpenSCAD designs from One Buffalo Labs. Built in the 716.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = generateMetadata({
     'maker',
     'buffalo ny',
   ],
-  urlPath: '/labs/one-buffalo-prints',
+  urlPath: '/labs/1BfloPrints',
 });
 
 // --- PAGE COMPONENT ---
@@ -54,7 +54,7 @@ export default function OneBuffaloPrintsPage() {
             <div className='max-w-3xl mx-auto mb-8 bg-black/40 border border-white/10 rounded-xl overflow-hidden shadow-2xl'>
               <Image
                 src='/images/labs/one-buffalo-prints-banner.webp'
-                alt='One Buffalo Prints Banner'
+                alt='1BfloPrints Banner'
                 width={1280}
                 height={400}
                 className='w-full h-auto'

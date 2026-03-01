@@ -14,11 +14,11 @@
     "link": "https://codrcg.com"
   },
   {
-    "title": "One Buffalo Prints",
+    "title": "1BfloPrints",
     "description": "Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free customizable designs for the 3D printing community.",
     "tech": ["OpenSCAD", "3D Printing", "Customizable Models"],
-    "githubUrl": "https://github.com/OneBuffaloLabs/one-buffalo-prints",
-    "link": "/labs/one-buffalo-prints",
+    "githubUrl": "https://github.com/OneBuffaloLabs/1BfloPrints",
+    "link": "/labs/1BfloPrints",
     "linkText": "More Details"
   },
   {

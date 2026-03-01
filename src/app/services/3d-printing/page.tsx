@@ -27,6 +27,7 @@ export const metadata: Metadata = generateMetadata({
     'small batch manufacturing',
     '3D printing services',
     'One Buffalo Prints',
+    '1BfloPrints'
   ],
   urlPath: '/services/3d-printing',
 });
@@ -59,10 +60,10 @@ const printingOfferings = [
   },
   {
     icon: faBoxOpen,
-    title: 'One Buffalo Prints',
+    title: '1BfloPrints',
     description:
       'Shop our own in-house catalog of custom toys, statues, and practical household mods. See something you like on our open-source repo? We can print and ship it to you.',
-    actionLink: 'https://github.com/OneBuffaloLabs/one-buffalo-prints',
+    actionLink: 'https://github.com/OneBuffaloLabs/1BfloPrints',
     actionText: 'Browse the repo',
   },
 ];

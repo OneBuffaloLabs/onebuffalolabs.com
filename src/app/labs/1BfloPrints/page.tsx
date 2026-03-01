@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { generateMetadata } from '@/utils/metadata';
 // --- FontAwesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faEtsy } from '@fortawesome/free-brands-svg-icons';
 import {
   faCube,
   faCloud,
@@ -104,7 +104,7 @@ export default function OneBuffaloPrintsPage() {
                 </a>
 
                 <a
-                  href='https://www.printables.com/@OneBuffalo3D_4259106'
+                  href='https://www.printables.com/@1BfloPrints_4259106'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center justify-between p-4 bg-black/30 border border-white/10 rounded hover:border-[#FA6831] transition-colors'>
@@ -142,8 +142,24 @@ export default function OneBuffaloPrintsPage() {
             </div>
           </div>
 
+          {/* --- ETSY SHOP SECTION --- */}
+          <div className='mt-16 p-8 md:p-12 bg-white/5 border border-white/10 rounded-2xl text-center flex flex-col items-center'>
+            <FontAwesomeIcon icon={faEtsy} className='text-5xl text-[#F16131] mb-6' />
+            <h2 className='text-3xl font-bold mb-4'>Want the physical print?</h2>
+            <p className='text-gray-300 max-w-2xl mx-auto mb-8 text-lg'>
+              Don&apos;t have a 3D printer or just want a high-quality finished product? We sell physical prints of our models directly on our Etsy shop.
+            </p>
+            <a
+              href='https://1bfloprints.etsy.com'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center px-8 py-3 bg-[#F16131] hover:bg-[#D14111] text-white font-bold rounded transition-colors text-lg'>
+              Visit our Etsy Shop
+            </a>
+          </div>
+
           {/* --- COMMERCIAL / CUSTOM WORK CTA --- */}
-          <div className='mt-20 p-8 md:p-12 bg-gradient-to-br from-black/60 to-black/30 border border-[var(--obl-red)]/30 rounded-2xl text-center'>
+          <div className='mt-16 p-8 md:p-12 bg-gradient-to-br from-black/60 to-black/30 border border-[var(--obl-red)]/30 rounded-2xl text-center'>
             <h2 className='text-3xl font-bold mb-4'>Need something custom?</h2>
             <p className='text-gray-300 max-w-2xl mx-auto mb-8 text-lg'>
               All of our open-source models are licensed under CC BY-NC-SA 4.0, which means they are

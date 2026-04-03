@@ -134,7 +134,7 @@ const Footer = () => {
         {/* Bottom bar with copyright and legal links */}
         <div className='border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4'>
           <p className='text-gray-500 text-sm'>
-            &copy; 2025 One Buffalo Labs. All rights reserved.
+            &copy; 2025 - {new Date().getFullYear()} One Buffalo Labs. All rights reserved.
           </p>
           <div className='flex items-center gap-x-6 text-sm'>
             {legalLinks.map((link) => (

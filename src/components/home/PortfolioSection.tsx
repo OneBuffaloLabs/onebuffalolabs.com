@@ -1,108 +1,156 @@
+'use client';
+
+// --- React ---
+import React, { useState, useEffect } from 'react';
+
 // --- Next ---
 import Image from 'next/image';
 import Link from 'next/link';
+
 // --- FontAwesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-// --- Data ---
-import projects from '@/data/home/projects.json';
 
-const PortfolioSection = () => {
+// --- Data ---
+import portfolioData from '@/data/portfolio.json';
+
+// --- Types ---
+interface ProjectCardProps {
+  client: string;
+  summary: string;
+  tech: string[];
+  imageUrl: string;
+  link: string;
+}
+
+// --- Components ---
+export default function PortfolioSection() {
+  const [featuredProjects, setFeaturedProjects] = useState<ProjectCardProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Defers the state update to the next tick, satisfying the strict linter rule
+    // against synchronous setState calls within a useEffect block.
+    const timer = setTimeout(() => {
+      const shuffled = [...portfolioData].sort(() => 0.5 - Math.random()).slice(0, 3);
+
+      setFeaturedProjects(shuffled);
+      setIsLoading(false);
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section id='work' className='w-full bg-[var(--obl-dark-blue)] py-16 px-8'>
+    <section
+      id='work'
+      className='w-full bg-[var(--obl-dark-blue)] py-16 px-8'
+      aria-labelledby='portfolio-title'>
       <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-12'>
-          <h2 className='text-4xl sm:text-5xl font-bold text-white'>
+          <h2 id='portfolio-title' className='text-4xl sm:text-5xl font-bold text-white'>
             Client <span className='text-[var(--obl-blue)]'>Success.</span>
           </h2>
           <p className='text-lg text-gray-400 mt-4 max-w-2xl mx-auto'>
-            We partner with innovative businesses to build solutions that drive results.
+            We work with innovative clients to build robust digital solutions that drive real
+            results.
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
+          {isLoading
+            ? Array.from({ length: 3 }).map((_, index) => <ProjectCardSkeleton key={index} />)
+            : featuredProjects.map((project) => (
+                <ProjectCard
+                  key={project.client}
+                  client={project.client}
+                  summary={project.summary}
+                  tech={project.tech}
+                  imageUrl={project.imageUrl}
+                  link={project.link}
+                />
+              ))}
         </div>
 
-        {/* Main CTA - Updated to use Next.js Link */}
         <div className='text-center mt-16'>
           <Link
-            href='/portfolio' // Corrected link to the portfolio page
-            className='inline-block !px-10 !py-4 bg-[var(--obl-red)] text-white !rounded-full text-lg font-semibold shadow-lg transition-all
-                        duration-300 ease-in-out hover:bg-[var(--obl-red)]/[.90] hover:scale-105'>
+            href='/portfolio'
+            className='inline-block px-10 py-4 bg-[var(--obl-red)] text-white rounded-full text-lg font-semibold shadow-lg transition-all duration-300 ease-in-out hover:bg-[var(--obl-red)]/90 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--obl-dark-blue)]'>
             View All Projects
           </Link>
         </div>
       </div>
     </section>
   );
-};
-
-// --- Project Card Component ---
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  technologies: string[];
-  imageUrl: string;
-  link: string;
 }
 
-const ProjectCard = ({ title, description, technologies, imageUrl, link }: ProjectCardProps) => {
+// --- Sub-Components ---
+function ProjectCard({ client, summary, tech, imageUrl, link }: ProjectCardProps) {
   return (
     <a
       href={link}
-      className='group relative block w-full aspect-square bg-gray-900 rounded-lg overflow-hidden shadow-2xl'>
-      {/* Background Image */}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='group relative block w-full aspect-square rounded-lg overflow-hidden shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--obl-blue)]'
+      aria-label={`View project for ${client}`}>
+      <div className='absolute inset-0 bg-white' />
+
       <Image
         src={imageUrl}
-        alt={title}
+        alt={`${client} project showcase`}
         fill
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-        className='object-cover w-full h-full transition-all duration-500 ease-in-out
-                   group-hover:scale-105 group-hover:brightness-75'
+        className='object-contain p-10 transition-transform duration-500 ease-in-out group-hover:scale-105'
       />
 
-      {/* Content Overlay */}
-      <div
-        className='absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent
-                   translate-y-1/2 group-hover:translate-y-0 transition-transform duration-500 ease-in-out'>
-        <div className='translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out delay-100'>
-          <h3 className='text-2xl font-bold text-white mb-2'>{title}</h3>
-          <p className='text-gray-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200'>
-            {description}
-          </p>
+      <div className='absolute inset-0 bg-[var(--obl-dark-blue)]/95 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out z-10' />
 
-          {/* Tech Stack & View Project Link */}
-          <div className='flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-300'>
-            <div className='flex flex-wrap gap-2'>
-              {technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className='bg-[var(--obl-blue)] text-white text-xs font-semibold px-2 py-1 rounded-full'>
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <div className='flex items-center text-[var(--obl-red)] font-semibold'>
-              <span className='text-sm'>View Project</span>
-              {/* Size match: size={16} -> text-[16px] */}
-              <FontAwesomeIcon icon={faArrowRight} className='ml-1 text-[16px]' />
-            </div>
+      <div className='absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out z-20'>
+        <h3 className='text-2xl font-bold text-white mb-2 line-clamp-1'>{client}</h3>
+        <p className='text-gray-300 text-sm mb-4 line-clamp-3'>{summary}</p>
+
+        <div className='flex justify-between items-end'>
+          <div className='flex flex-wrap gap-2'>
+            {tech.slice(0, 3).map((technology) => (
+              <span
+                key={technology}
+                className='bg-[var(--obl-blue)] text-white text-xs font-semibold px-2 py-1 rounded-full'>
+                {technology}
+              </span>
+            ))}
+            {tech.length > 3 && (
+              <span className='bg-gray-700 text-white text-xs font-semibold px-2 py-1 rounded-full'>
+                +{tech.length - 3}
+              </span>
+            )}
+          </div>
+
+          <div className='flex items-center text-[var(--obl-red)] font-semibold shrink-0 ml-4'>
+            <span className='text-sm'>Visit Site</span>
+            <FontAwesomeIcon icon={faArrowRight} className='ml-2 text-[16px]' />
           </div>
         </div>
       </div>
 
-      {/* Bottom Border Highlight on Hover */}
-      <div className='absolute bottom-0 left-0 w-full h-1'>
-        <div
-          className='bg-[var(--obl-red)] h-full w-0 group-hover:w-full
-                     transition-all duration-500 ease-in-out'></div>
+      <div className='absolute bottom-0 left-0 w-full h-1 z-30'>
+        <div className='bg-[var(--obl-red)] h-full w-0 group-hover:w-full transition-all duration-500 ease-in-out' />
       </div>
     </a>
   );
-};
+}
 
-export default PortfolioSection;
+function ProjectCardSkeleton() {
+  return (
+    <div className='relative block w-full aspect-square rounded-lg overflow-hidden shadow-2xl bg-gray-800 animate-pulse'>
+      <div className='absolute inset-0 p-6 flex flex-col justify-end'>
+        <div className='w-3/4 h-8 bg-gray-700 rounded mb-4' />
+        <div className='w-full h-4 bg-gray-700 rounded mb-2' />
+        <div className='w-5/6 h-4 bg-gray-700 rounded mb-4' />
+        <div className='flex gap-2'>
+          <div className='w-16 h-6 bg-[var(--obl-blue)]/50 rounded-full' />
+          <div className='w-20 h-6 bg-[var(--obl-blue)]/50 rounded-full' />
+        </div>
+      </div>
+    </div>
+  );
+}

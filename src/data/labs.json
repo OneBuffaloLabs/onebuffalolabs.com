@@ -14,14 +14,6 @@
     "link": "https://codrcg.com"
   },
   {
-    "title": "1BfloPrints",
-    "description": "Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free customizable designs for the 3D printing community.",
-    "tech": ["OpenSCAD", "3D Printing", "Customizable Models"],
-    "githubUrl": "https://github.com/OneBuffaloLabs/1BfloPrints",
-    "link": "/labs/1BfloPrints",
-    "linkText": "More Details"
-  },
-  {
     "title": "TallyPad",
     "description": "TallyPad is a simple, beautiful, and free scorekeeper for all your favorite card and board games. Focus on the fun, not the math.",
     "tech": ["React", "PouchDB", "Tailwind CSS", "Next.js"],

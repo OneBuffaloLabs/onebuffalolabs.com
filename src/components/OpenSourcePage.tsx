@@ -1,16 +1,30 @@
 'use client';
 
-// --- React & Next ---
+// --- React ---
 import React from 'react';
+
 // --- FontAwesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCodeBranch, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+
 // --- Data ---
 import LABS_PROJECTS from '@/data/labs.json';
+
 // --- Analytics ---
 import { logEvent } from '@/lib/analytics';
 
+// --- Types ---
+interface LabProject {
+  title: string;
+  description: string;
+  tech?: string[];
+  githubUrl: string;
+  link?: string | null;
+  linkText?: string;
+}
+
+// --- Constants ---
 const GITHUB_ORGS = [
   {
     name: 'OneBuffaloLabs',
@@ -26,12 +40,14 @@ const GITHUB_ORGS = [
   },
 ];
 
-// --- REACT COMPONENT ---
+// Cast the imported JSON to our strongly-typed interface
+const projects = LABS_PROJECTS as LabProject[];
+
+// --- Components ---
 export default function OpenSourcePage() {
   return (
     <div className='w-full bg-[var(--obl-dark-blue)] text-white font-sans'>
       <div className='relative max-w-7xl mx-auto px-8 py-16 pt-28'>
-        {/* Decorative background gradients to add depth */}
         <div
           className='absolute inset-0 z-0 opacity-10 pointer-events-none'
           style={{
@@ -41,10 +57,9 @@ export default function OpenSourcePage() {
         />
 
         <main className='relative z-10'>
-          {/* --- HEADER SECTION --- */}
           <div className='text-center max-w-3xl mx-auto mb-16'>
             <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-4'>
-              Our Labs & Open Source Initiatives
+              Our Labs &amp; Open Source Initiatives
             </h1>
             <p className='text-lg md:text-xl text-gray-400 leading-relaxed'>
               Beyond client projects, we dedicate ourselves to pushing boundaries, exploring new
@@ -53,7 +68,6 @@ export default function OpenSourcePage() {
             </p>
           </div>
 
-          {/* --- GITHUB ORGANIZATIONS SECTION --- */}
           <div className='mb-20'>
             <h2 className='text-3xl font-bold text-center mb-8'>Our GitHub Organizations</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
@@ -64,9 +78,8 @@ export default function OpenSourcePage() {
                   target='_blank'
                   rel='noopener noreferrer'
                   onClick={() => logEvent('open_source_page', 'github_org_click', org.name)}
-                  className='block p-6 bg-white/5 border border-white/10 rounded-lg transition-all duration-300 hover:border-[var(--obl-blue)] hover:bg-white/10'>
+                  className='block p-6 bg-white/5 border border-white/10 rounded-lg transition-all duration-300 hover:border-[var(--obl-blue)] hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--obl-blue)]'>
                   <div className='flex items-center mb-2'>
-                    {/* Updated Rendering: FontAwesomeIcon component */}
                     <FontAwesomeIcon
                       icon={org.icon}
                       className='w-6 h-6 mr-3 text-2xl text-[var(--obl-blue)]'
@@ -79,14 +92,12 @@ export default function OpenSourcePage() {
             </div>
           </div>
 
-          {/* --- PROJECTS GRID --- */}
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {LABS_PROJECTS.map((project) => (
+            {projects.map((project) => (
               <div
                 key={project.title}
                 className='group relative flex flex-col bg-white/5 border border-white/10 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_0_25px_-5px_var(--obl-blue)] hover:border-[var(--obl-blue)]'>
                 <div className='p-6 flex-grow flex flex-col'>
-                  {/* Card Header */}
                   <div className='flex-grow'>
                     <h3 className='text-2xl font-bold mb-2 text-center bg-gradient-to-r from-[var(--obl-blue)] to-[var(--obl-red)] bg-clip-text text-transparent'>
                       {project.title}
@@ -96,21 +107,21 @@ export default function OpenSourcePage() {
                     </p>
                   </div>
 
-                  {/* Tech Tags */}
-                  <div className='mb-6'>
-                    <div className='flex flex-wrap gap-2 justify-center'>
-                      {project.tech.map((tag) => (
-                        <span
-                          key={tag}
-                          className='font-mono text-sm bg-[var(--obl-red)]/20   px-3 py-1 rounded-full'>
-                          {tag}
-                        </span>
-                      ))}
+                  {project.tech && project.tech.length > 0 && (
+                    <div className='mb-6'>
+                      <div className='flex flex-wrap gap-2 justify-center'>
+                        {project.tech.map((tag) => (
+                          <span
+                            key={tag}
+                            className='font-mono text-sm bg-[var(--obl-red)]/20 px-3 py-1 rounded-full text-white'>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
-                {/* Card Footer with Links */}
                 <div className='border-t border-white/10 bg-black/20 p-4 flex justify-between items-center'>
                   <a
                     href={project.githubUrl}
@@ -119,7 +130,7 @@ export default function OpenSourcePage() {
                     onClick={() =>
                       logEvent('open_source_page', 'project_github_click', project.title)
                     }
-                    className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
+                    className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--obl-red)] rounded-md'>
                     <FontAwesomeIcon icon={faGithub} className='w-5 h-5 mr-2 text-xl' />
                     View on GitHub
                   </a>
@@ -132,7 +143,7 @@ export default function OpenSourcePage() {
                       onClick={() =>
                         logEvent('open_source_page', 'project_demo_click', project.title)
                       }
-                      className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)]'>
+                      className='flex items-center font-semibold text-gray-300 transition-colors hover:text-[var(--obl-red)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--obl-red)] rounded-md'>
                       {project.linkText || 'Live Demo'}
                       <FontAwesomeIcon
                         icon={faUpRightFromSquare}

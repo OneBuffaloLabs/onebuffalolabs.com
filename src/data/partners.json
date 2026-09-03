@@ -1,0 +1,20 @@
+[
+  {
+    "id": "silo-city-labs",
+    "name": "Silo City Labs",
+    "logoUrl": "/images/partners/silocitylabs.png",
+    "websiteUrl": "https://silocitylabs.com/"
+  },
+  {
+    "id": "tin-roof",
+    "name": "Tin Roof",
+    "logoUrl": "/images/partners/tin-roof.webp",
+    "websiteUrl": "https://tinroof.co/"
+  },
+  {
+    "id": "crate",
+    "name": "Crate",
+    "logoUrl": "/images/partners/cratecc.webp",
+    "websiteUrl": "https://crate.cc/"
+  }
+]

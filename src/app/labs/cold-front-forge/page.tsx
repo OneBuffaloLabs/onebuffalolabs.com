@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { generateMetadata } from '@/utils/metadata';
 import FORGE_LINKS from '@/data/cold-front-forge-links.json';
 
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGithub,
@@ -46,7 +47,7 @@ export const metadata: Metadata = generateMetadata({
   urlPath: '/labs/cold-front-forge',
 });
 
-const ICON_MAP: Record<string, any> = {
+const ICON_MAP: Record<string, IconDefinition> = {
   faCubes,
   faCube,
   faDrawPolygon,

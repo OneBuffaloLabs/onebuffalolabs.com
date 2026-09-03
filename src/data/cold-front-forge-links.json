@@ -1,0 +1,92 @@
+[
+  {
+    "id": "makerworld",
+    "platform": "MakerWorld",
+    "handle": "@ColdFrontForge",
+    "url": "https://makerworld.com/en/@ColdFrontForge",
+    "iconKey": "faCubes",
+    "category": "repository",
+    "showInFooter": false
+  },
+  {
+    "id": "printables",
+    "platform": "Printables",
+    "handle": "@CFForge",
+    "url": "https://www.printables.com/@CFForge_4259106",
+    "iconKey": "faCube",
+    "category": "repository",
+    "showInFooter": false
+  },
+  {
+    "id": "thangs",
+    "platform": "Thangs",
+    "handle": "@ColdFrontForge",
+    "url": "https://thangs.com/designer/ColdFrontForge",
+    "iconKey": "faDrawPolygon",
+    "category": "repository",
+    "showInFooter": false
+  },
+  {
+    "id": "thingiverse",
+    "platform": "Thingiverse",
+    "handle": "@coldfrontforge",
+    "url": "https://www.thingiverse.com/coldfrontforge/designs",
+    "iconKey": "faShapes",
+    "category": "repository",
+    "showInFooter": false
+  },
+  {
+    "id": "crealitycloud",
+    "platform": "Creality Cloud",
+    "handle": "Cold Front Forge",
+    "url": "https://www.crealitycloud.com/user/2867011039/profile",
+    "iconKey": "faLayerGroup",
+    "category": "repository",
+    "showInFooter": false
+  },
+  {
+    "id": "github",
+    "platform": "GitHub",
+    "handle": "OneBuffaloLabs/ColdFrontForge",
+    "url": "https://github.com/OneBuffaloLabs/ColdFrontForge",
+    "iconKey": "faGithub",
+    "category": "repository",
+    "showInFooter": false
+  },
+  {
+    "id": "facebook",
+    "platform": "Facebook",
+    "handle": "Cold Front Forge",
+    "url": "https://www.facebook.com/ColdFrontForge",
+    "iconKey": "faFacebook",
+    "category": "social",
+    "showInFooter": true
+  },
+  {
+    "id": "instagram",
+    "platform": "Instagram",
+    "handle": "@coldfrontforge",
+    "url": "https://www.instagram.com/coldfrontforge/",
+    "iconKey": "faInstagram",
+    "category": "social",
+    "showInFooter": true
+  },
+  {
+    "id": "twitter",
+    "platform": "X / Twitter",
+    "handle": "@ColdFrontForge",
+    "url": "https://x.com/ColdFrontForge",
+    "iconKey": "faXTwitter",
+    "category": "social",
+    "showInFooter": true
+  },
+  {
+    "id": "bluesky",
+    "platform": "Bluesky",
+    "handle": "@coldfrontforge.com",
+    "url": "https://bsky.app/profile/coldfrontforge.com",
+    "iconKey": "faBluesky",
+    "category": "social",
+    "showInFooter": true
+  }
+]

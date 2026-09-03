@@ -1,0 +1,22 @@
+[
+  {
+    "id": "snap-hinge",
+    "name": "Snap Hinge Studios",
+    "description": "Building immersive digital experiences, interactive games, and pushing the boundaries of creative technical execution.",
+    "ctaText": "Play the Games",
+    "href": "https://snaphingestudios.com/",
+    "imageSrc": "/images/ventures/shs-logo.svg",
+    "imageAlt": "Snap Hinge Studios Brand Logo",
+    "isExternal": true
+  },
+  {
+    "id": "cold-front-forge",
+    "name": "Cold Front Forge",
+    "description": "Our 3D printing and hardware workshop. We design and manufacture custom trophies, TCG storage solutions, and home gym accessories—combining code-driven CAD with an open-source ethos.",
+    "ctaText": "Explore the Forge",
+    "href": "/labs/cold-front-forge/",
+    "imageSrc": "/images/ventures/cff-logo.svg",
+    "imageAlt": "Cold Front Forge Emblem",
+    "isExternal": false
+  }
+]

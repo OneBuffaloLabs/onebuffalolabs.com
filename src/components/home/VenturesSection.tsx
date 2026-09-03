@@ -1,76 +1,10 @@
-// --- React ---
 import React from 'react';
-
-// --- Next ---
 import Link from 'next/link';
 import Image from 'next/image';
 
-// --- Types ---
-interface Venture {
-  id: string;
-  name: string;
-  description: string;
-  ctaText: string;
-  href: string;
-  imageSrc: string;
-  imageAlt: string;
-  isExternal?: boolean;
-}
+import VENTURES from '@/data/ventures.json';
+import PARTNERS from '@/data/partners.json';
 
-interface Partner {
-  id: string;
-  name: string;
-  logoUrl: string;
-  websiteUrl: string;
-}
-
-// --- Constants ---
-const VENTURES: Venture[] = [
-  {
-    id: 'snap-hinge',
-    name: 'Snap Hinge Studios',
-    description:
-      'Building immersive digital experiences, interactive games, and pushing the boundaries of creative technical execution.',
-    ctaText: 'Play the Games',
-    href: 'https://snaphingestudios.com/',
-    imageSrc: '/images/ventures/shs-logo.svg',
-    imageAlt: 'Snap Hinge Studios Brand Logo',
-    isExternal: true,
-  },
-  {
-    id: '1bflo-prints',
-    name: '1BfloPrints',
-    description:
-      'Our open-source 3D modeling division. Like a 716 lake-effect storm, we drop heavy, consistent, and free customizable designs for the 3D printing community.',
-    ctaText: 'Explore the Lab',
-    href: '/labs/1BfloPrints/',
-    imageSrc: '/images/ventures/1bfloprints.webp',
-    imageAlt: '1BfloPrints Brand Logo',
-  },
-];
-
-const PARTNERS: Partner[] = [
-  {
-    id: 'silo-city-labs',
-    name: 'Silo City Labs',
-    logoUrl: '/images/partners/silocitylabs.png',
-    websiteUrl: 'https://silocitylabs.com/',
-  },
-  {
-    id: 'tin-roof',
-    name: 'Tin Roof',
-    logoUrl: '/images/partners/tin-roof.webp',
-    websiteUrl: 'https://tinroof.co/',
-  },
-  {
-    id: 'crate',
-    name: 'Crate',
-    logoUrl: '/images/partners/cratecc.webp',
-    websiteUrl: 'https://crate.cc/',
-  },
-];
-
-// --- Components ---
 export default function VenturesSection() {
   return (
     <section className='bg-white py-24 sm:py-32' aria-labelledby='ventures-title'>
